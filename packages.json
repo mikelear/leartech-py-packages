@@ -1,1 +1,7 @@
-{}
+{
+  "leartech-auth-service": {
+    "dir": "leartech_auth_service",
+    "name": "leartech-auth-service",
+    "version": "0.1.26"
+  }
+}
