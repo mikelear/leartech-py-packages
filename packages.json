@@ -3,5 +3,10 @@
     "dir": "leartech_auth_service",
     "name": "leartech-auth-service",
     "version": "0.1.26"
+  },
+  "leartech-go-service-template": {
+    "dir": "leartech_go_service_template",
+    "name": "leartech-go-service-template",
+    "version": "0.1.17"
   }
 }
