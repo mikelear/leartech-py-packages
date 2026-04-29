@@ -3,5 +3,10 @@
     "dir": "leartech_auth_service",
     "name": "leartech-auth-service",
     "version": "0.1.26"
+  },
+  "webcoder-service": {
+    "dir": "webcoder_service",
+    "name": "webcoder-service",
+    "version": "0.1.0"
   }
 }
