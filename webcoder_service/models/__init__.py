@@ -15,6 +15,10 @@
 
 if __import__("typing").TYPE_CHECKING:
     # import models into model package
+    from webcoder_service.models.handlers_create_initiative_request import HandlersCreateInitiativeRequest
+    from webcoder_service.models.handlers_create_initiative_response import HandlersCreateInitiativeResponse
+    from webcoder_service.models.handlers_initiative_assets import HandlersInitiativeAssets
+    from webcoder_service.models.handlers_initiative_run import HandlersInitiativeRun
     from webcoder_service.models.handlers_me_response import HandlersMeResponse
     
 else:
@@ -24,6 +28,10 @@ else:
         LazyModule(
             *as_package(__file__),
             """# import models into model package
+from webcoder_service.models.handlers_create_initiative_request import HandlersCreateInitiativeRequest
+from webcoder_service.models.handlers_create_initiative_response import HandlersCreateInitiativeResponse
+from webcoder_service.models.handlers_initiative_assets import HandlersInitiativeAssets
+from webcoder_service.models.handlers_initiative_run import HandlersInitiativeRun
 from webcoder_service.models.handlers_me_response import HandlersMeResponse
 
 """,

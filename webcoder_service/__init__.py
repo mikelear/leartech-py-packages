@@ -14,12 +14,13 @@
 """  # noqa: E501
 
 
-__version__ = "0.1.4"
+__version__ = "0.1.5"
 
 # Define package exports
 __all__ = [
     "AuthApi",
     "HealthApi",
+    "InitiativesApi",
     "ApiResponse",
     "ApiClient",
     "Configuration",
@@ -29,6 +30,10 @@ __all__ = [
     "ApiKeyError",
     "ApiAttributeError",
     "ApiException",
+    "HandlersCreateInitiativeRequest",
+    "HandlersCreateInitiativeResponse",
+    "HandlersInitiativeAssets",
+    "HandlersInitiativeRun",
     "HandlersMeResponse",
 ]
 
@@ -36,6 +41,7 @@ if __import__("typing").TYPE_CHECKING:
     # import apis into sdk package
     from webcoder_service.api.auth_api import AuthApi as AuthApi
     from webcoder_service.api.health_api import HealthApi as HealthApi
+    from webcoder_service.api.initiatives_api import InitiativesApi as InitiativesApi
     
     # import ApiClient
     from webcoder_service.api_response import ApiResponse as ApiResponse
@@ -49,6 +55,10 @@ if __import__("typing").TYPE_CHECKING:
     from webcoder_service.exceptions import ApiException as ApiException
     
     # import models into sdk package
+    from webcoder_service.models.handlers_create_initiative_request import HandlersCreateInitiativeRequest as HandlersCreateInitiativeRequest
+    from webcoder_service.models.handlers_create_initiative_response import HandlersCreateInitiativeResponse as HandlersCreateInitiativeResponse
+    from webcoder_service.models.handlers_initiative_assets import HandlersInitiativeAssets as HandlersInitiativeAssets
+    from webcoder_service.models.handlers_initiative_run import HandlersInitiativeRun as HandlersInitiativeRun
     from webcoder_service.models.handlers_me_response import HandlersMeResponse as HandlersMeResponse
     
 else:
@@ -62,6 +72,7 @@ else:
             """# import apis into sdk package
 from webcoder_service.api.auth_api import AuthApi as AuthApi
 from webcoder_service.api.health_api import HealthApi as HealthApi
+from webcoder_service.api.initiatives_api import InitiativesApi as InitiativesApi
 
 # import ApiClient
 from webcoder_service.api_response import ApiResponse as ApiResponse
@@ -75,6 +86,10 @@ from webcoder_service.exceptions import ApiAttributeError as ApiAttributeError
 from webcoder_service.exceptions import ApiException as ApiException
 
 # import models into sdk package
+from webcoder_service.models.handlers_create_initiative_request import HandlersCreateInitiativeRequest as HandlersCreateInitiativeRequest
+from webcoder_service.models.handlers_create_initiative_response import HandlersCreateInitiativeResponse as HandlersCreateInitiativeResponse
+from webcoder_service.models.handlers_initiative_assets import HandlersInitiativeAssets as HandlersInitiativeAssets
+from webcoder_service.models.handlers_initiative_run import HandlersInitiativeRun as HandlersInitiativeRun
 from webcoder_service.models.handlers_me_response import HandlersMeResponse as HandlersMeResponse
 
 """,
