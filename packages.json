@@ -7,7 +7,7 @@
   "leartech-go-service-template": {
     "dir": "leartech_go_service_template",
     "name": "leartech-go-service-template",
-    "version": "0.1.20"
+    "version": "0.1.21"
   },
   "leartech-qa-canary": {
     "dir": "leartech_qa_canary",
