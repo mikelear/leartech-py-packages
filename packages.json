@@ -13,5 +13,10 @@
     "dir": "leartech_qa_canary",
     "name": "leartech-qa-canary",
     "version": "0.0.2"
+  },
+  "webcoder-service": {
+    "dir": "webcoder_service",
+    "name": "webcoder-service",
+    "version": "0.1.3"
   }
 }
