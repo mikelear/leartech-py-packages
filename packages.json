@@ -4,6 +4,11 @@
     "name": "leartech-auth-service",
     "version": "0.1.32"
   },
+  "leartech-go-service-template": {
+    "dir": "leartech_go_service_template",
+    "name": "leartech-go-service-template",
+    "version": "0.1.19"
+  },
   "leartech-qa-canary": {
     "dir": "leartech_qa_canary",
     "name": "leartech-qa-canary",
