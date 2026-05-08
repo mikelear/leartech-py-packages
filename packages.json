@@ -2,7 +2,7 @@
   "leartech-auth-service": {
     "dir": "leartech_auth_service",
     "name": "leartech-auth-service",
-    "version": "0.1.37"
+    "version": "0.1.38"
   },
   "leartech-go-service-template": {
     "dir": "leartech_go_service_template",
