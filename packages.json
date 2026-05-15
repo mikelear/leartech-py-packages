@@ -14,6 +14,11 @@
     "name": "leartech-qa-canary",
     "version": "0.0.29"
   },
+  "leartech-rust-service-template": {
+    "dir": "leartech_rust_service_template",
+    "name": "leartech-rust-service-template",
+    "version": "0.0.3"
+  },
   "webcoder-service": {
     "dir": "webcoder_service",
     "name": "webcoder-service",
