@@ -17,7 +17,7 @@
   "leartech-rust-service-template": {
     "dir": "leartech_rust_service_template",
     "name": "leartech-rust-service-template",
-    "version": "0.0.5"
+    "version": "0.0.7"
   },
   "webcoder-service": {
     "dir": "webcoder_service",
