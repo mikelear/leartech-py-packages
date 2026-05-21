@@ -12,7 +12,7 @@
   "leartech-mortgages-gw": {
     "dir": "leartech_mortgages_gw",
     "name": "leartech-mortgages-gw",
-    "version": "0.1.4"
+    "version": "0.1.5"
   },
   "leartech-qa-canary": {
     "dir": "leartech_qa_canary",
