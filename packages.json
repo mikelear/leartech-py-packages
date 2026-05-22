@@ -7,17 +7,17 @@
   "leartech-go-service-template": {
     "dir": "leartech_go_service_template",
     "name": "leartech-go-service-template",
-    "version": "0.1.36"
-  },
-  "leartech-mortgages-gw": {
-    "dir": "leartech_mortgages_gw",
-    "name": "leartech-mortgages-gw",
-    "version": "0.1.7"
+    "version": "0.1.37"
   },
   "leartech-mortgages-api": {
     "dir": "leartech_mortgages_api",
     "name": "leartech-mortgages-api",
     "version": "0.0.1"
+  },
+  "leartech-mortgages-gw": {
+    "dir": "leartech_mortgages_gw",
+    "name": "leartech-mortgages-gw",
+    "version": "0.1.7"
   },
   "leartech-qa-canary": {
     "dir": "leartech_qa_canary",
