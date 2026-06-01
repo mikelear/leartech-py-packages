@@ -12,7 +12,7 @@
   "leartech-mortgages-api": {
     "dir": "leartech_mortgages_api",
     "name": "leartech-mortgages-api",
-    "version": "0.0.1"
+    "version": "0.0.2"
   },
   "leartech-mortgages-gw": {
     "dir": "leartech_mortgages_gw",
