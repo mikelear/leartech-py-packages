@@ -12,7 +12,7 @@
   "leartech-maestro-service": {
     "dir": "leartech_maestro_service",
     "name": "leartech-maestro-service",
-    "version": "0.0.2"
+    "version": "0.0.3"
   },
   "leartech-mortgages-api": {
     "dir": "leartech_mortgages_api",
