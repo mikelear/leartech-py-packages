@@ -527,7 +527,7 @@ conf = leartech_maestro_service.Configuration(
                "OS: {env}\n"\
                "Python Version: {pyversion}\n"\
                "Version of the API: 4.3.6-dev+b9e6bf9\n"\
-               "SDK Package Version: 0.0.7".\
+               "SDK Package Version: 0.0.8".\
                format(env=sys.platform, pyversion=sys.version)
 
     def get_host_settings(self) -> List[HostSetting]:
