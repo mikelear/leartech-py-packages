@@ -14,10 +14,12 @@
 """  # noqa: E501
 
 
-__version__ = "0.1.69"
+__version__ = "0.1.70"
 
 # Define package exports
 __all__ = [
+    "AdminApi",
+    "DCRApi",
     "LoginApi",
     "TwoFactorApi",
     "UserApi",
@@ -30,14 +32,22 @@ __all__ = [
     "ApiKeyError",
     "ApiAttributeError",
     "ApiException",
+    "ModelsAdminSetPermissionsRequest",
+    "ModelsAdminSetRoleRequest",
     "ModelsAuthResponse",
+    "ModelsDCRError",
+    "ModelsDCRRegisterRequest",
+    "ModelsDCRRegisterResponse",
     "ModelsLoginRequest",
     "ModelsTwoFactorEnableResponse",
     "ModelsTwoFactorSubmitRequest",
+    "ModelsUser",
 ]
 
 if __import__("typing").TYPE_CHECKING:
     # import apis into sdk package
+    from leartech_auth_service.api.admin_api import AdminApi as AdminApi
+    from leartech_auth_service.api.dcr_api import DCRApi as DCRApi
     from leartech_auth_service.api.login_api import LoginApi as LoginApi
     from leartech_auth_service.api.two_factor_api import TwoFactorApi as TwoFactorApi
     from leartech_auth_service.api.user_api import UserApi as UserApi
@@ -54,10 +64,16 @@ if __import__("typing").TYPE_CHECKING:
     from leartech_auth_service.exceptions import ApiException as ApiException
     
     # import models into sdk package
+    from leartech_auth_service.models.models_admin_set_permissions_request import ModelsAdminSetPermissionsRequest as ModelsAdminSetPermissionsRequest
+    from leartech_auth_service.models.models_admin_set_role_request import ModelsAdminSetRoleRequest as ModelsAdminSetRoleRequest
     from leartech_auth_service.models.models_auth_response import ModelsAuthResponse as ModelsAuthResponse
+    from leartech_auth_service.models.models_dcr_error import ModelsDCRError as ModelsDCRError
+    from leartech_auth_service.models.models_dcr_register_request import ModelsDCRRegisterRequest as ModelsDCRRegisterRequest
+    from leartech_auth_service.models.models_dcr_register_response import ModelsDCRRegisterResponse as ModelsDCRRegisterResponse
     from leartech_auth_service.models.models_login_request import ModelsLoginRequest as ModelsLoginRequest
     from leartech_auth_service.models.models_two_factor_enable_response import ModelsTwoFactorEnableResponse as ModelsTwoFactorEnableResponse
     from leartech_auth_service.models.models_two_factor_submit_request import ModelsTwoFactorSubmitRequest as ModelsTwoFactorSubmitRequest
+    from leartech_auth_service.models.models_user import ModelsUser as ModelsUser
     
 else:
     from lazy_imports import LazyModule, as_package, load
@@ -68,6 +84,8 @@ else:
             ("__version__", __version__),
             ("__all__", __all__),
             """# import apis into sdk package
+from leartech_auth_service.api.admin_api import AdminApi as AdminApi
+from leartech_auth_service.api.dcr_api import DCRApi as DCRApi
 from leartech_auth_service.api.login_api import LoginApi as LoginApi
 from leartech_auth_service.api.two_factor_api import TwoFactorApi as TwoFactorApi
 from leartech_auth_service.api.user_api import UserApi as UserApi
@@ -84,10 +102,16 @@ from leartech_auth_service.exceptions import ApiAttributeError as ApiAttributeEr
 from leartech_auth_service.exceptions import ApiException as ApiException
 
 # import models into sdk package
+from leartech_auth_service.models.models_admin_set_permissions_request import ModelsAdminSetPermissionsRequest as ModelsAdminSetPermissionsRequest
+from leartech_auth_service.models.models_admin_set_role_request import ModelsAdminSetRoleRequest as ModelsAdminSetRoleRequest
 from leartech_auth_service.models.models_auth_response import ModelsAuthResponse as ModelsAuthResponse
+from leartech_auth_service.models.models_dcr_error import ModelsDCRError as ModelsDCRError
+from leartech_auth_service.models.models_dcr_register_request import ModelsDCRRegisterRequest as ModelsDCRRegisterRequest
+from leartech_auth_service.models.models_dcr_register_response import ModelsDCRRegisterResponse as ModelsDCRRegisterResponse
 from leartech_auth_service.models.models_login_request import ModelsLoginRequest as ModelsLoginRequest
 from leartech_auth_service.models.models_two_factor_enable_response import ModelsTwoFactorEnableResponse as ModelsTwoFactorEnableResponse
 from leartech_auth_service.models.models_two_factor_submit_request import ModelsTwoFactorSubmitRequest as ModelsTwoFactorSubmitRequest
+from leartech_auth_service.models.models_user import ModelsUser as ModelsUser
 
 """,
             name=__name__,

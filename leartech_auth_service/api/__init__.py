@@ -2,6 +2,8 @@
 
 if __import__("typing").TYPE_CHECKING:
     # import apis into api package
+    from leartech_auth_service.api.admin_api import AdminApi
+    from leartech_auth_service.api.dcr_api import DCRApi
     from leartech_auth_service.api.login_api import LoginApi
     from leartech_auth_service.api.two_factor_api import TwoFactorApi
     from leartech_auth_service.api.user_api import UserApi
@@ -13,6 +15,8 @@ else:
         LazyModule(
             *as_package(__file__),
             """# import apis into api package
+from leartech_auth_service.api.admin_api import AdminApi
+from leartech_auth_service.api.dcr_api import DCRApi
 from leartech_auth_service.api.login_api import LoginApi
 from leartech_auth_service.api.two_factor_api import TwoFactorApi
 from leartech_auth_service.api.user_api import UserApi

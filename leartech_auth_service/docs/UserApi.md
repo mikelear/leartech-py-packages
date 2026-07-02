@@ -8,7 +8,7 @@ Method | HTTP request | Description
 
 
 # **get_me**
-> ModelsAuthResponse get_me(user_id)
+> ModelsAuthResponse get_me()
 
 Get current user info
 
@@ -45,11 +45,10 @@ configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
 async with leartech_auth_service.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = leartech_auth_service.UserApi(api_client)
-    user_id = 'user_id_example' # str | User ID
 
     try:
         # Get current user info
-        api_response = await api_instance.get_me(user_id)
+        api_response = await api_instance.get_me()
         print("The response of UserApi->get_me:\n")
         pprint(api_response)
     except Exception as e:
@@ -60,10 +59,7 @@ async with leartech_auth_service.ApiClient(configuration) as api_client:
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **user_id** | **str**| User ID | 
+This endpoint does not need any parameter.
 
 ### Return type
 
