@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 
 # **disable_two_factor**
-> Dict[str, object] disable_two_factor(user_id)
+> Dict[str, object] disable_two_factor()
 
 Disable 2FA
 
@@ -47,11 +47,10 @@ configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
 async with leartech_auth_service.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = leartech_auth_service.TwoFactorApi(api_client)
-    user_id = 'user_id_example' # str | User ID
 
     try:
         # Disable 2FA
-        api_response = await api_instance.disable_two_factor(user_id)
+        api_response = await api_instance.disable_two_factor()
         print("The response of TwoFactorApi->disable_two_factor:\n")
         pprint(api_response)
     except Exception as e:
@@ -62,10 +61,7 @@ async with leartech_auth_service.ApiClient(configuration) as api_client:
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **user_id** | **str**| User ID | 
+This endpoint does not need any parameter.
 
 ### Return type
 
@@ -91,7 +87,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **enable_two_factor**
-> ModelsTwoFactorEnableResponse enable_two_factor(user_id)
+> ModelsTwoFactorEnableResponse enable_two_factor()
 
 Start 2FA setup
 
@@ -128,11 +124,10 @@ configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
 async with leartech_auth_service.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = leartech_auth_service.TwoFactorApi(api_client)
-    user_id = 'user_id_example' # str | User ID
 
     try:
         # Start 2FA setup
-        api_response = await api_instance.enable_two_factor(user_id)
+        api_response = await api_instance.enable_two_factor()
         print("The response of TwoFactorApi->enable_two_factor:\n")
         pprint(api_response)
     except Exception as e:
@@ -143,10 +138,7 @@ async with leartech_auth_service.ApiClient(configuration) as api_client:
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **user_id** | **str**| User ID | 
+This endpoint does not need any parameter.
 
 ### Return type
 
@@ -173,11 +165,11 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **submit_two_factor**
-> Dict[str, object] submit_two_factor(login_challenge, user_id, code)
+> Dict[str, object] submit_two_factor(login_challenge, code)
 
 Submit 2FA code during login
 
-Validates TOTP code or recovery code to complete authentication
+Validates a TOTP or recovery code to complete authentication. Identity is bound to the login_challenge (the password-verified pending record), never to a request parameter.
 
 ### Example
 
@@ -200,12 +192,11 @@ async with leartech_auth_service.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = leartech_auth_service.TwoFactorApi(api_client)
     login_challenge = 'login_challenge_example' # str | Hydra login challenge
-    user_id = 'user_id_example' # str | User ID
     code = leartech_auth_service.ModelsTwoFactorSubmitRequest() # ModelsTwoFactorSubmitRequest | TOTP or recovery code
 
     try:
         # Submit 2FA code during login
-        api_response = await api_instance.submit_two_factor(login_challenge, user_id, code)
+        api_response = await api_instance.submit_two_factor(login_challenge, code)
         print("The response of TwoFactorApi->submit_two_factor:\n")
         pprint(api_response)
     except Exception as e:
@@ -220,7 +211,6 @@ async with leartech_auth_service.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **login_challenge** | **str**| Hydra login challenge | 
- **user_id** | **str**| User ID | 
  **code** | [**ModelsTwoFactorSubmitRequest**](ModelsTwoFactorSubmitRequest.md)| TOTP or recovery code | 
 
 ### Return type
@@ -248,7 +238,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **verify_two_factor**
-> Dict[str, object] verify_two_factor(user_id, code)
+> Dict[str, object] verify_two_factor(code)
 
 Verify 2FA setup
 
@@ -285,12 +275,11 @@ configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
 async with leartech_auth_service.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = leartech_auth_service.TwoFactorApi(api_client)
-    user_id = 'user_id_example' # str | User ID
     code = leartech_auth_service.ModelsTwoFactorSubmitRequest() # ModelsTwoFactorSubmitRequest | TOTP code from authenticator
 
     try:
         # Verify 2FA setup
-        api_response = await api_instance.verify_two_factor(user_id, code)
+        api_response = await api_instance.verify_two_factor(code)
         print("The response of TwoFactorApi->verify_two_factor:\n")
         pprint(api_response)
     except Exception as e:
@@ -304,7 +293,6 @@ async with leartech_auth_service.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **user_id** | **str**| User ID | 
  **code** | [**ModelsTwoFactorSubmitRequest**](ModelsTwoFactorSubmitRequest.md)| TOTP code from authenticator | 
 
 ### Return type
