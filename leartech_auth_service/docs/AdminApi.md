@@ -5,8 +5,11 @@ All URIs are relative to *http://localhost*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**admin_activate_user**](AdminApi.md#admin_activate_user) | **POST** /api/auth/admin/users/{id}/activate | Activate a user
+[**admin_create_tenant**](AdminApi.md#admin_create_tenant) | **POST** /api/auth/admin/tenants | Create a tenant
 [**admin_deactivate_user**](AdminApi.md#admin_deactivate_user) | **POST** /api/auth/admin/users/{id}/deactivate | Deactivate a user
+[**admin_get_tenant**](AdminApi.md#admin_get_tenant) | **GET** /api/auth/admin/tenants/{id} | Get a tenant by ID
 [**admin_get_user**](AdminApi.md#admin_get_user) | **GET** /api/auth/admin/users/{id} | Get a user by ID (tenant-fenced)
+[**admin_list_tenants**](AdminApi.md#admin_list_tenants) | **GET** /api/auth/admin/tenants | List all tenants
 [**admin_list_users**](AdminApi.md#admin_list_users) | **GET** /api/auth/admin/users | List users in the caller&#39;s tenant
 [**admin_set_user_permissions**](AdminApi.md#admin_set_user_permissions) | **PUT** /api/auth/admin/users/{id}/permissions | Set a user&#39;s permissions
 [**admin_set_user_role**](AdminApi.md#admin_set_user_role) | **PUT** /api/auth/admin/users/{id}/role | Set a user&#39;s role
@@ -93,6 +96,90 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **admin_create_tenant**
+> ModelsTenant admin_create_tenant(tenant)
+
+Create a tenant
+
+Platform-admin only. Name must be unique (409 otherwise); the id is server-assigned. Audited.
+
+### Example
+
+* Api Key Authentication (ApiKeyAuth):
+
+```python
+import leartech_auth_service
+from leartech_auth_service.models.models_admin_create_tenant_request import ModelsAdminCreateTenantRequest
+from leartech_auth_service.models.models_tenant import ModelsTenant
+from leartech_auth_service.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = leartech_auth_service.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: ApiKeyAuth
+configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+async with leartech_auth_service.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = leartech_auth_service.AdminApi(api_client)
+    tenant = leartech_auth_service.ModelsAdminCreateTenantRequest() # ModelsAdminCreateTenantRequest | New tenant
+
+    try:
+        # Create a tenant
+        api_response = await api_instance.admin_create_tenant(tenant)
+        print("The response of AdminApi->admin_create_tenant:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling AdminApi->admin_create_tenant: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tenant** | [**ModelsAdminCreateTenantRequest**](ModelsAdminCreateTenantRequest.md)| New tenant | 
+
+### Return type
+
+[**ModelsTenant**](ModelsTenant.md)
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**201** | Created |  -  |
+**400** | Bad Request |  -  |
+**401** | Unauthorized |  -  |
+**403** | Forbidden |  -  |
+**409** | Conflict |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **admin_deactivate_user**
 > ModelsUser admin_deactivate_user(id)
 
@@ -171,6 +258,88 @@ Name | Type | Description  | Notes
 **200** | OK |  -  |
 **400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
+**404** | Not Found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **admin_get_tenant**
+> ModelsTenant admin_get_tenant(id)
+
+Get a tenant by ID
+
+Platform-admin only.
+
+### Example
+
+* Api Key Authentication (ApiKeyAuth):
+
+```python
+import leartech_auth_service
+from leartech_auth_service.models.models_tenant import ModelsTenant
+from leartech_auth_service.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = leartech_auth_service.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: ApiKeyAuth
+configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+async with leartech_auth_service.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = leartech_auth_service.AdminApi(api_client)
+    id = 'id_example' # str | Tenant ID
+
+    try:
+        # Get a tenant by ID
+        api_response = await api_instance.admin_get_tenant(id)
+        print("The response of AdminApi->admin_get_tenant:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling AdminApi->admin_get_tenant: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **str**| Tenant ID | 
+
+### Return type
+
+[**ModelsTenant**](ModelsTenant.md)
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**401** | Unauthorized |  -  |
+**403** | Forbidden |  -  |
 **404** | Not Found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -254,6 +423,82 @@ Name | Type | Description  | Notes
 **401** | Unauthorized |  -  |
 **403** | Forbidden |  -  |
 **404** | Not Found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **admin_list_tenants**
+> Dict[str, object] admin_list_tenants()
+
+List all tenants
+
+Platform-admin only. Returns all tenants (not tenant-fenced).
+
+### Example
+
+* Api Key Authentication (ApiKeyAuth):
+
+```python
+import leartech_auth_service
+from leartech_auth_service.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = leartech_auth_service.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: ApiKeyAuth
+configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+async with leartech_auth_service.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = leartech_auth_service.AdminApi(api_client)
+
+    try:
+        # List all tenants
+        api_response = await api_instance.admin_list_tenants()
+        print("The response of AdminApi->admin_list_tenants:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling AdminApi->admin_list_tenants: %s\n" % e)
+```
+
+
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+**Dict[str, object]**
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**401** | Unauthorized |  -  |
+**403** | Forbidden |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

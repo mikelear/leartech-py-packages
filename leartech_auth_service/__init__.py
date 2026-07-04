@@ -14,7 +14,7 @@
 """  # noqa: E501
 
 
-__version__ = "0.1.71"
+__version__ = "0.1.72"
 
 # Define package exports
 __all__ = [
@@ -32,6 +32,7 @@ __all__ = [
     "ApiKeyError",
     "ApiAttributeError",
     "ApiException",
+    "ModelsAdminCreateTenantRequest",
     "ModelsAdminSetPermissionsRequest",
     "ModelsAdminSetRoleRequest",
     "ModelsAuthResponse",
@@ -39,6 +40,7 @@ __all__ = [
     "ModelsDCRRegisterRequest",
     "ModelsDCRRegisterResponse",
     "ModelsLoginRequest",
+    "ModelsTenant",
     "ModelsTwoFactorEnableResponse",
     "ModelsTwoFactorSubmitRequest",
     "ModelsUser",
@@ -64,6 +66,7 @@ if __import__("typing").TYPE_CHECKING:
     from leartech_auth_service.exceptions import ApiException as ApiException
     
     # import models into sdk package
+    from leartech_auth_service.models.models_admin_create_tenant_request import ModelsAdminCreateTenantRequest as ModelsAdminCreateTenantRequest
     from leartech_auth_service.models.models_admin_set_permissions_request import ModelsAdminSetPermissionsRequest as ModelsAdminSetPermissionsRequest
     from leartech_auth_service.models.models_admin_set_role_request import ModelsAdminSetRoleRequest as ModelsAdminSetRoleRequest
     from leartech_auth_service.models.models_auth_response import ModelsAuthResponse as ModelsAuthResponse
@@ -71,6 +74,7 @@ if __import__("typing").TYPE_CHECKING:
     from leartech_auth_service.models.models_dcr_register_request import ModelsDCRRegisterRequest as ModelsDCRRegisterRequest
     from leartech_auth_service.models.models_dcr_register_response import ModelsDCRRegisterResponse as ModelsDCRRegisterResponse
     from leartech_auth_service.models.models_login_request import ModelsLoginRequest as ModelsLoginRequest
+    from leartech_auth_service.models.models_tenant import ModelsTenant as ModelsTenant
     from leartech_auth_service.models.models_two_factor_enable_response import ModelsTwoFactorEnableResponse as ModelsTwoFactorEnableResponse
     from leartech_auth_service.models.models_two_factor_submit_request import ModelsTwoFactorSubmitRequest as ModelsTwoFactorSubmitRequest
     from leartech_auth_service.models.models_user import ModelsUser as ModelsUser
@@ -102,6 +106,7 @@ from leartech_auth_service.exceptions import ApiAttributeError as ApiAttributeEr
 from leartech_auth_service.exceptions import ApiException as ApiException
 
 # import models into sdk package
+from leartech_auth_service.models.models_admin_create_tenant_request import ModelsAdminCreateTenantRequest as ModelsAdminCreateTenantRequest
 from leartech_auth_service.models.models_admin_set_permissions_request import ModelsAdminSetPermissionsRequest as ModelsAdminSetPermissionsRequest
 from leartech_auth_service.models.models_admin_set_role_request import ModelsAdminSetRoleRequest as ModelsAdminSetRoleRequest
 from leartech_auth_service.models.models_auth_response import ModelsAuthResponse as ModelsAuthResponse
@@ -109,6 +114,7 @@ from leartech_auth_service.models.models_dcr_error import ModelsDCRError as Mode
 from leartech_auth_service.models.models_dcr_register_request import ModelsDCRRegisterRequest as ModelsDCRRegisterRequest
 from leartech_auth_service.models.models_dcr_register_response import ModelsDCRRegisterResponse as ModelsDCRRegisterResponse
 from leartech_auth_service.models.models_login_request import ModelsLoginRequest as ModelsLoginRequest
+from leartech_auth_service.models.models_tenant import ModelsTenant as ModelsTenant
 from leartech_auth_service.models.models_two_factor_enable_response import ModelsTwoFactorEnableResponse as ModelsTwoFactorEnableResponse
 from leartech_auth_service.models.models_two_factor_submit_request import ModelsTwoFactorSubmitRequest as ModelsTwoFactorSubmitRequest
 from leartech_auth_service.models.models_user import ModelsUser as ModelsUser

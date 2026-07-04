@@ -15,6 +15,7 @@
 
 if __import__("typing").TYPE_CHECKING:
     # import models into model package
+    from leartech_auth_service.models.models_admin_create_tenant_request import ModelsAdminCreateTenantRequest
     from leartech_auth_service.models.models_admin_set_permissions_request import ModelsAdminSetPermissionsRequest
     from leartech_auth_service.models.models_admin_set_role_request import ModelsAdminSetRoleRequest
     from leartech_auth_service.models.models_auth_response import ModelsAuthResponse
@@ -22,6 +23,7 @@ if __import__("typing").TYPE_CHECKING:
     from leartech_auth_service.models.models_dcr_register_request import ModelsDCRRegisterRequest
     from leartech_auth_service.models.models_dcr_register_response import ModelsDCRRegisterResponse
     from leartech_auth_service.models.models_login_request import ModelsLoginRequest
+    from leartech_auth_service.models.models_tenant import ModelsTenant
     from leartech_auth_service.models.models_two_factor_enable_response import ModelsTwoFactorEnableResponse
     from leartech_auth_service.models.models_two_factor_submit_request import ModelsTwoFactorSubmitRequest
     from leartech_auth_service.models.models_user import ModelsUser
@@ -33,6 +35,7 @@ else:
         LazyModule(
             *as_package(__file__),
             """# import models into model package
+from leartech_auth_service.models.models_admin_create_tenant_request import ModelsAdminCreateTenantRequest
 from leartech_auth_service.models.models_admin_set_permissions_request import ModelsAdminSetPermissionsRequest
 from leartech_auth_service.models.models_admin_set_role_request import ModelsAdminSetRoleRequest
 from leartech_auth_service.models.models_auth_response import ModelsAuthResponse
@@ -40,6 +43,7 @@ from leartech_auth_service.models.models_dcr_error import ModelsDCRError
 from leartech_auth_service.models.models_dcr_register_request import ModelsDCRRegisterRequest
 from leartech_auth_service.models.models_dcr_register_response import ModelsDCRRegisterResponse
 from leartech_auth_service.models.models_login_request import ModelsLoginRequest
+from leartech_auth_service.models.models_tenant import ModelsTenant
 from leartech_auth_service.models.models_two_factor_enable_response import ModelsTwoFactorEnableResponse
 from leartech_auth_service.models.models_two_factor_submit_request import ModelsTwoFactorSubmitRequest
 from leartech_auth_service.models.models_user import ModelsUser
