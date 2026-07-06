@@ -19,8 +19,8 @@ from typing_extensions import Annotated
 from pydantic import Field, StrictStr
 from typing import Any, Dict
 from typing_extensions import Annotated
-from leartech_auth_service.models.models_two_factor_enable_response import ModelsTwoFactorEnableResponse
-from leartech_auth_service.models.models_two_factor_submit_request import ModelsTwoFactorSubmitRequest
+from leartech_auth_service.models.github_com_mikelear_leartech_auth_service_internal_models_two_factor_enable_response import GithubComMikelearLeartechAuthServiceInternalModelsTwoFactorEnableResponse
+from leartech_auth_service.models.github_com_mikelear_leartech_auth_service_internal_models_two_factor_submit_request import GithubComMikelearLeartechAuthServiceInternalModelsTwoFactorSubmitRequest
 
 from leartech_auth_service.api_client import ApiClient, RequestSerialized
 from leartech_auth_service.api_response import ApiResponse
@@ -307,7 +307,7 @@ class TwoFactorApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ModelsTwoFactorEnableResponse:
+    ) -> GithubComMikelearLeartechAuthServiceInternalModelsTwoFactorEnableResponse:
         """Start 2FA setup
 
         Generates TOTP secret (QR code URL) and recovery codes for a user
@@ -342,7 +342,7 @@ class TwoFactorApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ModelsTwoFactorEnableResponse",
+            '200': "GithubComMikelearLeartechAuthServiceInternalModelsTwoFactorEnableResponse",
             '400': "Dict[str, object]",
             '404': "Dict[str, object]",
             '500': "Dict[str, object]",
@@ -373,7 +373,7 @@ class TwoFactorApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[ModelsTwoFactorEnableResponse]:
+    ) -> ApiResponse[GithubComMikelearLeartechAuthServiceInternalModelsTwoFactorEnableResponse]:
         """Start 2FA setup
 
         Generates TOTP secret (QR code URL) and recovery codes for a user
@@ -408,7 +408,7 @@ class TwoFactorApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ModelsTwoFactorEnableResponse",
+            '200': "GithubComMikelearLeartechAuthServiceInternalModelsTwoFactorEnableResponse",
             '400': "Dict[str, object]",
             '404': "Dict[str, object]",
             '500': "Dict[str, object]",
@@ -474,7 +474,7 @@ class TwoFactorApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ModelsTwoFactorEnableResponse",
+            '200': "GithubComMikelearLeartechAuthServiceInternalModelsTwoFactorEnableResponse",
             '400': "Dict[str, object]",
             '404': "Dict[str, object]",
             '500': "Dict[str, object]",
@@ -551,7 +551,7 @@ class TwoFactorApi:
     async def submit_two_factor(
         self,
         login_challenge: Annotated[StrictStr, Field(description="Hydra login challenge")],
-        code: Annotated[ModelsTwoFactorSubmitRequest, Field(description="TOTP or recovery code")],
+        code: Annotated[GithubComMikelearLeartechAuthServiceInternalModelsTwoFactorSubmitRequest, Field(description="TOTP or recovery code")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -572,7 +572,7 @@ class TwoFactorApi:
         :param login_challenge: Hydra login challenge (required)
         :type login_challenge: str
         :param code: TOTP or recovery code (required)
-        :type code: ModelsTwoFactorSubmitRequest
+        :type code: GithubComMikelearLeartechAuthServiceInternalModelsTwoFactorSubmitRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -625,7 +625,7 @@ class TwoFactorApi:
     async def submit_two_factor_with_http_info(
         self,
         login_challenge: Annotated[StrictStr, Field(description="Hydra login challenge")],
-        code: Annotated[ModelsTwoFactorSubmitRequest, Field(description="TOTP or recovery code")],
+        code: Annotated[GithubComMikelearLeartechAuthServiceInternalModelsTwoFactorSubmitRequest, Field(description="TOTP or recovery code")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -646,7 +646,7 @@ class TwoFactorApi:
         :param login_challenge: Hydra login challenge (required)
         :type login_challenge: str
         :param code: TOTP or recovery code (required)
-        :type code: ModelsTwoFactorSubmitRequest
+        :type code: GithubComMikelearLeartechAuthServiceInternalModelsTwoFactorSubmitRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -699,7 +699,7 @@ class TwoFactorApi:
     async def submit_two_factor_without_preload_content(
         self,
         login_challenge: Annotated[StrictStr, Field(description="Hydra login challenge")],
-        code: Annotated[ModelsTwoFactorSubmitRequest, Field(description="TOTP or recovery code")],
+        code: Annotated[GithubComMikelearLeartechAuthServiceInternalModelsTwoFactorSubmitRequest, Field(description="TOTP or recovery code")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -720,7 +720,7 @@ class TwoFactorApi:
         :param login_challenge: Hydra login challenge (required)
         :type login_challenge: str
         :param code: TOTP or recovery code (required)
-        :type code: ModelsTwoFactorSubmitRequest
+        :type code: GithubComMikelearLeartechAuthServiceInternalModelsTwoFactorSubmitRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -849,7 +849,7 @@ class TwoFactorApi:
     @validate_call
     async def verify_two_factor(
         self,
-        code: Annotated[ModelsTwoFactorSubmitRequest, Field(description="TOTP code from authenticator")],
+        code: Annotated[GithubComMikelearLeartechAuthServiceInternalModelsTwoFactorSubmitRequest, Field(description="TOTP code from authenticator")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -868,7 +868,7 @@ class TwoFactorApi:
         Validates the first TOTP code to confirm authenticator app is configured correctly
 
         :param code: TOTP code from authenticator (required)
-        :type code: ModelsTwoFactorSubmitRequest
+        :type code: GithubComMikelearLeartechAuthServiceInternalModelsTwoFactorSubmitRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -919,7 +919,7 @@ class TwoFactorApi:
     @validate_call
     async def verify_two_factor_with_http_info(
         self,
-        code: Annotated[ModelsTwoFactorSubmitRequest, Field(description="TOTP code from authenticator")],
+        code: Annotated[GithubComMikelearLeartechAuthServiceInternalModelsTwoFactorSubmitRequest, Field(description="TOTP code from authenticator")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -938,7 +938,7 @@ class TwoFactorApi:
         Validates the first TOTP code to confirm authenticator app is configured correctly
 
         :param code: TOTP code from authenticator (required)
-        :type code: ModelsTwoFactorSubmitRequest
+        :type code: GithubComMikelearLeartechAuthServiceInternalModelsTwoFactorSubmitRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -989,7 +989,7 @@ class TwoFactorApi:
     @validate_call
     async def verify_two_factor_without_preload_content(
         self,
-        code: Annotated[ModelsTwoFactorSubmitRequest, Field(description="TOTP code from authenticator")],
+        code: Annotated[GithubComMikelearLeartechAuthServiceInternalModelsTwoFactorSubmitRequest, Field(description="TOTP code from authenticator")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1008,7 +1008,7 @@ class TwoFactorApi:
         Validates the first TOTP code to confirm authenticator app is configured correctly
 
         :param code: TOTP code from authenticator (required)
-        :type code: ModelsTwoFactorSubmitRequest
+        :type code: GithubComMikelearLeartechAuthServiceInternalModelsTwoFactorSubmitRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of

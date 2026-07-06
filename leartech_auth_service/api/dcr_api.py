@@ -18,8 +18,8 @@ from typing_extensions import Annotated
 
 from pydantic import Field
 from typing_extensions import Annotated
-from leartech_auth_service.models.models_dcr_register_request import ModelsDCRRegisterRequest
-from leartech_auth_service.models.models_dcr_register_response import ModelsDCRRegisterResponse
+from leartech_auth_service.models.github_com_mikelear_leartech_auth_service_internal_models_dcr_register_request import GithubComMikelearLeartechAuthServiceInternalModelsDCRRegisterRequest
+from leartech_auth_service.models.github_com_mikelear_leartech_auth_service_internal_models_dcr_register_response import GithubComMikelearLeartechAuthServiceInternalModelsDCRRegisterResponse
 
 from leartech_auth_service.api_client import ApiClient, RequestSerialized
 from leartech_auth_service.api_response import ApiResponse
@@ -42,7 +42,7 @@ class DCRApi:
     @validate_call
     async def d_cr_register(
         self,
-        body: Annotated[ModelsDCRRegisterRequest, Field(description="Registration payload")],
+        body: Annotated[GithubComMikelearLeartechAuthServiceInternalModelsDCRRegisterRequest, Field(description="Registration payload")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -55,13 +55,13 @@ class DCRApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ModelsDCRRegisterResponse:
+    ) -> GithubComMikelearLeartechAuthServiceInternalModelsDCRRegisterResponse:
         """Dynamic Client Registration (RFC 7591)
 
         Accepts a public client registration request, validates it against the configured policy, forwards to Hydra, and returns the issued client_id/client_secret.
 
         :param body: Registration payload (required)
-        :type body: ModelsDCRRegisterRequest
+        :type body: GithubComMikelearLeartechAuthServiceInternalModelsDCRRegisterRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -93,9 +93,9 @@ class DCRApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "ModelsDCRRegisterResponse",
-            '400': "ModelsDCRError",
-            '429': "ModelsDCRError",
+            '201': "GithubComMikelearLeartechAuthServiceInternalModelsDCRRegisterResponse",
+            '400': "GithubComMikelearLeartechAuthServiceInternalModelsDCRError",
+            '429': "GithubComMikelearLeartechAuthServiceInternalModelsDCRError",
         }
         response_data = await self.api_client.call_api(
             *_param,
@@ -111,7 +111,7 @@ class DCRApi:
     @validate_call
     async def d_cr_register_with_http_info(
         self,
-        body: Annotated[ModelsDCRRegisterRequest, Field(description="Registration payload")],
+        body: Annotated[GithubComMikelearLeartechAuthServiceInternalModelsDCRRegisterRequest, Field(description="Registration payload")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -124,13 +124,13 @@ class DCRApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[ModelsDCRRegisterResponse]:
+    ) -> ApiResponse[GithubComMikelearLeartechAuthServiceInternalModelsDCRRegisterResponse]:
         """Dynamic Client Registration (RFC 7591)
 
         Accepts a public client registration request, validates it against the configured policy, forwards to Hydra, and returns the issued client_id/client_secret.
 
         :param body: Registration payload (required)
-        :type body: ModelsDCRRegisterRequest
+        :type body: GithubComMikelearLeartechAuthServiceInternalModelsDCRRegisterRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -162,9 +162,9 @@ class DCRApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "ModelsDCRRegisterResponse",
-            '400': "ModelsDCRError",
-            '429': "ModelsDCRError",
+            '201': "GithubComMikelearLeartechAuthServiceInternalModelsDCRRegisterResponse",
+            '400': "GithubComMikelearLeartechAuthServiceInternalModelsDCRError",
+            '429': "GithubComMikelearLeartechAuthServiceInternalModelsDCRError",
         }
         response_data = await self.api_client.call_api(
             *_param,
@@ -180,7 +180,7 @@ class DCRApi:
     @validate_call
     async def d_cr_register_without_preload_content(
         self,
-        body: Annotated[ModelsDCRRegisterRequest, Field(description="Registration payload")],
+        body: Annotated[GithubComMikelearLeartechAuthServiceInternalModelsDCRRegisterRequest, Field(description="Registration payload")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -199,7 +199,7 @@ class DCRApi:
         Accepts a public client registration request, validates it against the configured policy, forwards to Hydra, and returns the issued client_id/client_secret.
 
         :param body: Registration payload (required)
-        :type body: ModelsDCRRegisterRequest
+        :type body: GithubComMikelearLeartechAuthServiceInternalModelsDCRRegisterRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -231,9 +231,9 @@ class DCRApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "ModelsDCRRegisterResponse",
-            '400': "ModelsDCRError",
-            '429': "ModelsDCRError",
+            '201': "GithubComMikelearLeartechAuthServiceInternalModelsDCRRegisterResponse",
+            '400': "GithubComMikelearLeartechAuthServiceInternalModelsDCRError",
+            '429': "GithubComMikelearLeartechAuthServiceInternalModelsDCRError",
         }
         response_data = await self.api_client.call_api(
             *_param,
