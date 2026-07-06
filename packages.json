@@ -12,7 +12,7 @@
   "leartech-go-service-template": {
     "dir": "leartech_go_service_template",
     "name": "leartech-go-service-template",
-    "version": "0.1.72"
+    "version": "0.1.73"
   },
   "leartech-maestro-service": {
     "dir": "leartech_maestro_service",
