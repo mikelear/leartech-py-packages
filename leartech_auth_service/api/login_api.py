@@ -19,7 +19,7 @@ from typing_extensions import Annotated
 from pydantic import Field, StrictStr
 from typing import Any, Dict
 from typing_extensions import Annotated
-from leartech_auth_service.models.models_login_request import ModelsLoginRequest
+from leartech_auth_service.models.github_com_mikelear_leartech_auth_service_internal_models_login_request import GithubComMikelearLeartechAuthServiceInternalModelsLoginRequest
 
 from leartech_auth_service.api_client import ApiClient, RequestSerialized
 from leartech_auth_service.api_response import ApiResponse
@@ -850,7 +850,7 @@ class LoginApi:
     async def post_login(
         self,
         login_challenge: Annotated[StrictStr, Field(description="Hydra login challenge")],
-        credentials: Annotated[ModelsLoginRequest, Field(description="Login credentials")],
+        credentials: Annotated[GithubComMikelearLeartechAuthServiceInternalModelsLoginRequest, Field(description="Login credentials")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -871,7 +871,7 @@ class LoginApi:
         :param login_challenge: Hydra login challenge (required)
         :type login_challenge: str
         :param credentials: Login credentials (required)
-        :type credentials: ModelsLoginRequest
+        :type credentials: GithubComMikelearLeartechAuthServiceInternalModelsLoginRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -924,7 +924,7 @@ class LoginApi:
     async def post_login_with_http_info(
         self,
         login_challenge: Annotated[StrictStr, Field(description="Hydra login challenge")],
-        credentials: Annotated[ModelsLoginRequest, Field(description="Login credentials")],
+        credentials: Annotated[GithubComMikelearLeartechAuthServiceInternalModelsLoginRequest, Field(description="Login credentials")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -945,7 +945,7 @@ class LoginApi:
         :param login_challenge: Hydra login challenge (required)
         :type login_challenge: str
         :param credentials: Login credentials (required)
-        :type credentials: ModelsLoginRequest
+        :type credentials: GithubComMikelearLeartechAuthServiceInternalModelsLoginRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -998,7 +998,7 @@ class LoginApi:
     async def post_login_without_preload_content(
         self,
         login_challenge: Annotated[StrictStr, Field(description="Hydra login challenge")],
-        credentials: Annotated[ModelsLoginRequest, Field(description="Login credentials")],
+        credentials: Annotated[GithubComMikelearLeartechAuthServiceInternalModelsLoginRequest, Field(description="Login credentials")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1019,7 +1019,7 @@ class LoginApi:
         :param login_challenge: Hydra login challenge (required)
         :type login_challenge: str
         :param credentials: Login credentials (required)
-        :type credentials: ModelsLoginRequest
+        :type credentials: GithubComMikelearLeartechAuthServiceInternalModelsLoginRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of

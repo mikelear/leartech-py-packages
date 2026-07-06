@@ -8,7 +8,7 @@ Method | HTTP request | Description
 
 
 # **get_me**
-> ModelsAuthResponse get_me()
+> GithubComMikelearLeartechAuthServiceInternalModelsAuthResponse get_me()
 
 Get current user info
 
@@ -20,7 +20,7 @@ Returns user profile, permissions, and display name
 
 ```python
 import leartech_auth_service
-from leartech_auth_service.models.models_auth_response import ModelsAuthResponse
+from leartech_auth_service.models.github_com_mikelear_leartech_auth_service_internal_models_auth_response import GithubComMikelearLeartechAuthServiceInternalModelsAuthResponse
 from leartech_auth_service.rest import ApiException
 from pprint import pprint
 
@@ -63,7 +63,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**ModelsAuthResponse**](ModelsAuthResponse.md)
+[**GithubComMikelearLeartechAuthServiceInternalModelsAuthResponse**](GithubComMikelearLeartechAuthServiceInternalModelsAuthResponse.md)
 
 ### Authorization
 
