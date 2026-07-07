@@ -18,6 +18,7 @@ if __import__("typing").TYPE_CHECKING:
     from leartech_auth_service.models.admin_create_tenant_request import AdminCreateTenantRequest
     from leartech_auth_service.models.admin_set_permissions_request import AdminSetPermissionsRequest
     from leartech_auth_service.models.admin_set_role_request import AdminSetRoleRequest
+    from leartech_auth_service.models.admin_user_response import AdminUserResponse
     from leartech_auth_service.models.auth_response import AuthResponse
     from leartech_auth_service.models.dcr_error import DCRError
     from leartech_auth_service.models.dcr_register_request import DCRRegisterRequest
@@ -38,6 +39,7 @@ else:
 from leartech_auth_service.models.admin_create_tenant_request import AdminCreateTenantRequest
 from leartech_auth_service.models.admin_set_permissions_request import AdminSetPermissionsRequest
 from leartech_auth_service.models.admin_set_role_request import AdminSetRoleRequest
+from leartech_auth_service.models.admin_user_response import AdminUserResponse
 from leartech_auth_service.models.auth_response import AuthResponse
 from leartech_auth_service.models.dcr_error import DCRError
 from leartech_auth_service.models.dcr_register_request import DCRRegisterRequest

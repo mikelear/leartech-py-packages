@@ -22,6 +22,7 @@ from typing_extensions import Annotated
 from leartech_auth_service.models.admin_create_tenant_request import AdminCreateTenantRequest
 from leartech_auth_service.models.admin_set_permissions_request import AdminSetPermissionsRequest
 from leartech_auth_service.models.admin_set_role_request import AdminSetRoleRequest
+from leartech_auth_service.models.admin_user_response import AdminUserResponse
 from leartech_auth_service.models.tenant import Tenant
 from leartech_auth_service.models.user import User
 
@@ -1425,10 +1426,10 @@ class AdminApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> User:
+    ) -> AdminUserResponse:
         """Get a user by ID (tenant-fenced)
 
-        Admin-only. Returns the user if they're in the caller's tenant, else 404.
+        Admin-only. Returns the user (with has2FA/hasPasskey status) if they're in the caller's tenant, else 404.
 
         :param id: User ID (required)
         :type id: str
@@ -1463,7 +1464,7 @@ class AdminApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "User",
+            '200': "AdminUserResponse",
             '401': "Dict[str, object]",
             '403': "Dict[str, object]",
             '404': "Dict[str, object]",
@@ -1495,10 +1496,10 @@ class AdminApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[User]:
+    ) -> ApiResponse[AdminUserResponse]:
         """Get a user by ID (tenant-fenced)
 
-        Admin-only. Returns the user if they're in the caller's tenant, else 404.
+        Admin-only. Returns the user (with has2FA/hasPasskey status) if they're in the caller's tenant, else 404.
 
         :param id: User ID (required)
         :type id: str
@@ -1533,7 +1534,7 @@ class AdminApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "User",
+            '200': "AdminUserResponse",
             '401': "Dict[str, object]",
             '403': "Dict[str, object]",
             '404': "Dict[str, object]",
@@ -1568,7 +1569,7 @@ class AdminApi:
     ) -> RESTResponseType:
         """Get a user by ID (tenant-fenced)
 
-        Admin-only. Returns the user if they're in the caller's tenant, else 404.
+        Admin-only. Returns the user (with has2FA/hasPasskey status) if they're in the caller's tenant, else 404.
 
         :param id: User ID (required)
         :type id: str
@@ -1603,7 +1604,7 @@ class AdminApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "User",
+            '200': "AdminUserResponse",
             '401': "Dict[str, object]",
             '403': "Dict[str, object]",
             '404': "Dict[str, object]",
