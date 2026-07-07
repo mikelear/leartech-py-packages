@@ -103,7 +103,6 @@ Class | Method | HTTP request | Description
  - [AdminCreateTenantRequest](leartech_auth_service/docs/AdminCreateTenantRequest.md)
  - [AdminSetPermissionsRequest](leartech_auth_service/docs/AdminSetPermissionsRequest.md)
  - [AdminSetRoleRequest](leartech_auth_service/docs/AdminSetRoleRequest.md)
- - [AdminUserResponse](leartech_auth_service/docs/AdminUserResponse.md)
  - [AuthResponse](leartech_auth_service/docs/AuthResponse.md)
  - [DCRError](leartech_auth_service/docs/DCRError.md)
  - [DCRRegisterRequest](leartech_auth_service/docs/DCRRegisterRequest.md)
