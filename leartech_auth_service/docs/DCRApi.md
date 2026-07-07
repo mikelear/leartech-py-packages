@@ -8,7 +8,7 @@ Method | HTTP request | Description
 
 
 # **d_cr_register**
-> GithubComMikelearLeartechAuthServiceInternalModelsDCRRegisterResponse d_cr_register(body)
+> DCRRegisterResponse d_cr_register(body)
 
 Dynamic Client Registration (RFC 7591)
 
@@ -19,8 +19,8 @@ Accepts a public client registration request, validates it against the configure
 
 ```python
 import leartech_auth_service
-from leartech_auth_service.models.github_com_mikelear_leartech_auth_service_internal_models_dcr_register_request import GithubComMikelearLeartechAuthServiceInternalModelsDCRRegisterRequest
-from leartech_auth_service.models.github_com_mikelear_leartech_auth_service_internal_models_dcr_register_response import GithubComMikelearLeartechAuthServiceInternalModelsDCRRegisterResponse
+from leartech_auth_service.models.dcr_register_request import DCRRegisterRequest
+from leartech_auth_service.models.dcr_register_response import DCRRegisterResponse
 from leartech_auth_service.rest import ApiException
 from pprint import pprint
 
@@ -35,7 +35,7 @@ configuration = leartech_auth_service.Configuration(
 async with leartech_auth_service.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = leartech_auth_service.DCRApi(api_client)
-    body = leartech_auth_service.GithubComMikelearLeartechAuthServiceInternalModelsDCRRegisterRequest() # GithubComMikelearLeartechAuthServiceInternalModelsDCRRegisterRequest | Registration payload
+    body = leartech_auth_service.DCRRegisterRequest() # DCRRegisterRequest | Registration payload
 
     try:
         # Dynamic Client Registration (RFC 7591)
@@ -53,11 +53,11 @@ async with leartech_auth_service.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**GithubComMikelearLeartechAuthServiceInternalModelsDCRRegisterRequest**](GithubComMikelearLeartechAuthServiceInternalModelsDCRRegisterRequest.md)| Registration payload | 
+ **body** | [**DCRRegisterRequest**](DCRRegisterRequest.md)| Registration payload | 
 
 ### Return type
 
-[**GithubComMikelearLeartechAuthServiceInternalModelsDCRRegisterResponse**](GithubComMikelearLeartechAuthServiceInternalModelsDCRRegisterResponse.md)
+[**DCRRegisterResponse**](DCRRegisterResponse.md)
 
 ### Authorization
 

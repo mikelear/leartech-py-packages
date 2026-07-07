@@ -17,7 +17,7 @@ Method | HTTP request | Description
 
 
 # **admin_activate_user**
-> GithubComMikelearLeartechAuthServiceInternalModelsUser admin_activate_user(id)
+> User admin_activate_user(id)
 
 Activate a user
 
@@ -29,7 +29,7 @@ Admin-only, tenant-fenced. Re-enables a deactivated account.
 
 ```python
 import leartech_auth_service
-from leartech_auth_service.models.github_com_mikelear_leartech_auth_service_internal_models_user import GithubComMikelearLeartechAuthServiceInternalModelsUser
+from leartech_auth_service.models.user import User
 from leartech_auth_service.rest import ApiException
 from pprint import pprint
 
@@ -76,7 +76,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GithubComMikelearLeartechAuthServiceInternalModelsUser**](GithubComMikelearLeartechAuthServiceInternalModelsUser.md)
+[**User**](User.md)
 
 ### Authorization
 
@@ -98,7 +98,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **admin_create_tenant**
-> GithubComMikelearLeartechAuthServiceInternalModelsTenant admin_create_tenant(tenant)
+> Tenant admin_create_tenant(tenant)
 
 Create a tenant
 
@@ -110,8 +110,8 @@ Platform-admin only. Name must be unique (409 otherwise); the id is server-assig
 
 ```python
 import leartech_auth_service
-from leartech_auth_service.models.github_com_mikelear_leartech_auth_service_internal_models_admin_create_tenant_request import GithubComMikelearLeartechAuthServiceInternalModelsAdminCreateTenantRequest
-from leartech_auth_service.models.github_com_mikelear_leartech_auth_service_internal_models_tenant import GithubComMikelearLeartechAuthServiceInternalModelsTenant
+from leartech_auth_service.models.admin_create_tenant_request import AdminCreateTenantRequest
+from leartech_auth_service.models.tenant import Tenant
 from leartech_auth_service.rest import ApiException
 from pprint import pprint
 
@@ -136,7 +136,7 @@ configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
 async with leartech_auth_service.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = leartech_auth_service.AdminApi(api_client)
-    tenant = leartech_auth_service.GithubComMikelearLeartechAuthServiceInternalModelsAdminCreateTenantRequest() # GithubComMikelearLeartechAuthServiceInternalModelsAdminCreateTenantRequest | New tenant
+    tenant = leartech_auth_service.AdminCreateTenantRequest() # AdminCreateTenantRequest | New tenant
 
     try:
         # Create a tenant
@@ -154,11 +154,11 @@ async with leartech_auth_service.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **tenant** | [**GithubComMikelearLeartechAuthServiceInternalModelsAdminCreateTenantRequest**](GithubComMikelearLeartechAuthServiceInternalModelsAdminCreateTenantRequest.md)| New tenant | 
+ **tenant** | [**AdminCreateTenantRequest**](AdminCreateTenantRequest.md)| New tenant | 
 
 ### Return type
 
-[**GithubComMikelearLeartechAuthServiceInternalModelsTenant**](GithubComMikelearLeartechAuthServiceInternalModelsTenant.md)
+[**Tenant**](Tenant.md)
 
 ### Authorization
 
@@ -182,7 +182,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **admin_deactivate_user**
-> GithubComMikelearLeartechAuthServiceInternalModelsUser admin_deactivate_user(id)
+> User admin_deactivate_user(id)
 
 Deactivate a user
 
@@ -194,7 +194,7 @@ Admin-only, tenant-fenced. A deactivated user cannot log in. An admin cannot dea
 
 ```python
 import leartech_auth_service
-from leartech_auth_service.models.github_com_mikelear_leartech_auth_service_internal_models_user import GithubComMikelearLeartechAuthServiceInternalModelsUser
+from leartech_auth_service.models.user import User
 from leartech_auth_service.rest import ApiException
 from pprint import pprint
 
@@ -241,7 +241,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GithubComMikelearLeartechAuthServiceInternalModelsUser**](GithubComMikelearLeartechAuthServiceInternalModelsUser.md)
+[**User**](User.md)
 
 ### Authorization
 
@@ -344,7 +344,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **admin_get_tenant**
-> GithubComMikelearLeartechAuthServiceInternalModelsTenant admin_get_tenant(id)
+> Tenant admin_get_tenant(id)
 
 Get a tenant by ID
 
@@ -356,7 +356,7 @@ Platform-admin only.
 
 ```python
 import leartech_auth_service
-from leartech_auth_service.models.github_com_mikelear_leartech_auth_service_internal_models_tenant import GithubComMikelearLeartechAuthServiceInternalModelsTenant
+from leartech_auth_service.models.tenant import Tenant
 from leartech_auth_service.rest import ApiException
 from pprint import pprint
 
@@ -403,7 +403,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GithubComMikelearLeartechAuthServiceInternalModelsTenant**](GithubComMikelearLeartechAuthServiceInternalModelsTenant.md)
+[**Tenant**](Tenant.md)
 
 ### Authorization
 
@@ -426,7 +426,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **admin_get_user**
-> GithubComMikelearLeartechAuthServiceInternalModelsUser admin_get_user(id)
+> User admin_get_user(id)
 
 Get a user by ID (tenant-fenced)
 
@@ -438,7 +438,7 @@ Admin-only. Returns the user if they're in the caller's tenant, else 404.
 
 ```python
 import leartech_auth_service
-from leartech_auth_service.models.github_com_mikelear_leartech_auth_service_internal_models_user import GithubComMikelearLeartechAuthServiceInternalModelsUser
+from leartech_auth_service.models.user import User
 from leartech_auth_service.rest import ApiException
 from pprint import pprint
 
@@ -485,7 +485,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GithubComMikelearLeartechAuthServiceInternalModelsUser**](GithubComMikelearLeartechAuthServiceInternalModelsUser.md)
+[**User**](User.md)
 
 ### Authorization
 
@@ -661,7 +661,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **admin_set_user_permissions**
-> GithubComMikelearLeartechAuthServiceInternalModelsUser admin_set_user_permissions(id, permissions)
+> User admin_set_user_permissions(id, permissions)
 
 Set a user's permissions
 
@@ -673,8 +673,8 @@ Admin-only, tenant-fenced. Replaces the permission set (go-common vocabulary is 
 
 ```python
 import leartech_auth_service
-from leartech_auth_service.models.github_com_mikelear_leartech_auth_service_internal_models_admin_set_permissions_request import GithubComMikelearLeartechAuthServiceInternalModelsAdminSetPermissionsRequest
-from leartech_auth_service.models.github_com_mikelear_leartech_auth_service_internal_models_user import GithubComMikelearLeartechAuthServiceInternalModelsUser
+from leartech_auth_service.models.admin_set_permissions_request import AdminSetPermissionsRequest
+from leartech_auth_service.models.user import User
 from leartech_auth_service.rest import ApiException
 from pprint import pprint
 
@@ -700,7 +700,7 @@ async with leartech_auth_service.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = leartech_auth_service.AdminApi(api_client)
     id = 'id_example' # str | User ID
-    permissions = leartech_auth_service.GithubComMikelearLeartechAuthServiceInternalModelsAdminSetPermissionsRequest() # GithubComMikelearLeartechAuthServiceInternalModelsAdminSetPermissionsRequest | New permission set
+    permissions = leartech_auth_service.AdminSetPermissionsRequest() # AdminSetPermissionsRequest | New permission set
 
     try:
         # Set a user's permissions
@@ -719,11 +719,11 @@ async with leartech_auth_service.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| User ID | 
- **permissions** | [**GithubComMikelearLeartechAuthServiceInternalModelsAdminSetPermissionsRequest**](GithubComMikelearLeartechAuthServiceInternalModelsAdminSetPermissionsRequest.md)| New permission set | 
+ **permissions** | [**AdminSetPermissionsRequest**](AdminSetPermissionsRequest.md)| New permission set | 
 
 ### Return type
 
-[**GithubComMikelearLeartechAuthServiceInternalModelsUser**](GithubComMikelearLeartechAuthServiceInternalModelsUser.md)
+[**User**](User.md)
 
 ### Authorization
 
@@ -746,7 +746,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **admin_set_user_role**
-> GithubComMikelearLeartechAuthServiceInternalModelsUser admin_set_user_role(id, role)
+> User admin_set_user_role(id, role)
 
 Set a user's role
 
@@ -758,8 +758,8 @@ Admin-only, tenant-fenced. Replaces the coarse RBAC role label (surfaced downstr
 
 ```python
 import leartech_auth_service
-from leartech_auth_service.models.github_com_mikelear_leartech_auth_service_internal_models_admin_set_role_request import GithubComMikelearLeartechAuthServiceInternalModelsAdminSetRoleRequest
-from leartech_auth_service.models.github_com_mikelear_leartech_auth_service_internal_models_user import GithubComMikelearLeartechAuthServiceInternalModelsUser
+from leartech_auth_service.models.admin_set_role_request import AdminSetRoleRequest
+from leartech_auth_service.models.user import User
 from leartech_auth_service.rest import ApiException
 from pprint import pprint
 
@@ -785,7 +785,7 @@ async with leartech_auth_service.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = leartech_auth_service.AdminApi(api_client)
     id = 'id_example' # str | User ID
-    role = leartech_auth_service.GithubComMikelearLeartechAuthServiceInternalModelsAdminSetRoleRequest() # GithubComMikelearLeartechAuthServiceInternalModelsAdminSetRoleRequest | New role
+    role = leartech_auth_service.AdminSetRoleRequest() # AdminSetRoleRequest | New role
 
     try:
         # Set a user's role
@@ -804,11 +804,11 @@ async with leartech_auth_service.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| User ID | 
- **role** | [**GithubComMikelearLeartechAuthServiceInternalModelsAdminSetRoleRequest**](GithubComMikelearLeartechAuthServiceInternalModelsAdminSetRoleRequest.md)| New role | 
+ **role** | [**AdminSetRoleRequest**](AdminSetRoleRequest.md)| New role | 
 
 ### Return type
 
-[**GithubComMikelearLeartechAuthServiceInternalModelsUser**](GithubComMikelearLeartechAuthServiceInternalModelsUser.md)
+[**User**](User.md)
 
 ### Authorization
 
