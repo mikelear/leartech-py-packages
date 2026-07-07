@@ -19,11 +19,11 @@ from typing_extensions import Annotated
 from pydantic import Field, StrictStr
 from typing import Any, Dict
 from typing_extensions import Annotated
-from leartech_auth_service.models.github_com_mikelear_leartech_auth_service_internal_models_admin_create_tenant_request import GithubComMikelearLeartechAuthServiceInternalModelsAdminCreateTenantRequest
-from leartech_auth_service.models.github_com_mikelear_leartech_auth_service_internal_models_admin_set_permissions_request import GithubComMikelearLeartechAuthServiceInternalModelsAdminSetPermissionsRequest
-from leartech_auth_service.models.github_com_mikelear_leartech_auth_service_internal_models_admin_set_role_request import GithubComMikelearLeartechAuthServiceInternalModelsAdminSetRoleRequest
-from leartech_auth_service.models.github_com_mikelear_leartech_auth_service_internal_models_tenant import GithubComMikelearLeartechAuthServiceInternalModelsTenant
-from leartech_auth_service.models.github_com_mikelear_leartech_auth_service_internal_models_user import GithubComMikelearLeartechAuthServiceInternalModelsUser
+from leartech_auth_service.models.admin_create_tenant_request import AdminCreateTenantRequest
+from leartech_auth_service.models.admin_set_permissions_request import AdminSetPermissionsRequest
+from leartech_auth_service.models.admin_set_role_request import AdminSetRoleRequest
+from leartech_auth_service.models.tenant import Tenant
+from leartech_auth_service.models.user import User
 
 from leartech_auth_service.api_client import ApiClient, RequestSerialized
 from leartech_auth_service.api_response import ApiResponse
@@ -59,7 +59,7 @@ class AdminApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> GithubComMikelearLeartechAuthServiceInternalModelsUser:
+    ) -> User:
         """Activate a user
 
         Admin-only, tenant-fenced. Re-enables a deactivated account.
@@ -97,7 +97,7 @@ class AdminApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GithubComMikelearLeartechAuthServiceInternalModelsUser",
+            '200': "User",
             '401': "Dict[str, object]",
             '404': "Dict[str, object]",
         }
@@ -128,7 +128,7 @@ class AdminApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[GithubComMikelearLeartechAuthServiceInternalModelsUser]:
+    ) -> ApiResponse[User]:
         """Activate a user
 
         Admin-only, tenant-fenced. Re-enables a deactivated account.
@@ -166,7 +166,7 @@ class AdminApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GithubComMikelearLeartechAuthServiceInternalModelsUser",
+            '200': "User",
             '401': "Dict[str, object]",
             '404': "Dict[str, object]",
         }
@@ -235,7 +235,7 @@ class AdminApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GithubComMikelearLeartechAuthServiceInternalModelsUser",
+            '200': "User",
             '401': "Dict[str, object]",
             '404': "Dict[str, object]",
         }
@@ -313,7 +313,7 @@ class AdminApi:
     @validate_call
     async def admin_create_tenant(
         self,
-        tenant: Annotated[GithubComMikelearLeartechAuthServiceInternalModelsAdminCreateTenantRequest, Field(description="New tenant")],
+        tenant: Annotated[AdminCreateTenantRequest, Field(description="New tenant")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -326,13 +326,13 @@ class AdminApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> GithubComMikelearLeartechAuthServiceInternalModelsTenant:
+    ) -> Tenant:
         """Create a tenant
 
         Platform-admin only. Name must be unique (409 otherwise); the id is server-assigned. Audited.
 
         :param tenant: New tenant (required)
-        :type tenant: GithubComMikelearLeartechAuthServiceInternalModelsAdminCreateTenantRequest
+        :type tenant: AdminCreateTenantRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -364,7 +364,7 @@ class AdminApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "GithubComMikelearLeartechAuthServiceInternalModelsTenant",
+            '201': "Tenant",
             '400': "Dict[str, object]",
             '401': "Dict[str, object]",
             '403': "Dict[str, object]",
@@ -384,7 +384,7 @@ class AdminApi:
     @validate_call
     async def admin_create_tenant_with_http_info(
         self,
-        tenant: Annotated[GithubComMikelearLeartechAuthServiceInternalModelsAdminCreateTenantRequest, Field(description="New tenant")],
+        tenant: Annotated[AdminCreateTenantRequest, Field(description="New tenant")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -397,13 +397,13 @@ class AdminApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[GithubComMikelearLeartechAuthServiceInternalModelsTenant]:
+    ) -> ApiResponse[Tenant]:
         """Create a tenant
 
         Platform-admin only. Name must be unique (409 otherwise); the id is server-assigned. Audited.
 
         :param tenant: New tenant (required)
-        :type tenant: GithubComMikelearLeartechAuthServiceInternalModelsAdminCreateTenantRequest
+        :type tenant: AdminCreateTenantRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -435,7 +435,7 @@ class AdminApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "GithubComMikelearLeartechAuthServiceInternalModelsTenant",
+            '201': "Tenant",
             '400': "Dict[str, object]",
             '401': "Dict[str, object]",
             '403': "Dict[str, object]",
@@ -455,7 +455,7 @@ class AdminApi:
     @validate_call
     async def admin_create_tenant_without_preload_content(
         self,
-        tenant: Annotated[GithubComMikelearLeartechAuthServiceInternalModelsAdminCreateTenantRequest, Field(description="New tenant")],
+        tenant: Annotated[AdminCreateTenantRequest, Field(description="New tenant")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -474,7 +474,7 @@ class AdminApi:
         Platform-admin only. Name must be unique (409 otherwise); the id is server-assigned. Audited.
 
         :param tenant: New tenant (required)
-        :type tenant: GithubComMikelearLeartechAuthServiceInternalModelsAdminCreateTenantRequest
+        :type tenant: AdminCreateTenantRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -506,7 +506,7 @@ class AdminApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "GithubComMikelearLeartechAuthServiceInternalModelsTenant",
+            '201': "Tenant",
             '400': "Dict[str, object]",
             '401': "Dict[str, object]",
             '403': "Dict[str, object]",
@@ -612,7 +612,7 @@ class AdminApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> GithubComMikelearLeartechAuthServiceInternalModelsUser:
+    ) -> User:
         """Deactivate a user
 
         Admin-only, tenant-fenced. A deactivated user cannot log in. An admin cannot deactivate themselves.
@@ -650,7 +650,7 @@ class AdminApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GithubComMikelearLeartechAuthServiceInternalModelsUser",
+            '200': "User",
             '400': "Dict[str, object]",
             '401': "Dict[str, object]",
             '404': "Dict[str, object]",
@@ -682,7 +682,7 @@ class AdminApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[GithubComMikelearLeartechAuthServiceInternalModelsUser]:
+    ) -> ApiResponse[User]:
         """Deactivate a user
 
         Admin-only, tenant-fenced. A deactivated user cannot log in. An admin cannot deactivate themselves.
@@ -720,7 +720,7 @@ class AdminApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GithubComMikelearLeartechAuthServiceInternalModelsUser",
+            '200': "User",
             '400': "Dict[str, object]",
             '401': "Dict[str, object]",
             '404': "Dict[str, object]",
@@ -790,7 +790,7 @@ class AdminApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GithubComMikelearLeartechAuthServiceInternalModelsUser",
+            '200': "User",
             '400': "Dict[str, object]",
             '401': "Dict[str, object]",
             '404': "Dict[str, object]",
@@ -1155,7 +1155,7 @@ class AdminApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> GithubComMikelearLeartechAuthServiceInternalModelsTenant:
+    ) -> Tenant:
         """Get a tenant by ID
 
         Platform-admin only.
@@ -1193,7 +1193,7 @@ class AdminApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GithubComMikelearLeartechAuthServiceInternalModelsTenant",
+            '200': "Tenant",
             '401': "Dict[str, object]",
             '403': "Dict[str, object]",
             '404': "Dict[str, object]",
@@ -1225,7 +1225,7 @@ class AdminApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[GithubComMikelearLeartechAuthServiceInternalModelsTenant]:
+    ) -> ApiResponse[Tenant]:
         """Get a tenant by ID
 
         Platform-admin only.
@@ -1263,7 +1263,7 @@ class AdminApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GithubComMikelearLeartechAuthServiceInternalModelsTenant",
+            '200': "Tenant",
             '401': "Dict[str, object]",
             '403': "Dict[str, object]",
             '404': "Dict[str, object]",
@@ -1333,7 +1333,7 @@ class AdminApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GithubComMikelearLeartechAuthServiceInternalModelsTenant",
+            '200': "Tenant",
             '401': "Dict[str, object]",
             '403': "Dict[str, object]",
             '404': "Dict[str, object]",
@@ -1425,7 +1425,7 @@ class AdminApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> GithubComMikelearLeartechAuthServiceInternalModelsUser:
+    ) -> User:
         """Get a user by ID (tenant-fenced)
 
         Admin-only. Returns the user if they're in the caller's tenant, else 404.
@@ -1463,7 +1463,7 @@ class AdminApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GithubComMikelearLeartechAuthServiceInternalModelsUser",
+            '200': "User",
             '401': "Dict[str, object]",
             '403': "Dict[str, object]",
             '404': "Dict[str, object]",
@@ -1495,7 +1495,7 @@ class AdminApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[GithubComMikelearLeartechAuthServiceInternalModelsUser]:
+    ) -> ApiResponse[User]:
         """Get a user by ID (tenant-fenced)
 
         Admin-only. Returns the user if they're in the caller's tenant, else 404.
@@ -1533,7 +1533,7 @@ class AdminApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GithubComMikelearLeartechAuthServiceInternalModelsUser",
+            '200': "User",
             '401': "Dict[str, object]",
             '403': "Dict[str, object]",
             '404': "Dict[str, object]",
@@ -1603,7 +1603,7 @@ class AdminApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GithubComMikelearLeartechAuthServiceInternalModelsUser",
+            '200': "User",
             '401': "Dict[str, object]",
             '403': "Dict[str, object]",
             '404': "Dict[str, object]",
@@ -2190,7 +2190,7 @@ class AdminApi:
     async def admin_set_user_permissions(
         self,
         id: Annotated[StrictStr, Field(description="User ID")],
-        permissions: Annotated[GithubComMikelearLeartechAuthServiceInternalModelsAdminSetPermissionsRequest, Field(description="New permission set")],
+        permissions: Annotated[AdminSetPermissionsRequest, Field(description="New permission set")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2203,7 +2203,7 @@ class AdminApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> GithubComMikelearLeartechAuthServiceInternalModelsUser:
+    ) -> User:
         """Set a user's permissions
 
         Admin-only, tenant-fenced. Replaces the permission set (go-common vocabulary is {User, Admin}). An empty array revokes all. An admin cannot remove their own Admin permission.
@@ -2211,7 +2211,7 @@ class AdminApi:
         :param id: User ID (required)
         :type id: str
         :param permissions: New permission set (required)
-        :type permissions: GithubComMikelearLeartechAuthServiceInternalModelsAdminSetPermissionsRequest
+        :type permissions: AdminSetPermissionsRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2244,7 +2244,7 @@ class AdminApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GithubComMikelearLeartechAuthServiceInternalModelsUser",
+            '200': "User",
             '400': "Dict[str, object]",
             '401': "Dict[str, object]",
             '404': "Dict[str, object]",
@@ -2264,7 +2264,7 @@ class AdminApi:
     async def admin_set_user_permissions_with_http_info(
         self,
         id: Annotated[StrictStr, Field(description="User ID")],
-        permissions: Annotated[GithubComMikelearLeartechAuthServiceInternalModelsAdminSetPermissionsRequest, Field(description="New permission set")],
+        permissions: Annotated[AdminSetPermissionsRequest, Field(description="New permission set")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2277,7 +2277,7 @@ class AdminApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[GithubComMikelearLeartechAuthServiceInternalModelsUser]:
+    ) -> ApiResponse[User]:
         """Set a user's permissions
 
         Admin-only, tenant-fenced. Replaces the permission set (go-common vocabulary is {User, Admin}). An empty array revokes all. An admin cannot remove their own Admin permission.
@@ -2285,7 +2285,7 @@ class AdminApi:
         :param id: User ID (required)
         :type id: str
         :param permissions: New permission set (required)
-        :type permissions: GithubComMikelearLeartechAuthServiceInternalModelsAdminSetPermissionsRequest
+        :type permissions: AdminSetPermissionsRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2318,7 +2318,7 @@ class AdminApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GithubComMikelearLeartechAuthServiceInternalModelsUser",
+            '200': "User",
             '400': "Dict[str, object]",
             '401': "Dict[str, object]",
             '404': "Dict[str, object]",
@@ -2338,7 +2338,7 @@ class AdminApi:
     async def admin_set_user_permissions_without_preload_content(
         self,
         id: Annotated[StrictStr, Field(description="User ID")],
-        permissions: Annotated[GithubComMikelearLeartechAuthServiceInternalModelsAdminSetPermissionsRequest, Field(description="New permission set")],
+        permissions: Annotated[AdminSetPermissionsRequest, Field(description="New permission set")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2359,7 +2359,7 @@ class AdminApi:
         :param id: User ID (required)
         :type id: str
         :param permissions: New permission set (required)
-        :type permissions: GithubComMikelearLeartechAuthServiceInternalModelsAdminSetPermissionsRequest
+        :type permissions: AdminSetPermissionsRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2392,7 +2392,7 @@ class AdminApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GithubComMikelearLeartechAuthServiceInternalModelsUser",
+            '200': "User",
             '400': "Dict[str, object]",
             '401': "Dict[str, object]",
             '404': "Dict[str, object]",
@@ -2488,7 +2488,7 @@ class AdminApi:
     async def admin_set_user_role(
         self,
         id: Annotated[StrictStr, Field(description="User ID")],
-        role: Annotated[GithubComMikelearLeartechAuthServiceInternalModelsAdminSetRoleRequest, Field(description="New role")],
+        role: Annotated[AdminSetRoleRequest, Field(description="New role")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2501,7 +2501,7 @@ class AdminApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> GithubComMikelearLeartechAuthServiceInternalModelsUser:
+    ) -> User:
         """Set a user's role
 
         Admin-only, tenant-fenced. Replaces the coarse RBAC role label (surfaced downstream via ext.user_role). Independent of permissions.
@@ -2509,7 +2509,7 @@ class AdminApi:
         :param id: User ID (required)
         :type id: str
         :param role: New role (required)
-        :type role: GithubComMikelearLeartechAuthServiceInternalModelsAdminSetRoleRequest
+        :type role: AdminSetRoleRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2542,7 +2542,7 @@ class AdminApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GithubComMikelearLeartechAuthServiceInternalModelsUser",
+            '200': "User",
             '400': "Dict[str, object]",
             '401': "Dict[str, object]",
             '404': "Dict[str, object]",
@@ -2562,7 +2562,7 @@ class AdminApi:
     async def admin_set_user_role_with_http_info(
         self,
         id: Annotated[StrictStr, Field(description="User ID")],
-        role: Annotated[GithubComMikelearLeartechAuthServiceInternalModelsAdminSetRoleRequest, Field(description="New role")],
+        role: Annotated[AdminSetRoleRequest, Field(description="New role")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2575,7 +2575,7 @@ class AdminApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[GithubComMikelearLeartechAuthServiceInternalModelsUser]:
+    ) -> ApiResponse[User]:
         """Set a user's role
 
         Admin-only, tenant-fenced. Replaces the coarse RBAC role label (surfaced downstream via ext.user_role). Independent of permissions.
@@ -2583,7 +2583,7 @@ class AdminApi:
         :param id: User ID (required)
         :type id: str
         :param role: New role (required)
-        :type role: GithubComMikelearLeartechAuthServiceInternalModelsAdminSetRoleRequest
+        :type role: AdminSetRoleRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2616,7 +2616,7 @@ class AdminApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GithubComMikelearLeartechAuthServiceInternalModelsUser",
+            '200': "User",
             '400': "Dict[str, object]",
             '401': "Dict[str, object]",
             '404': "Dict[str, object]",
@@ -2636,7 +2636,7 @@ class AdminApi:
     async def admin_set_user_role_without_preload_content(
         self,
         id: Annotated[StrictStr, Field(description="User ID")],
-        role: Annotated[GithubComMikelearLeartechAuthServiceInternalModelsAdminSetRoleRequest, Field(description="New role")],
+        role: Annotated[AdminSetRoleRequest, Field(description="New role")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2657,7 +2657,7 @@ class AdminApi:
         :param id: User ID (required)
         :type id: str
         :param role: New role (required)
-        :type role: GithubComMikelearLeartechAuthServiceInternalModelsAdminSetRoleRequest
+        :type role: AdminSetRoleRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2690,7 +2690,7 @@ class AdminApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GithubComMikelearLeartechAuthServiceInternalModelsUser",
+            '200': "User",
             '400': "Dict[str, object]",
             '401': "Dict[str, object]",
             '404': "Dict[str, object]",

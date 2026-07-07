@@ -226,7 +226,7 @@ Validates email/password, checks 2FA requirement, and accepts/rejects the Hydra 
 
 ```python
 import leartech_auth_service
-from leartech_auth_service.models.github_com_mikelear_leartech_auth_service_internal_models_login_request import GithubComMikelearLeartechAuthServiceInternalModelsLoginRequest
+from leartech_auth_service.models.login_request import LoginRequest
 from leartech_auth_service.rest import ApiException
 from pprint import pprint
 
@@ -242,7 +242,7 @@ async with leartech_auth_service.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = leartech_auth_service.LoginApi(api_client)
     login_challenge = 'login_challenge_example' # str | Hydra login challenge
-    credentials = leartech_auth_service.GithubComMikelearLeartechAuthServiceInternalModelsLoginRequest() # GithubComMikelearLeartechAuthServiceInternalModelsLoginRequest | Login credentials
+    credentials = leartech_auth_service.LoginRequest() # LoginRequest | Login credentials
 
     try:
         # Submit login credentials
@@ -261,7 +261,7 @@ async with leartech_auth_service.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **login_challenge** | **str**| Hydra login challenge | 
- **credentials** | [**GithubComMikelearLeartechAuthServiceInternalModelsLoginRequest**](GithubComMikelearLeartechAuthServiceInternalModelsLoginRequest.md)| Login credentials | 
+ **credentials** | [**LoginRequest**](LoginRequest.md)| Login credentials | 
 
 ### Return type
 

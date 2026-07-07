@@ -87,7 +87,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **enable_two_factor**
-> GithubComMikelearLeartechAuthServiceInternalModelsTwoFactorEnableResponse enable_two_factor()
+> TwoFactorEnableResponse enable_two_factor()
 
 Start 2FA setup
 
@@ -99,7 +99,7 @@ Generates TOTP secret (QR code URL) and recovery codes for a user
 
 ```python
 import leartech_auth_service
-from leartech_auth_service.models.github_com_mikelear_leartech_auth_service_internal_models_two_factor_enable_response import GithubComMikelearLeartechAuthServiceInternalModelsTwoFactorEnableResponse
+from leartech_auth_service.models.two_factor_enable_response import TwoFactorEnableResponse
 from leartech_auth_service.rest import ApiException
 from pprint import pprint
 
@@ -142,7 +142,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**GithubComMikelearLeartechAuthServiceInternalModelsTwoFactorEnableResponse**](GithubComMikelearLeartechAuthServiceInternalModelsTwoFactorEnableResponse.md)
+[**TwoFactorEnableResponse**](TwoFactorEnableResponse.md)
 
 ### Authorization
 
@@ -176,7 +176,7 @@ Validates a TOTP or recovery code to complete authentication. Identity is bound 
 
 ```python
 import leartech_auth_service
-from leartech_auth_service.models.github_com_mikelear_leartech_auth_service_internal_models_two_factor_submit_request import GithubComMikelearLeartechAuthServiceInternalModelsTwoFactorSubmitRequest
+from leartech_auth_service.models.two_factor_submit_request import TwoFactorSubmitRequest
 from leartech_auth_service.rest import ApiException
 from pprint import pprint
 
@@ -192,7 +192,7 @@ async with leartech_auth_service.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = leartech_auth_service.TwoFactorApi(api_client)
     login_challenge = 'login_challenge_example' # str | Hydra login challenge
-    code = leartech_auth_service.GithubComMikelearLeartechAuthServiceInternalModelsTwoFactorSubmitRequest() # GithubComMikelearLeartechAuthServiceInternalModelsTwoFactorSubmitRequest | TOTP or recovery code
+    code = leartech_auth_service.TwoFactorSubmitRequest() # TwoFactorSubmitRequest | TOTP or recovery code
 
     try:
         # Submit 2FA code during login
@@ -211,7 +211,7 @@ async with leartech_auth_service.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **login_challenge** | **str**| Hydra login challenge | 
- **code** | [**GithubComMikelearLeartechAuthServiceInternalModelsTwoFactorSubmitRequest**](GithubComMikelearLeartechAuthServiceInternalModelsTwoFactorSubmitRequest.md)| TOTP or recovery code | 
+ **code** | [**TwoFactorSubmitRequest**](TwoFactorSubmitRequest.md)| TOTP or recovery code | 
 
 ### Return type
 
@@ -250,7 +250,7 @@ Validates the first TOTP code to confirm authenticator app is configured correct
 
 ```python
 import leartech_auth_service
-from leartech_auth_service.models.github_com_mikelear_leartech_auth_service_internal_models_two_factor_submit_request import GithubComMikelearLeartechAuthServiceInternalModelsTwoFactorSubmitRequest
+from leartech_auth_service.models.two_factor_submit_request import TwoFactorSubmitRequest
 from leartech_auth_service.rest import ApiException
 from pprint import pprint
 
@@ -275,7 +275,7 @@ configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
 async with leartech_auth_service.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = leartech_auth_service.TwoFactorApi(api_client)
-    code = leartech_auth_service.GithubComMikelearLeartechAuthServiceInternalModelsTwoFactorSubmitRequest() # GithubComMikelearLeartechAuthServiceInternalModelsTwoFactorSubmitRequest | TOTP code from authenticator
+    code = leartech_auth_service.TwoFactorSubmitRequest() # TwoFactorSubmitRequest | TOTP code from authenticator
 
     try:
         # Verify 2FA setup
@@ -293,7 +293,7 @@ async with leartech_auth_service.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **code** | [**GithubComMikelearLeartechAuthServiceInternalModelsTwoFactorSubmitRequest**](GithubComMikelearLeartechAuthServiceInternalModelsTwoFactorSubmitRequest.md)| TOTP code from authenticator | 
+ **code** | [**TwoFactorSubmitRequest**](TwoFactorSubmitRequest.md)| TOTP code from authenticator | 
 
 ### Return type
 

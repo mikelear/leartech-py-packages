@@ -16,7 +16,7 @@ from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
 from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
-from leartech_auth_service.models.github_com_mikelear_leartech_auth_service_internal_models_auth_response import GithubComMikelearLeartechAuthServiceInternalModelsAuthResponse
+from leartech_auth_service.models.auth_response import AuthResponse
 
 from leartech_auth_service.api_client import ApiClient, RequestSerialized
 from leartech_auth_service.api_response import ApiResponse
@@ -51,7 +51,7 @@ class UserApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> GithubComMikelearLeartechAuthServiceInternalModelsAuthResponse:
+    ) -> AuthResponse:
         """Get current user info
 
         Returns user profile, permissions, and display name
@@ -86,7 +86,7 @@ class UserApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GithubComMikelearLeartechAuthServiceInternalModelsAuthResponse",
+            '200': "AuthResponse",
             '400': "Dict[str, object]",
             '404': "Dict[str, object]",
         }
@@ -116,7 +116,7 @@ class UserApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[GithubComMikelearLeartechAuthServiceInternalModelsAuthResponse]:
+    ) -> ApiResponse[AuthResponse]:
         """Get current user info
 
         Returns user profile, permissions, and display name
@@ -151,7 +151,7 @@ class UserApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GithubComMikelearLeartechAuthServiceInternalModelsAuthResponse",
+            '200': "AuthResponse",
             '400': "Dict[str, object]",
             '404': "Dict[str, object]",
         }
@@ -216,7 +216,7 @@ class UserApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GithubComMikelearLeartechAuthServiceInternalModelsAuthResponse",
+            '200': "AuthResponse",
             '400': "Dict[str, object]",
             '404': "Dict[str, object]",
         }
