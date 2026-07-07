@@ -14,7 +14,7 @@
 """  # noqa: E501
 
 
-__version__ = "0.1.80"
+__version__ = "0.1.81"
 
 # Define package exports
 __all__ = [
@@ -33,8 +33,11 @@ __all__ = [
     "ApiAttributeError",
     "ApiException",
     "AdminCreateTenantRequest",
+    "AdminCreateUserRequest",
     "AdminSetPermissionsRequest",
     "AdminSetRoleRequest",
+    "AdminUpdateUserRequest",
+    "AdminUserResponse",
     "AuthResponse",
     "DCRError",
     "DCRRegisterRequest",
@@ -67,8 +70,11 @@ if __import__("typing").TYPE_CHECKING:
     
     # import models into sdk package
     from leartech_auth_service.models.admin_create_tenant_request import AdminCreateTenantRequest as AdminCreateTenantRequest
+    from leartech_auth_service.models.admin_create_user_request import AdminCreateUserRequest as AdminCreateUserRequest
     from leartech_auth_service.models.admin_set_permissions_request import AdminSetPermissionsRequest as AdminSetPermissionsRequest
     from leartech_auth_service.models.admin_set_role_request import AdminSetRoleRequest as AdminSetRoleRequest
+    from leartech_auth_service.models.admin_update_user_request import AdminUpdateUserRequest as AdminUpdateUserRequest
+    from leartech_auth_service.models.admin_user_response import AdminUserResponse as AdminUserResponse
     from leartech_auth_service.models.auth_response import AuthResponse as AuthResponse
     from leartech_auth_service.models.dcr_error import DCRError as DCRError
     from leartech_auth_service.models.dcr_register_request import DCRRegisterRequest as DCRRegisterRequest
@@ -107,8 +113,11 @@ from leartech_auth_service.exceptions import ApiException as ApiException
 
 # import models into sdk package
 from leartech_auth_service.models.admin_create_tenant_request import AdminCreateTenantRequest as AdminCreateTenantRequest
+from leartech_auth_service.models.admin_create_user_request import AdminCreateUserRequest as AdminCreateUserRequest
 from leartech_auth_service.models.admin_set_permissions_request import AdminSetPermissionsRequest as AdminSetPermissionsRequest
 from leartech_auth_service.models.admin_set_role_request import AdminSetRoleRequest as AdminSetRoleRequest
+from leartech_auth_service.models.admin_update_user_request import AdminUpdateUserRequest as AdminUpdateUserRequest
+from leartech_auth_service.models.admin_user_response import AdminUserResponse as AdminUserResponse
 from leartech_auth_service.models.auth_response import AuthResponse as AuthResponse
 from leartech_auth_service.models.dcr_error import DCRError as DCRError
 from leartech_auth_service.models.dcr_register_request import DCRRegisterRequest as DCRRegisterRequest

@@ -16,8 +16,11 @@
 if __import__("typing").TYPE_CHECKING:
     # import models into model package
     from leartech_auth_service.models.admin_create_tenant_request import AdminCreateTenantRequest
+    from leartech_auth_service.models.admin_create_user_request import AdminCreateUserRequest
     from leartech_auth_service.models.admin_set_permissions_request import AdminSetPermissionsRequest
     from leartech_auth_service.models.admin_set_role_request import AdminSetRoleRequest
+    from leartech_auth_service.models.admin_update_user_request import AdminUpdateUserRequest
+    from leartech_auth_service.models.admin_user_response import AdminUserResponse
     from leartech_auth_service.models.auth_response import AuthResponse
     from leartech_auth_service.models.dcr_error import DCRError
     from leartech_auth_service.models.dcr_register_request import DCRRegisterRequest
@@ -36,8 +39,11 @@ else:
             *as_package(__file__),
             """# import models into model package
 from leartech_auth_service.models.admin_create_tenant_request import AdminCreateTenantRequest
+from leartech_auth_service.models.admin_create_user_request import AdminCreateUserRequest
 from leartech_auth_service.models.admin_set_permissions_request import AdminSetPermissionsRequest
 from leartech_auth_service.models.admin_set_role_request import AdminSetRoleRequest
+from leartech_auth_service.models.admin_update_user_request import AdminUpdateUserRequest
+from leartech_auth_service.models.admin_user_response import AdminUserResponse
 from leartech_auth_service.models.auth_response import AuthResponse
 from leartech_auth_service.models.dcr_error import DCRError
 from leartech_auth_service.models.dcr_register_request import DCRRegisterRequest
