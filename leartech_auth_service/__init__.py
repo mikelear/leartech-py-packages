@@ -14,7 +14,7 @@
 """  # noqa: E501
 
 
-__version__ = "0.1.78"
+__version__ = "0.1.79"
 
 # Define package exports
 __all__ = [
@@ -35,6 +35,7 @@ __all__ = [
     "AdminCreateTenantRequest",
     "AdminSetPermissionsRequest",
     "AdminSetRoleRequest",
+    "AdminUserResponse",
     "AuthResponse",
     "DCRError",
     "DCRRegisterRequest",
@@ -69,6 +70,7 @@ if __import__("typing").TYPE_CHECKING:
     from leartech_auth_service.models.admin_create_tenant_request import AdminCreateTenantRequest as AdminCreateTenantRequest
     from leartech_auth_service.models.admin_set_permissions_request import AdminSetPermissionsRequest as AdminSetPermissionsRequest
     from leartech_auth_service.models.admin_set_role_request import AdminSetRoleRequest as AdminSetRoleRequest
+    from leartech_auth_service.models.admin_user_response import AdminUserResponse as AdminUserResponse
     from leartech_auth_service.models.auth_response import AuthResponse as AuthResponse
     from leartech_auth_service.models.dcr_error import DCRError as DCRError
     from leartech_auth_service.models.dcr_register_request import DCRRegisterRequest as DCRRegisterRequest
@@ -109,6 +111,7 @@ from leartech_auth_service.exceptions import ApiException as ApiException
 from leartech_auth_service.models.admin_create_tenant_request import AdminCreateTenantRequest as AdminCreateTenantRequest
 from leartech_auth_service.models.admin_set_permissions_request import AdminSetPermissionsRequest as AdminSetPermissionsRequest
 from leartech_auth_service.models.admin_set_role_request import AdminSetRoleRequest as AdminSetRoleRequest
+from leartech_auth_service.models.admin_user_response import AdminUserResponse as AdminUserResponse
 from leartech_auth_service.models.auth_response import AuthResponse as AuthResponse
 from leartech_auth_service.models.dcr_error import DCRError as DCRError
 from leartech_auth_service.models.dcr_register_request import DCRRegisterRequest as DCRRegisterRequest
