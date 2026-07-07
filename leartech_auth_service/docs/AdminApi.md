@@ -6,14 +6,19 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**admin_activate_user**](AdminApi.md#admin_activate_user) | **POST** /api/auth/admin/users/{id}/activate | Activate a user
 [**admin_create_tenant**](AdminApi.md#admin_create_tenant) | **POST** /api/auth/admin/tenants | Create a tenant
+[**admin_create_user**](AdminApi.md#admin_create_user) | **POST** /api/auth/admin/users | Create a user (tenant-fenced)
 [**admin_deactivate_user**](AdminApi.md#admin_deactivate_user) | **POST** /api/auth/admin/users/{id}/deactivate | Deactivate a user
 [**admin_delete_tenant**](AdminApi.md#admin_delete_tenant) | **DELETE** /api/auth/admin/tenants/{id} | Delete a tenant
+[**admin_delete_user**](AdminApi.md#admin_delete_user) | **DELETE** /api/auth/admin/users/{id} | Delete a user (tenant-fenced)
 [**admin_get_tenant**](AdminApi.md#admin_get_tenant) | **GET** /api/auth/admin/tenants/{id} | Get a tenant by ID
 [**admin_get_user**](AdminApi.md#admin_get_user) | **GET** /api/auth/admin/users/{id} | Get a user by ID (tenant-fenced)
 [**admin_list_tenants**](AdminApi.md#admin_list_tenants) | **GET** /api/auth/admin/tenants | List all tenants
 [**admin_list_users**](AdminApi.md#admin_list_users) | **GET** /api/auth/admin/users | List users in the caller&#39;s tenant
+[**admin_reset_passkeys**](AdminApi.md#admin_reset_passkeys) | **POST** /api/auth/admin/users/{id}/passkeys/reset | Reset a user&#39;s passkeys (tenant-fenced)
+[**admin_reset_two_factor**](AdminApi.md#admin_reset_two_factor) | **POST** /api/auth/admin/users/{id}/2fa/reset | Reset a user&#39;s 2FA (tenant-fenced)
 [**admin_set_user_permissions**](AdminApi.md#admin_set_user_permissions) | **PUT** /api/auth/admin/users/{id}/permissions | Set a user&#39;s permissions
 [**admin_set_user_role**](AdminApi.md#admin_set_user_role) | **PUT** /api/auth/admin/users/{id}/role | Set a user&#39;s role
+[**admin_update_user**](AdminApi.md#admin_update_user) | **PUT** /api/auth/admin/users/{id} | Update a user&#39;s profile (tenant-fenced)
 
 
 # **admin_activate_user**
@@ -159,6 +164,90 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**Tenant**](Tenant.md)
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**201** | Created |  -  |
+**400** | Bad Request |  -  |
+**401** | Unauthorized |  -  |
+**403** | Forbidden |  -  |
+**409** | Conflict |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **admin_create_user**
+> User admin_create_user(user)
+
+Create a user (tenant-fenced)
+
+Admin-only. Creates a user in the caller's tenant. Email must be unique (409). Granting platform-admin role/permission requires a platform admin. Audited.
+
+### Example
+
+* Api Key Authentication (ApiKeyAuth):
+
+```python
+import leartech_auth_service
+from leartech_auth_service.models.admin_create_user_request import AdminCreateUserRequest
+from leartech_auth_service.models.user import User
+from leartech_auth_service.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = leartech_auth_service.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: ApiKeyAuth
+configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+async with leartech_auth_service.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = leartech_auth_service.AdminApi(api_client)
+    user = leartech_auth_service.AdminCreateUserRequest() # AdminCreateUserRequest | New user
+
+    try:
+        # Create a user (tenant-fenced)
+        api_response = await api_instance.admin_create_user(user)
+        print("The response of AdminApi->admin_create_user:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling AdminApi->admin_create_user: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **user** | [**AdminCreateUserRequest**](AdminCreateUserRequest.md)| New user | 
+
+### Return type
+
+[**User**](User.md)
 
 ### Authorization
 
@@ -343,6 +432,85 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **admin_delete_user**
+> admin_delete_user(id)
+
+Delete a user (tenant-fenced)
+
+Admin-only. Hard-deletes a user in the caller's tenant (and their 2FA/passkeys). An admin cannot delete themselves. Audited.
+
+### Example
+
+* Api Key Authentication (ApiKeyAuth):
+
+```python
+import leartech_auth_service
+from leartech_auth_service.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = leartech_auth_service.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: ApiKeyAuth
+configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+async with leartech_auth_service.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = leartech_auth_service.AdminApi(api_client)
+    id = 'id_example' # str | User ID
+
+    try:
+        # Delete a user (tenant-fenced)
+        await api_instance.admin_delete_user(id)
+    except Exception as e:
+        print("Exception when calling AdminApi->admin_delete_user: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **str**| User ID | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**204** | deleted |  -  |
+**400** | Bad Request |  -  |
+**401** | Unauthorized |  -  |
+**404** | Not Found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **admin_get_tenant**
 > Tenant admin_get_tenant(id)
 
@@ -426,11 +594,11 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **admin_get_user**
-> User admin_get_user(id)
+> AdminUserResponse admin_get_user(id)
 
 Get a user by ID (tenant-fenced)
 
-Admin-only. Returns the user if they're in the caller's tenant, else 404.
+Admin-only. Returns the user (with has2FA/hasPasskey status) if they're in the caller's tenant, else 404.
 
 ### Example
 
@@ -438,7 +606,7 @@ Admin-only. Returns the user if they're in the caller's tenant, else 404.
 
 ```python
 import leartech_auth_service
-from leartech_auth_service.models.user import User
+from leartech_auth_service.models.admin_user_response import AdminUserResponse
 from leartech_auth_service.rest import ApiException
 from pprint import pprint
 
@@ -485,7 +653,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**User**](User.md)
+[**AdminUserResponse**](AdminUserResponse.md)
 
 ### Authorization
 
@@ -660,6 +828,164 @@ This endpoint does not need any parameter.
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **admin_reset_passkeys**
+> Dict[str, object] admin_reset_passkeys(id)
+
+Reset a user's passkeys (tenant-fenced)
+
+Admin-only. Removes all of the user's WebAuthn credentials so they must re-register. Audited.
+
+### Example
+
+* Api Key Authentication (ApiKeyAuth):
+
+```python
+import leartech_auth_service
+from leartech_auth_service.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = leartech_auth_service.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: ApiKeyAuth
+configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+async with leartech_auth_service.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = leartech_auth_service.AdminApi(api_client)
+    id = 'id_example' # str | User ID
+
+    try:
+        # Reset a user's passkeys (tenant-fenced)
+        api_response = await api_instance.admin_reset_passkeys(id)
+        print("The response of AdminApi->admin_reset_passkeys:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling AdminApi->admin_reset_passkeys: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **str**| User ID | 
+
+### Return type
+
+**Dict[str, object]**
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**401** | Unauthorized |  -  |
+**404** | Not Found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **admin_reset_two_factor**
+> admin_reset_two_factor(id)
+
+Reset a user's 2FA (tenant-fenced)
+
+Admin-only. Removes the user's TOTP enrolment so they must re-enrol. Audited.
+
+### Example
+
+* Api Key Authentication (ApiKeyAuth):
+
+```python
+import leartech_auth_service
+from leartech_auth_service.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = leartech_auth_service.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: ApiKeyAuth
+configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+async with leartech_auth_service.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = leartech_auth_service.AdminApi(api_client)
+    id = 'id_example' # str | User ID
+
+    try:
+        # Reset a user's 2FA (tenant-fenced)
+        await api_instance.admin_reset_two_factor(id)
+    except Exception as e:
+        print("Exception when calling AdminApi->admin_reset_two_factor: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **str**| User ID | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**204** | reset |  -  |
+**401** | Unauthorized |  -  |
+**404** | Not Found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **admin_set_user_permissions**
 > User admin_set_user_permissions(id, permissions)
 
@@ -805,6 +1131,91 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| User ID | 
  **role** | [**AdminSetRoleRequest**](AdminSetRoleRequest.md)| New role | 
+
+### Return type
+
+[**User**](User.md)
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**400** | Bad Request |  -  |
+**401** | Unauthorized |  -  |
+**404** | Not Found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **admin_update_user**
+> User admin_update_user(id, user)
+
+Update a user's profile (tenant-fenced)
+
+Admin-only. Updates the display name. Email/role/permissions have their own endpoints. Audited.
+
+### Example
+
+* Api Key Authentication (ApiKeyAuth):
+
+```python
+import leartech_auth_service
+from leartech_auth_service.models.admin_update_user_request import AdminUpdateUserRequest
+from leartech_auth_service.models.user import User
+from leartech_auth_service.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = leartech_auth_service.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: ApiKeyAuth
+configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+async with leartech_auth_service.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = leartech_auth_service.AdminApi(api_client)
+    id = 'id_example' # str | User ID
+    user = leartech_auth_service.AdminUpdateUserRequest() # AdminUpdateUserRequest | Profile fields
+
+    try:
+        # Update a user's profile (tenant-fenced)
+        api_response = await api_instance.admin_update_user(id, user)
+        print("The response of AdminApi->admin_update_user:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling AdminApi->admin_update_user: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **str**| User ID | 
+ **user** | [**AdminUpdateUserRequest**](AdminUpdateUserRequest.md)| Profile fields | 
 
 ### Return type
 
