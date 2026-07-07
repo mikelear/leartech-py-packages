@@ -426,11 +426,11 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **admin_get_user**
-> AdminUserResponse admin_get_user(id)
+> User admin_get_user(id)
 
 Get a user by ID (tenant-fenced)
 
-Admin-only. Returns the user (with has2FA/hasPasskey status) if they're in the caller's tenant, else 404.
+Admin-only. Returns the user if they're in the caller's tenant, else 404.
 
 ### Example
 
@@ -438,7 +438,7 @@ Admin-only. Returns the user (with has2FA/hasPasskey status) if they're in the c
 
 ```python
 import leartech_auth_service
-from leartech_auth_service.models.admin_user_response import AdminUserResponse
+from leartech_auth_service.models.user import User
 from leartech_auth_service.rest import ApiException
 from pprint import pprint
 
@@ -485,7 +485,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**AdminUserResponse**](AdminUserResponse.md)
+[**User**](User.md)
 
 ### Authorization
 
