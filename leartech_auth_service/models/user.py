@@ -31,12 +31,11 @@ class User(BaseModel):
     display_name: Optional[StrictStr] = Field(default=None, alias="displayName")
     email: Optional[StrictStr] = None
     id: Optional[StrictStr] = None
-    last_login_at: Optional[StrictStr] = Field(default=None, description="LastLoginAt is the most recent successful login (password or passkey). Nil when the user has never logged in (e.g. invite-pending). Read-only.", alias="lastLoginAt")
     permissions: Optional[List[StrictStr]] = None
     role: Optional[StrictStr] = None
     tenant_id: Optional[StrictStr] = Field(default=None, alias="tenantId")
     updated_at: Optional[StrictStr] = Field(default=None, alias="updatedAt")
-    __properties: ClassVar[List[str]] = ["active", "createdAt", "displayName", "email", "id", "lastLoginAt", "permissions", "role", "tenantId", "updatedAt"]
+    __properties: ClassVar[List[str]] = ["active", "createdAt", "displayName", "email", "id", "permissions", "role", "tenantId", "updatedAt"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -94,7 +93,6 @@ class User(BaseModel):
             "displayName": obj.get("displayName"),
             "email": obj.get("email"),
             "id": obj.get("id"),
-            "lastLoginAt": obj.get("lastLoginAt"),
             "permissions": obj.get("permissions"),
             "role": obj.get("role"),
             "tenantId": obj.get("tenantId"),

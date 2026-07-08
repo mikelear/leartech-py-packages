@@ -33,12 +33,11 @@ class AdminUserResponse(BaseModel):
     has2_fa: Optional[StrictBool] = Field(default=None, alias="has2FA")
     has_passkey: Optional[StrictBool] = Field(default=None, alias="hasPasskey")
     id: Optional[StrictStr] = None
-    last_login_at: Optional[StrictStr] = Field(default=None, description="LastLoginAt is the most recent successful login (password or passkey). Nil when the user has never logged in (e.g. invite-pending). Read-only.", alias="lastLoginAt")
     permissions: Optional[List[StrictStr]] = None
     role: Optional[StrictStr] = None
     tenant_id: Optional[StrictStr] = Field(default=None, alias="tenantId")
     updated_at: Optional[StrictStr] = Field(default=None, alias="updatedAt")
-    __properties: ClassVar[List[str]] = ["active", "createdAt", "displayName", "email", "has2FA", "hasPasskey", "id", "lastLoginAt", "permissions", "role", "tenantId", "updatedAt"]
+    __properties: ClassVar[List[str]] = ["active", "createdAt", "displayName", "email", "has2FA", "hasPasskey", "id", "permissions", "role", "tenantId", "updatedAt"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -98,7 +97,6 @@ class AdminUserResponse(BaseModel):
             "has2FA": obj.get("has2FA"),
             "hasPasskey": obj.get("hasPasskey"),
             "id": obj.get("id"),
-            "lastLoginAt": obj.get("lastLoginAt"),
             "permissions": obj.get("permissions"),
             "role": obj.get("role"),
             "tenantId": obj.get("tenantId"),
