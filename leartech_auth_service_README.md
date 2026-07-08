@@ -85,7 +85,6 @@ Class | Method | HTTP request | Description
 *AdminApi* | [**admin_get_tenant**](leartech_auth_service/docs/AdminApi.md#admin_get_tenant) | **GET** /api/auth/admin/tenants/{id} | Get a tenant by ID
 *AdminApi* | [**admin_get_user**](leartech_auth_service/docs/AdminApi.md#admin_get_user) | **GET** /api/auth/admin/users/{id} | Get a user by ID (tenant-fenced)
 *AdminApi* | [**admin_list_audit**](leartech_auth_service/docs/AdminApi.md#admin_list_audit) | **GET** /api/auth/admin/audit | List the admin audit log for the caller&#39;s tenant
-*AdminApi* | [**admin_list_clients**](leartech_auth_service/docs/AdminApi.md#admin_list_clients) | **GET** /api/auth/admin/clients | List registered OAuth2 clients (platform-admin)
 *AdminApi* | [**admin_list_tenants**](leartech_auth_service/docs/AdminApi.md#admin_list_tenants) | **GET** /api/auth/admin/tenants | List all tenants
 *AdminApi* | [**admin_list_users**](leartech_auth_service/docs/AdminApi.md#admin_list_users) | **GET** /api/auth/admin/users | List users in the caller&#39;s tenant
 *AdminApi* | [**admin_reset_passkeys**](leartech_auth_service/docs/AdminApi.md#admin_reset_passkeys) | **POST** /api/auth/admin/users/{id}/passkeys/reset | Reset a user&#39;s passkeys (tenant-fenced)

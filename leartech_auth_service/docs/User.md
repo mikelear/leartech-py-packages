@@ -10,7 +10,6 @@ Name | Type | Description | Notes
 **display_name** | **str** |  | [optional] 
 **email** | **str** |  | [optional] 
 **id** | **str** |  | [optional] 
-**last_login_at** | **str** | LastLoginAt is the most recent successful login (password or passkey). Nil when the user has never logged in (e.g. invite-pending). Read-only. | [optional] 
 **permissions** | **List[str]** |  | [optional] 
 **role** | **str** |  | [optional] 
 **tenant_id** | **str** |  | [optional] 

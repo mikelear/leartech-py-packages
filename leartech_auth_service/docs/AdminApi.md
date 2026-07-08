@@ -13,7 +13,6 @@ Method | HTTP request | Description
 [**admin_get_tenant**](AdminApi.md#admin_get_tenant) | **GET** /api/auth/admin/tenants/{id} | Get a tenant by ID
 [**admin_get_user**](AdminApi.md#admin_get_user) | **GET** /api/auth/admin/users/{id} | Get a user by ID (tenant-fenced)
 [**admin_list_audit**](AdminApi.md#admin_list_audit) | **GET** /api/auth/admin/audit | List the admin audit log for the caller&#39;s tenant
-[**admin_list_clients**](AdminApi.md#admin_list_clients) | **GET** /api/auth/admin/clients | List registered OAuth2 clients (platform-admin)
 [**admin_list_tenants**](AdminApi.md#admin_list_tenants) | **GET** /api/auth/admin/tenants | List all tenants
 [**admin_list_users**](AdminApi.md#admin_list_users) | **GET** /api/auth/admin/users | List users in the caller&#39;s tenant
 [**admin_reset_passkeys**](AdminApi.md#admin_reset_passkeys) | **POST** /api/auth/admin/users/{id}/passkeys/reset | Reset a user&#39;s passkeys (tenant-fenced)
@@ -737,87 +736,6 @@ Name | Type | Description  | Notes
  **limit** | **int**| Page size (default 50, max 200) | [optional] 
  **offset** | **int**| Offset for pagination (default 0) | [optional] 
  **action** | **str**| Filter by action | [optional] 
-
-### Return type
-
-**Dict[str, object]**
-
-### Authorization
-
-[ApiKeyAuth](../README.md#ApiKeyAuth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-### HTTP response details
-
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | OK |  -  |
-**401** | Unauthorized |  -  |
-**403** | Forbidden |  -  |
-**500** | Internal Server Error |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **admin_list_clients**
-> Dict[str, object] admin_list_clients(limit=limit)
-
-List registered OAuth2 clients (platform-admin)
-
-Platform-admin only. Proxies Hydra's OAuth2 client registry (client_secret is never returned). Optional ?limit (default 100, max 500).
-
-### Example
-
-* Api Key Authentication (ApiKeyAuth):
-
-```python
-import leartech_auth_service
-from leartech_auth_service.rest import ApiException
-from pprint import pprint
-
-# Defining the host is optional and defaults to http://localhost
-# See configuration.py for a list of all supported configuration parameters.
-configuration = leartech_auth_service.Configuration(
-    host = "http://localhost"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
-
-# Enter a context with an instance of the API client
-async with leartech_auth_service.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = leartech_auth_service.AdminApi(api_client)
-    limit = 56 # int | Page size (default 100, max 500) (optional)
-
-    try:
-        # List registered OAuth2 clients (platform-admin)
-        api_response = await api_instance.admin_list_clients(limit=limit)
-        print("The response of AdminApi->admin_list_clients:\n")
-        pprint(api_response)
-    except Exception as e:
-        print("Exception when calling AdminApi->admin_list_clients: %s\n" % e)
-```
-
-
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **limit** | **int**| Page size (default 100, max 500) | [optional] 
 
 ### Return type
 
