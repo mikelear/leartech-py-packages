@@ -2,7 +2,7 @@
   "leartech-ai-gateway": {
     "dir": "leartech_ai_gateway",
     "name": "leartech-ai-gateway",
-    "version": "0.0.20"
+    "version": "0.0.21"
   },
   "leartech-auth-service": {
     "dir": "leartech_auth_service",
