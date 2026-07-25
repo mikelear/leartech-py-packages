@@ -1,4 +1,9 @@
 {
+  "hello-go5": {
+    "dir": "hello_go5",
+    "name": "hello-go5",
+    "version": "0.0.1"
+  },
   "leartech-ai-gateway": {
     "dir": "leartech_ai_gateway",
     "name": "leartech-ai-gateway",
