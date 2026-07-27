@@ -4,6 +4,11 @@
     "name": "hello-go5",
     "version": "0.0.1"
   },
+  "hello-go7": {
+    "dir": "hello_go7",
+    "name": "hello-go7",
+    "version": "0.0.1"
+  },
   "leartech-ai-gateway": {
     "dir": "leartech_ai_gateway",
     "name": "leartech-ai-gateway",
