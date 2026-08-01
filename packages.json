@@ -17,7 +17,7 @@
   "leartech-auth-service": {
     "dir": "leartech_auth_service",
     "name": "leartech-auth-service",
-    "version": "0.1.99"
+    "version": "0.1.100"
   },
   "leartech-catalog-mcp": {
     "dir": "leartech_catalog_mcp",
