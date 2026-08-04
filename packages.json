@@ -52,7 +52,7 @@
   "leartech-plan-conformance-consumer": {
     "dir": "leartech_plan_conformance_consumer",
     "name": "leartech-plan-conformance-consumer",
-    "version": "0.0.1"
+    "version": "0.0.2"
   },
   "leartech-qa-canary": {
     "dir": "leartech_qa_canary",

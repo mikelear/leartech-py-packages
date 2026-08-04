@@ -1,16 +1,16 @@
-# leartech_plan_conformance_consumer.ExampleApi
+# leartech_plan_conformance_consumer.FleetTestApi
 
 All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**api_v1_example_get**](ExampleApi.md#api_v1_example_get) | **GET** /api/v1/example | Example endpoint
+[**api_v1_fleet_test_get**](FleetTestApi.md#api_v1_fleet_test_get) | **GET** /api/v1/fleet-test | Fleet test endpoint — calls peer template SDKs to prove cross-service auth + SDK wiring.
 
 
-# **api_v1_example_get**
-> InternalHandlersExampleResponse api_v1_example_get()
+# **api_v1_fleet_test_get**
+> InternalHandlersFleetTestResponse api_v1_fleet_test_get()
 
-Example endpoint
+Fleet test endpoint — calls peer template SDKs to prove cross-service auth + SDK wiring.
 
 ### Example
 
@@ -18,7 +18,7 @@ Example endpoint
 
 ```python
 import leartech_plan_conformance_consumer
-from leartech_plan_conformance_consumer.models.internal_handlers_example_response import InternalHandlersExampleResponse
+from leartech_plan_conformance_consumer.models.internal_handlers_fleet_test_response import InternalHandlersFleetTestResponse
 from leartech_plan_conformance_consumer.rest import ApiException
 from pprint import pprint
 
@@ -42,15 +42,15 @@ configuration.api_key['BearerAuth'] = os.environ["API_KEY"]
 # Enter a context with an instance of the API client
 async with leartech_plan_conformance_consumer.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = leartech_plan_conformance_consumer.ExampleApi(api_client)
+    api_instance = leartech_plan_conformance_consumer.FleetTestApi(api_client)
 
     try:
-        # Example endpoint
-        api_response = await api_instance.api_v1_example_get()
-        print("The response of ExampleApi->api_v1_example_get:\n")
+        # Fleet test endpoint — calls peer template SDKs to prove cross-service auth + SDK wiring.
+        api_response = await api_instance.api_v1_fleet_test_get()
+        print("The response of FleetTestApi->api_v1_fleet_test_get:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling ExampleApi->api_v1_example_get: %s\n" % e)
+        print("Exception when calling FleetTestApi->api_v1_fleet_test_get: %s\n" % e)
 ```
 
 
@@ -61,7 +61,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**InternalHandlersExampleResponse**](InternalHandlersExampleResponse.md)
+[**InternalHandlersFleetTestResponse**](InternalHandlersFleetTestResponse.md)
 
 ### Authorization
 
