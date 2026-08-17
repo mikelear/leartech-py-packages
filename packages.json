@@ -32,7 +32,7 @@
   "leartech-lighthouse-pr-events": {
     "dir": "leartech_lighthouse_pr_events",
     "name": "leartech-lighthouse-pr-events",
-    "version": "0.0.1"
+    "version": "0.0.2"
   },
   "leartech-maestro-service": {
     "dir": "leartech_maestro_service",
