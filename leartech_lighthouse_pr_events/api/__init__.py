@@ -2,9 +2,8 @@
 
 if __import__("typing").TYPE_CHECKING:
     # import apis into api package
-    from leartech_lighthouse_pr_events.api.example_api import ExampleApi
-    from leartech_lighthouse_pr_events.api.fleet_test_api import FleetTestApi
     from leartech_lighthouse_pr_events.api.health_api import HealthApi
+    from leartech_lighthouse_pr_events.api.webhook_api import WebhookApi
     
 else:
     from lazy_imports import LazyModule, as_package, load
@@ -13,9 +12,8 @@ else:
         LazyModule(
             *as_package(__file__),
             """# import apis into api package
-from leartech_lighthouse_pr_events.api.example_api import ExampleApi
-from leartech_lighthouse_pr_events.api.fleet_test_api import FleetTestApi
 from leartech_lighthouse_pr_events.api.health_api import HealthApi
+from leartech_lighthouse_pr_events.api.webhook_api import WebhookApi
 
 """,
             name=__name__,
