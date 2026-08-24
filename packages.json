@@ -27,7 +27,7 @@
   "leartech-go-service-template": {
     "dir": "leartech_go_service_template",
     "name": "leartech-go-service-template",
-    "version": "0.1.103"
+    "version": "0.1.104"
   },
   "leartech-lighthouse-pr-events": {
     "dir": "leartech_lighthouse_pr_events",
