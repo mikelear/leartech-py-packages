@@ -28,7 +28,8 @@ class ApiChatMessage(BaseModel):
     """ # noqa: E501
     content: Optional[StrictStr] = None
     role: Optional[StrictStr] = None
-    __properties: ClassVar[List[str]] = ["content", "role"]
+    tool_calls: Optional[Dict[str, Any]] = None
+    __properties: ClassVar[List[str]] = ["content", "role", "tool_calls"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -82,7 +83,8 @@ class ApiChatMessage(BaseModel):
 
         _obj = cls.model_validate({
             "content": obj.get("content"),
-            "role": obj.get("role")
+            "role": obj.get("role"),
+            "tool_calls": obj.get("tool_calls")
         })
         return _obj
 

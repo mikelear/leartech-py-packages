@@ -15,16 +15,20 @@
 
 if __import__("typing").TYPE_CHECKING:
     # import models into model package
-    from leartech_ai_gateway.models.api_api_error import ApiAPIError
     from leartech_ai_gateway.models.api_chat_completion_request import ApiChatCompletionRequest
     from leartech_ai_gateway.models.api_chat_completion_response import ApiChatCompletionResponse
     from leartech_ai_gateway.models.api_chat_message import ApiChatMessage
     from leartech_ai_gateway.models.api_choice import ApiChoice
+    from leartech_ai_gateway.models.api_error import ApiError
     from leartech_ai_gateway.models.api_error_response import ApiErrorResponse
     from leartech_ai_gateway.models.api_leartech_ext import ApiLeartechExt
     from leartech_ai_gateway.models.api_model import ApiModel
     from leartech_ai_gateway.models.api_models_response import ApiModelsResponse
+    from leartech_ai_gateway.models.api_request_message import ApiRequestMessage
     from leartech_ai_gateway.models.api_usage import ApiUsage
+    from leartech_ai_gateway.models.webfetch_result import WebfetchResult
+    from leartech_ai_gateway.models.websearch_item import WebsearchItem
+    from leartech_ai_gateway.models.websearch_results import WebsearchResults
     
 else:
     from lazy_imports import LazyModule, as_package, load
@@ -33,16 +37,20 @@ else:
         LazyModule(
             *as_package(__file__),
             """# import models into model package
-from leartech_ai_gateway.models.api_api_error import ApiAPIError
 from leartech_ai_gateway.models.api_chat_completion_request import ApiChatCompletionRequest
 from leartech_ai_gateway.models.api_chat_completion_response import ApiChatCompletionResponse
 from leartech_ai_gateway.models.api_chat_message import ApiChatMessage
 from leartech_ai_gateway.models.api_choice import ApiChoice
+from leartech_ai_gateway.models.api_error import ApiError
 from leartech_ai_gateway.models.api_error_response import ApiErrorResponse
 from leartech_ai_gateway.models.api_leartech_ext import ApiLeartechExt
 from leartech_ai_gateway.models.api_model import ApiModel
 from leartech_ai_gateway.models.api_models_response import ApiModelsResponse
+from leartech_ai_gateway.models.api_request_message import ApiRequestMessage
 from leartech_ai_gateway.models.api_usage import ApiUsage
+from leartech_ai_gateway.models.webfetch_result import WebfetchResult
+from leartech_ai_gateway.models.websearch_item import WebsearchItem
+from leartech_ai_gateway.models.websearch_results import WebsearchResults
 
 """,
             name=__name__,

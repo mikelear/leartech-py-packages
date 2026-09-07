@@ -6,10 +6,12 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **max_tokens** | **int** |  | [optional] 
-**messages** | [**List[ApiChatMessage]**](ApiChatMessage.md) |  | 
+**messages** | [**List[ApiRequestMessage]**](ApiRequestMessage.md) |  | 
 **model** | **str** |  | 
 **stream** | **bool** |  | [optional] 
 **temperature** | **float** |  | [optional] 
+**tool_choice** | **object** |  | [optional] 
+**tools** | **object** | S7b passthrough: forwarded verbatim to OpenAI-compatible providers. | [optional] 
 **x_leartech** | [**ApiLeartechExt**](ApiLeartechExt.md) |  | [optional] 
 
 ## Example

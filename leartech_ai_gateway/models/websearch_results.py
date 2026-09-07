@@ -17,18 +17,20 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict
+from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from leartech_ai_gateway.models.api_error import ApiError
+from leartech_ai_gateway.models.websearch_item import WebsearchItem
 from typing import Optional, Set
 from typing_extensions import Self
 
-class ApiErrorResponse(BaseModel):
+class WebsearchResults(BaseModel):
     """
-    ApiErrorResponse
+    WebsearchResults
     """ # noqa: E501
-    error: Optional[ApiError] = None
-    __properties: ClassVar[List[str]] = ["error"]
+    answer: Optional[StrictStr] = Field(default=None, description="synthesized answer when the provider offers one (Tavily)")
+    provider: Optional[StrictStr] = None
+    results: Optional[List[WebsearchItem]] = None
+    __properties: ClassVar[List[str]] = ["answer", "provider", "results"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -48,7 +50,7 @@ class ApiErrorResponse(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of ApiErrorResponse from a JSON string"""
+        """Create an instance of WebsearchResults from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -69,14 +71,18 @@ class ApiErrorResponse(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of error
-        if self.error:
-            _dict['error'] = self.error.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of each item in results (list)
+        _items = []
+        if self.results:
+            for _item_results in self.results:
+                if _item_results:
+                    _items.append(_item_results.to_dict())
+            _dict['results'] = _items
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of ApiErrorResponse from a dict"""
+        """Create an instance of WebsearchResults from a dict"""
         if obj is None:
             return None
 
@@ -84,7 +90,9 @@ class ApiErrorResponse(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "error": ApiError.from_dict(obj["error"]) if obj.get("error") is not None else None
+            "answer": obj.get("answer"),
+            "provider": obj.get("provider"),
+            "results": [WebsearchItem.from_dict(_item) for _item in obj["results"]] if obj.get("results") is not None else None
         })
         return _obj
 

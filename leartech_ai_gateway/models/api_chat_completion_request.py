@@ -20,8 +20,8 @@ import json
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictFloat, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional, Union
 from typing_extensions import Annotated
-from leartech_ai_gateway.models.api_chat_message import ApiChatMessage
 from leartech_ai_gateway.models.api_leartech_ext import ApiLeartechExt
+from leartech_ai_gateway.models.api_request_message import ApiRequestMessage
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -30,12 +30,14 @@ class ApiChatCompletionRequest(BaseModel):
     ApiChatCompletionRequest
     """ # noqa: E501
     max_tokens: Optional[StrictInt] = None
-    messages: Annotated[List[ApiChatMessage], Field(min_length=1)]
+    messages: Annotated[List[ApiRequestMessage], Field(min_length=1)]
     model: StrictStr
     stream: Optional[StrictBool] = None
     temperature: Optional[Union[StrictFloat, StrictInt]] = None
+    tool_choice: Optional[Dict[str, Any]] = None
+    tools: Optional[Dict[str, Any]] = Field(default=None, description="S7b passthrough: forwarded verbatim to OpenAI-compatible providers.")
     x_leartech: Optional[ApiLeartechExt] = None
-    __properties: ClassVar[List[str]] = ["max_tokens", "messages", "model", "stream", "temperature", "x_leartech"]
+    __properties: ClassVar[List[str]] = ["max_tokens", "messages", "model", "stream", "temperature", "tool_choice", "tools", "x_leartech"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -99,10 +101,12 @@ class ApiChatCompletionRequest(BaseModel):
 
         _obj = cls.model_validate({
             "max_tokens": obj.get("max_tokens"),
-            "messages": [ApiChatMessage.from_dict(_item) for _item in obj["messages"]] if obj.get("messages") is not None else None,
+            "messages": [ApiRequestMessage.from_dict(_item) for _item in obj["messages"]] if obj.get("messages") is not None else None,
             "model": obj.get("model"),
             "stream": obj.get("stream"),
             "temperature": obj.get("temperature"),
+            "tool_choice": obj.get("tool_choice"),
+            "tools": obj.get("tools"),
             "x_leartech": ApiLeartechExt.from_dict(obj["x_leartech"]) if obj.get("x_leartech") is not None else None
         })
         return _obj

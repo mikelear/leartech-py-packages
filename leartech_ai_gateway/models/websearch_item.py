@@ -17,18 +17,20 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict
-from typing import Any, ClassVar, Dict, List, Optional
-from leartech_ai_gateway.models.api_error import ApiError
+from pydantic import BaseModel, ConfigDict, StrictFloat, StrictInt, StrictStr
+from typing import Any, ClassVar, Dict, List, Optional, Union
 from typing import Optional, Set
 from typing_extensions import Self
 
-class ApiErrorResponse(BaseModel):
+class WebsearchItem(BaseModel):
     """
-    ApiErrorResponse
+    WebsearchItem
     """ # noqa: E501
-    error: Optional[ApiError] = None
-    __properties: ClassVar[List[str]] = ["error"]
+    content: Optional[StrictStr] = None
+    score: Optional[Union[StrictFloat, StrictInt]] = None
+    title: Optional[StrictStr] = None
+    url: Optional[StrictStr] = None
+    __properties: ClassVar[List[str]] = ["content", "score", "title", "url"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -48,7 +50,7 @@ class ApiErrorResponse(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of ApiErrorResponse from a JSON string"""
+        """Create an instance of WebsearchItem from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -69,14 +71,11 @@ class ApiErrorResponse(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of error
-        if self.error:
-            _dict['error'] = self.error.to_dict()
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of ApiErrorResponse from a dict"""
+        """Create an instance of WebsearchItem from a dict"""
         if obj is None:
             return None
 
@@ -84,7 +83,10 @@ class ApiErrorResponse(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "error": ApiError.from_dict(obj["error"]) if obj.get("error") is not None else None
+            "content": obj.get("content"),
+            "score": obj.get("score"),
+            "title": obj.get("title"),
+            "url": obj.get("url")
         })
         return _obj
 

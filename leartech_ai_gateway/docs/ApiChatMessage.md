@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **content** | **str** |  | [optional] 
 **role** | **str** |  | [optional] 
+**tool_calls** | **object** |  | [optional] 
 
 ## Example
 
