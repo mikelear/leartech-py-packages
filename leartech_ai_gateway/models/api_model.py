@@ -17,7 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
@@ -27,9 +27,11 @@ class ApiModel(BaseModel):
     ApiModel
     """ # noqa: E501
     id: Optional[StrictStr] = None
+    max_ctx: Optional[StrictInt] = Field(default=None, description="Capabilities/limits so callers can cap what they can't otherwise see (INTERFACES.md §4 \"degrade visibly, never silently\"). max_ctx is the model's context window; vision reports image-input support.")
     object: Optional[StrictStr] = None
     owned_by: Optional[StrictStr] = None
-    __properties: ClassVar[List[str]] = ["id", "object", "owned_by"]
+    vision: Optional[StrictBool] = None
+    __properties: ClassVar[List[str]] = ["id", "max_ctx", "object", "owned_by", "vision"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -83,8 +85,10 @@ class ApiModel(BaseModel):
 
         _obj = cls.model_validate({
             "id": obj.get("id"),
+            "max_ctx": obj.get("max_ctx"),
             "object": obj.get("object"),
-            "owned_by": obj.get("owned_by")
+            "owned_by": obj.get("owned_by"),
+            "vision": obj.get("vision")
         })
         return _obj
 

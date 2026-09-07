@@ -6,8 +6,10 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **str** |  | [optional] 
+**max_ctx** | **int** | Capabilities/limits so callers can cap what they can&#39;t otherwise see (INTERFACES.md §4 \&quot;degrade visibly, never silently\&quot;). max_ctx is the model&#39;s context window; vision reports image-input support. | [optional] 
 **object** | **str** |  | [optional] 
 **owned_by** | **str** |  | [optional] 
+**vision** | **bool** |  | [optional] 
 
 ## Example
 
