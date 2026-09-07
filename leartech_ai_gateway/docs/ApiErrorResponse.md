@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**error** | [**ApiAPIError**](ApiAPIError.md) |  | [optional] 
+**error** | [**ApiError**](ApiError.md) |  | [optional] 
 
 ## Example
 
