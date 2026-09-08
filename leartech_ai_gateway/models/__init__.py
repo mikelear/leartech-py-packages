@@ -15,6 +15,7 @@
 
 if __import__("typing").TYPE_CHECKING:
     # import models into model package
+    from leartech_ai_gateway.models.api_amend_key_request import ApiAmendKeyRequest
     from leartech_ai_gateway.models.api_chat_completion_request import ApiChatCompletionRequest
     from leartech_ai_gateway.models.api_chat_completion_response import ApiChatCompletionResponse
     from leartech_ai_gateway.models.api_chat_message import ApiChatMessage
@@ -43,6 +44,7 @@ else:
         LazyModule(
             *as_package(__file__),
             """# import models into model package
+from leartech_ai_gateway.models.api_amend_key_request import ApiAmendKeyRequest
 from leartech_ai_gateway.models.api_chat_completion_request import ApiChatCompletionRequest
 from leartech_ai_gateway.models.api_chat_completion_response import ApiChatCompletionResponse
 from leartech_ai_gateway.models.api_chat_message import ApiChatMessage
