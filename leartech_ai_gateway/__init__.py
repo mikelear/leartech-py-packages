@@ -14,10 +14,11 @@
 """  # noqa: E501
 
 
-__version__ = "0.0.52"
+__version__ = "0.0.53"
 
 # Define package exports
 __all__ = [
+    "AdminApi",
     "ChatApi",
     "EmbeddingsApi",
     "ModelsApi",
@@ -35,13 +36,19 @@ __all__ = [
     "ApiChatCompletionResponse",
     "ApiChatMessage",
     "ApiChoice",
+    "ApiCreateKeyRequest",
+    "ApiCreateKeyResponse",
     "ApiError",
     "ApiErrorResponse",
+    "ApiKeyView",
     "ApiLeartechExt",
+    "ApiListKeysResponse",
     "ApiModel",
     "ApiModelsResponse",
     "ApiRequestMessage",
     "ApiUsage",
+    "ApiUsageResponse",
+    "StoreUsageRow",
     "WebfetchResult",
     "WebsearchItem",
     "WebsearchResults",
@@ -49,6 +56,7 @@ __all__ = [
 
 if __import__("typing").TYPE_CHECKING:
     # import apis into sdk package
+    from leartech_ai_gateway.api.admin_api import AdminApi as AdminApi
     from leartech_ai_gateway.api.chat_api import ChatApi as ChatApi
     from leartech_ai_gateway.api.embeddings_api import EmbeddingsApi as EmbeddingsApi
     from leartech_ai_gateway.api.models_api import ModelsApi as ModelsApi
@@ -70,13 +78,19 @@ if __import__("typing").TYPE_CHECKING:
     from leartech_ai_gateway.models.api_chat_completion_response import ApiChatCompletionResponse as ApiChatCompletionResponse
     from leartech_ai_gateway.models.api_chat_message import ApiChatMessage as ApiChatMessage
     from leartech_ai_gateway.models.api_choice import ApiChoice as ApiChoice
+    from leartech_ai_gateway.models.api_create_key_request import ApiCreateKeyRequest as ApiCreateKeyRequest
+    from leartech_ai_gateway.models.api_create_key_response import ApiCreateKeyResponse as ApiCreateKeyResponse
     from leartech_ai_gateway.models.api_error import ApiError as ApiError
     from leartech_ai_gateway.models.api_error_response import ApiErrorResponse as ApiErrorResponse
+    from leartech_ai_gateway.models.api_key_view import ApiKeyView as ApiKeyView
     from leartech_ai_gateway.models.api_leartech_ext import ApiLeartechExt as ApiLeartechExt
+    from leartech_ai_gateway.models.api_list_keys_response import ApiListKeysResponse as ApiListKeysResponse
     from leartech_ai_gateway.models.api_model import ApiModel as ApiModel
     from leartech_ai_gateway.models.api_models_response import ApiModelsResponse as ApiModelsResponse
     from leartech_ai_gateway.models.api_request_message import ApiRequestMessage as ApiRequestMessage
     from leartech_ai_gateway.models.api_usage import ApiUsage as ApiUsage
+    from leartech_ai_gateway.models.api_usage_response import ApiUsageResponse as ApiUsageResponse
+    from leartech_ai_gateway.models.store_usage_row import StoreUsageRow as StoreUsageRow
     from leartech_ai_gateway.models.webfetch_result import WebfetchResult as WebfetchResult
     from leartech_ai_gateway.models.websearch_item import WebsearchItem as WebsearchItem
     from leartech_ai_gateway.models.websearch_results import WebsearchResults as WebsearchResults
@@ -90,6 +104,7 @@ else:
             ("__version__", __version__),
             ("__all__", __all__),
             """# import apis into sdk package
+from leartech_ai_gateway.api.admin_api import AdminApi as AdminApi
 from leartech_ai_gateway.api.chat_api import ChatApi as ChatApi
 from leartech_ai_gateway.api.embeddings_api import EmbeddingsApi as EmbeddingsApi
 from leartech_ai_gateway.api.models_api import ModelsApi as ModelsApi
@@ -111,13 +126,19 @@ from leartech_ai_gateway.models.api_chat_completion_request import ApiChatComple
 from leartech_ai_gateway.models.api_chat_completion_response import ApiChatCompletionResponse as ApiChatCompletionResponse
 from leartech_ai_gateway.models.api_chat_message import ApiChatMessage as ApiChatMessage
 from leartech_ai_gateway.models.api_choice import ApiChoice as ApiChoice
+from leartech_ai_gateway.models.api_create_key_request import ApiCreateKeyRequest as ApiCreateKeyRequest
+from leartech_ai_gateway.models.api_create_key_response import ApiCreateKeyResponse as ApiCreateKeyResponse
 from leartech_ai_gateway.models.api_error import ApiError as ApiError
 from leartech_ai_gateway.models.api_error_response import ApiErrorResponse as ApiErrorResponse
+from leartech_ai_gateway.models.api_key_view import ApiKeyView as ApiKeyView
 from leartech_ai_gateway.models.api_leartech_ext import ApiLeartechExt as ApiLeartechExt
+from leartech_ai_gateway.models.api_list_keys_response import ApiListKeysResponse as ApiListKeysResponse
 from leartech_ai_gateway.models.api_model import ApiModel as ApiModel
 from leartech_ai_gateway.models.api_models_response import ApiModelsResponse as ApiModelsResponse
 from leartech_ai_gateway.models.api_request_message import ApiRequestMessage as ApiRequestMessage
 from leartech_ai_gateway.models.api_usage import ApiUsage as ApiUsage
+from leartech_ai_gateway.models.api_usage_response import ApiUsageResponse as ApiUsageResponse
+from leartech_ai_gateway.models.store_usage_row import StoreUsageRow as StoreUsageRow
 from leartech_ai_gateway.models.webfetch_result import WebfetchResult as WebfetchResult
 from leartech_ai_gateway.models.websearch_item import WebsearchItem as WebsearchItem
 from leartech_ai_gateway.models.websearch_results import WebsearchResults as WebsearchResults
