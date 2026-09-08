@@ -6,6 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**admin_v1_keys_get**](AdminApi.md#admin_v1_keys_get) | **GET** /admin/v1/keys | List virtual keys for the caller&#39;s tenant
 [**admin_v1_keys_keyid_delete**](AdminApi.md#admin_v1_keys_keyid_delete) | **DELETE** /admin/v1/keys/{keyid} | Revoke a virtual key (soft; never deleted)
+[**admin_v1_keys_keyid_patch**](AdminApi.md#admin_v1_keys_keyid_patch) | **PATCH** /admin/v1/keys/{keyid} | Amend a key&#39;s policy (narrowing only)
 [**admin_v1_keys_keyid_rotate_post**](AdminApi.md#admin_v1_keys_keyid_rotate_post) | **POST** /admin/v1/keys/{keyid}/rotate | Rotate a key&#39;s secret (returned once)
 [**admin_v1_keys_post**](AdminApi.md#admin_v1_keys_post) | **POST** /admin/v1/keys | Mint a virtual key (secret returned once)
 [**admin_v1_usage_get**](AdminApi.md#admin_v1_usage_get) | **GET** /admin/v1/usage | Usage and spend for the caller&#39;s tenant this month
@@ -134,6 +135,78 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | No Content |  -  |
+**403** | Forbidden |  -  |
+**404** | Not Found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **admin_v1_keys_keyid_patch**
+> ApiListKeysResponse admin_v1_keys_keyid_patch(keyid, request)
+
+Amend a key's policy (narrowing only)
+
+### Example
+
+
+```python
+import leartech_ai_gateway
+from leartech_ai_gateway.models.api_amend_key_request import ApiAmendKeyRequest
+from leartech_ai_gateway.models.api_list_keys_response import ApiListKeysResponse
+from leartech_ai_gateway.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = leartech_ai_gateway.Configuration(
+    host = "http://localhost"
+)
+
+
+# Enter a context with an instance of the API client
+async with leartech_ai_gateway.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = leartech_ai_gateway.AdminApi(api_client)
+    keyid = 'keyid_example' # str | key id
+    request = leartech_ai_gateway.ApiAmendKeyRequest() # ApiAmendKeyRequest | policy changes
+
+    try:
+        # Amend a key's policy (narrowing only)
+        api_response = await api_instance.admin_v1_keys_keyid_patch(keyid, request)
+        print("The response of AdminApi->admin_v1_keys_keyid_patch:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling AdminApi->admin_v1_keys_keyid_patch: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **keyid** | **str**| key id | 
+ **request** | [**ApiAmendKeyRequest**](ApiAmendKeyRequest.md)| policy changes | 
+
+### Return type
+
+[**ApiListKeysResponse**](ApiListKeysResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**400** | Bad Request |  -  |
 **403** | Forbidden |  -  |
 **404** | Not Found |  -  |
 

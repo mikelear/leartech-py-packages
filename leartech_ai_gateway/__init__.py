@@ -14,7 +14,7 @@
 """  # noqa: E501
 
 
-__version__ = "0.0.53"
+__version__ = "0.0.54"
 
 # Define package exports
 __all__ = [
@@ -32,6 +32,7 @@ __all__ = [
     "ApiKeyError",
     "ApiAttributeError",
     "ApiException",
+    "ApiAmendKeyRequest",
     "ApiChatCompletionRequest",
     "ApiChatCompletionResponse",
     "ApiChatMessage",
@@ -74,6 +75,7 @@ if __import__("typing").TYPE_CHECKING:
     from leartech_ai_gateway.exceptions import ApiException as ApiException
     
     # import models into sdk package
+    from leartech_ai_gateway.models.api_amend_key_request import ApiAmendKeyRequest as ApiAmendKeyRequest
     from leartech_ai_gateway.models.api_chat_completion_request import ApiChatCompletionRequest as ApiChatCompletionRequest
     from leartech_ai_gateway.models.api_chat_completion_response import ApiChatCompletionResponse as ApiChatCompletionResponse
     from leartech_ai_gateway.models.api_chat_message import ApiChatMessage as ApiChatMessage
@@ -122,6 +124,7 @@ from leartech_ai_gateway.exceptions import ApiAttributeError as ApiAttributeErro
 from leartech_ai_gateway.exceptions import ApiException as ApiException
 
 # import models into sdk package
+from leartech_ai_gateway.models.api_amend_key_request import ApiAmendKeyRequest as ApiAmendKeyRequest
 from leartech_ai_gateway.models.api_chat_completion_request import ApiChatCompletionRequest as ApiChatCompletionRequest
 from leartech_ai_gateway.models.api_chat_completion_response import ApiChatCompletionResponse as ApiChatCompletionResponse
 from leartech_ai_gateway.models.api_chat_message import ApiChatMessage as ApiChatMessage
