@@ -16,6 +16,8 @@
 if __import__("typing").TYPE_CHECKING:
     # import models into model package
     from leartech_catalog_mcp.models.handlers_example_response import HandlersExampleResponse
+    from leartech_catalog_mcp.models.handlers_fleet_test_response import HandlersFleetTestResponse
+    from leartech_catalog_mcp.models.handlers_peer_result import HandlersPeerResult
     
 else:
     from lazy_imports import LazyModule, as_package, load
@@ -25,6 +27,8 @@ else:
             *as_package(__file__),
             """# import models into model package
 from leartech_catalog_mcp.models.handlers_example_response import HandlersExampleResponse
+from leartech_catalog_mcp.models.handlers_fleet_test_response import HandlersFleetTestResponse
+from leartech_catalog_mcp.models.handlers_peer_result import HandlersPeerResult
 
 """,
             name=__name__,
