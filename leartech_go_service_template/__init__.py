@@ -14,11 +14,12 @@
 """  # noqa: E501
 
 
-__version__ = "0.1.108"
+__version__ = "0.1.109"
 
 # Define package exports
 __all__ = [
     "ExampleApi",
+    "FleetTestApi",
     "HealthApi",
     "ApiResponse",
     "ApiClient",
@@ -30,11 +31,14 @@ __all__ = [
     "ApiAttributeError",
     "ApiException",
     "HandlersExampleResponse",
+    "HandlersFleetTestResponse",
+    "HandlersPeerResult",
 ]
 
 if __import__("typing").TYPE_CHECKING:
     # import apis into sdk package
     from leartech_go_service_template.api.example_api import ExampleApi as ExampleApi
+    from leartech_go_service_template.api.fleet_test_api import FleetTestApi as FleetTestApi
     from leartech_go_service_template.api.health_api import HealthApi as HealthApi
     
     # import ApiClient
@@ -50,6 +54,8 @@ if __import__("typing").TYPE_CHECKING:
     
     # import models into sdk package
     from leartech_go_service_template.models.handlers_example_response import HandlersExampleResponse as HandlersExampleResponse
+    from leartech_go_service_template.models.handlers_fleet_test_response import HandlersFleetTestResponse as HandlersFleetTestResponse
+    from leartech_go_service_template.models.handlers_peer_result import HandlersPeerResult as HandlersPeerResult
     
 else:
     from lazy_imports import LazyModule, as_package, load
@@ -61,6 +67,7 @@ else:
             ("__all__", __all__),
             """# import apis into sdk package
 from leartech_go_service_template.api.example_api import ExampleApi as ExampleApi
+from leartech_go_service_template.api.fleet_test_api import FleetTestApi as FleetTestApi
 from leartech_go_service_template.api.health_api import HealthApi as HealthApi
 
 # import ApiClient
@@ -76,6 +83,8 @@ from leartech_go_service_template.exceptions import ApiException as ApiException
 
 # import models into sdk package
 from leartech_go_service_template.models.handlers_example_response import HandlersExampleResponse as HandlersExampleResponse
+from leartech_go_service_template.models.handlers_fleet_test_response import HandlersFleetTestResponse as HandlersFleetTestResponse
+from leartech_go_service_template.models.handlers_peer_result import HandlersPeerResult as HandlersPeerResult
 
 """,
             name=__name__,
