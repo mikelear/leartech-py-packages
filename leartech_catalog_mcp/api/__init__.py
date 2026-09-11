@@ -3,6 +3,7 @@
 if __import__("typing").TYPE_CHECKING:
     # import apis into api package
     from leartech_catalog_mcp.api.example_api import ExampleApi
+    from leartech_catalog_mcp.api.fleet_test_api import FleetTestApi
     from leartech_catalog_mcp.api.health_api import HealthApi
     
 else:
@@ -13,6 +14,7 @@ else:
             *as_package(__file__),
             """# import apis into api package
 from leartech_catalog_mcp.api.example_api import ExampleApi
+from leartech_catalog_mcp.api.fleet_test_api import FleetTestApi
 from leartech_catalog_mcp.api.health_api import HealthApi
 
 """,
