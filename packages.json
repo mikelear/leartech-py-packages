@@ -27,7 +27,7 @@
   "leartech-catalog-mcp": {
     "dir": "leartech_catalog_mcp",
     "name": "leartech-catalog-mcp",
-    "version": "0.0.11"
+    "version": "0.0.12"
   },
   "leartech-go-service-template": {
     "dir": "leartech_go_service_template",
