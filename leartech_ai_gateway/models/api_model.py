@@ -30,8 +30,10 @@ class ApiModel(BaseModel):
     max_ctx: Optional[StrictInt] = Field(default=None, description="Capabilities/limits so callers can cap what they can't otherwise see (INTERFACES.md §4 \"degrade visibly, never silently\"). max_ctx is the model's context window; vision reports image-input support.")
     object: Optional[StrictStr] = None
     owned_by: Optional[StrictStr] = None
+    provider: Optional[StrictStr] = Field(default=None, description="Provider is the supplier that answers (anthropic, deepseek, ollama, azure-openai, litellm); ProviderModel is the concrete model it serves.  The catalog is three levels -- supplier, logical alias, concrete model -- and this response published only the middle one. A caller could not tell that \"claude\" means claude-opus-4-8 via anthropic, nor that glm/codestral/mistral-large are one LiteLLM supplier rather than three. owned_by was the only hint and it is the constant \"leartech\" for every row, so it distinguished nothing.  The reviewer already logs provider + model_served per call, so the distinction existed everywhere except here.  source: model_catalog(logical_model, provider_model, adapter) -- migration 00001")
+    provider_model: Optional[StrictStr] = None
     vision: Optional[StrictBool] = None
-    __properties: ClassVar[List[str]] = ["id", "max_ctx", "object", "owned_by", "vision"]
+    __properties: ClassVar[List[str]] = ["id", "max_ctx", "object", "owned_by", "provider", "provider_model", "vision"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -88,6 +90,8 @@ class ApiModel(BaseModel):
             "max_ctx": obj.get("max_ctx"),
             "object": obj.get("object"),
             "owned_by": obj.get("owned_by"),
+            "provider": obj.get("provider"),
+            "provider_model": obj.get("provider_model"),
             "vision": obj.get("vision")
         })
         return _obj

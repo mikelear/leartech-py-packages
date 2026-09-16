@@ -9,6 +9,8 @@ Name | Type | Description | Notes
 **max_ctx** | **int** | Capabilities/limits so callers can cap what they can&#39;t otherwise see (INTERFACES.md §4 \&quot;degrade visibly, never silently\&quot;). max_ctx is the model&#39;s context window; vision reports image-input support. | [optional] 
 **object** | **str** |  | [optional] 
 **owned_by** | **str** |  | [optional] 
+**provider** | **str** | Provider is the supplier that answers (anthropic, deepseek, ollama, azure-openai, litellm); ProviderModel is the concrete model it serves.  The catalog is three levels -- supplier, logical alias, concrete model -- and this response published only the middle one. A caller could not tell that \&quot;claude\&quot; means claude-opus-4-8 via anthropic, nor that glm/codestral/mistral-large are one LiteLLM supplier rather than three. owned_by was the only hint and it is the constant \&quot;leartech\&quot; for every row, so it distinguished nothing.  The reviewer already logs provider + model_served per call, so the distinction existed everywhere except here.  source: model_catalog(logical_model, provider_model, adapter) -- migration 00001 | [optional] 
+**provider_model** | **str** |  | [optional] 
 **vision** | **bool** |  | [optional] 
 
 ## Example
