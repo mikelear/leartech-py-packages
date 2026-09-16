@@ -14,13 +14,14 @@
 """  # noqa: E501
 
 
-__version__ = "0.0.62"
+__version__ = "0.0.63"
 
 # Define package exports
 __all__ = [
     "AdminApi",
     "ChatApi",
     "EmbeddingsApi",
+    "MetaApi",
     "ModelsApi",
     "WebApi",
     "ApiResponse",
@@ -49,6 +50,7 @@ __all__ = [
     "ApiRequestMessage",
     "ApiUsage",
     "ApiUsageResponse",
+    "ApiVersionResponse",
     "StoreUsageRow",
     "WebfetchResult",
     "WebsearchItem",
@@ -60,6 +62,7 @@ if __import__("typing").TYPE_CHECKING:
     from leartech_ai_gateway.api.admin_api import AdminApi as AdminApi
     from leartech_ai_gateway.api.chat_api import ChatApi as ChatApi
     from leartech_ai_gateway.api.embeddings_api import EmbeddingsApi as EmbeddingsApi
+    from leartech_ai_gateway.api.meta_api import MetaApi as MetaApi
     from leartech_ai_gateway.api.models_api import ModelsApi as ModelsApi
     from leartech_ai_gateway.api.web_api import WebApi as WebApi
     
@@ -92,6 +95,7 @@ if __import__("typing").TYPE_CHECKING:
     from leartech_ai_gateway.models.api_request_message import ApiRequestMessage as ApiRequestMessage
     from leartech_ai_gateway.models.api_usage import ApiUsage as ApiUsage
     from leartech_ai_gateway.models.api_usage_response import ApiUsageResponse as ApiUsageResponse
+    from leartech_ai_gateway.models.api_version_response import ApiVersionResponse as ApiVersionResponse
     from leartech_ai_gateway.models.store_usage_row import StoreUsageRow as StoreUsageRow
     from leartech_ai_gateway.models.webfetch_result import WebfetchResult as WebfetchResult
     from leartech_ai_gateway.models.websearch_item import WebsearchItem as WebsearchItem
@@ -109,6 +113,7 @@ else:
 from leartech_ai_gateway.api.admin_api import AdminApi as AdminApi
 from leartech_ai_gateway.api.chat_api import ChatApi as ChatApi
 from leartech_ai_gateway.api.embeddings_api import EmbeddingsApi as EmbeddingsApi
+from leartech_ai_gateway.api.meta_api import MetaApi as MetaApi
 from leartech_ai_gateway.api.models_api import ModelsApi as ModelsApi
 from leartech_ai_gateway.api.web_api import WebApi as WebApi
 
@@ -141,6 +146,7 @@ from leartech_ai_gateway.models.api_models_response import ApiModelsResponse as 
 from leartech_ai_gateway.models.api_request_message import ApiRequestMessage as ApiRequestMessage
 from leartech_ai_gateway.models.api_usage import ApiUsage as ApiUsage
 from leartech_ai_gateway.models.api_usage_response import ApiUsageResponse as ApiUsageResponse
+from leartech_ai_gateway.models.api_version_response import ApiVersionResponse as ApiVersionResponse
 from leartech_ai_gateway.models.store_usage_row import StoreUsageRow as StoreUsageRow
 from leartech_ai_gateway.models.webfetch_result import WebfetchResult as WebfetchResult
 from leartech_ai_gateway.models.websearch_item import WebsearchItem as WebsearchItem
