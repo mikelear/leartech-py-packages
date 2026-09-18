@@ -17,8 +17,10 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, StrictInt
+from pydantic import BaseModel, ConfigDict, Field, StrictInt
 from typing import Any, ClassVar, Dict, List, Optional
+from leartech_ai_gateway.models.api_leartech_cache import ApiLeartechCache
+from leartech_ai_gateway.models.api_prompt_tokens_details import ApiPromptTokensDetails
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -27,9 +29,11 @@ class ApiUsage(BaseModel):
     ApiUsage
     """ # noqa: E501
     completion_tokens: Optional[StrictInt] = None
+    leartech_cache: Optional[ApiLeartechCache] = None
     prompt_tokens: Optional[StrictInt] = None
+    prompt_tokens_details: Optional[ApiPromptTokensDetails] = Field(default=None, description="ONE CONVENTION IN THIS OBJECT: every detail field below is a SUBSET of PromptTokens, which is every prompt token processed. Reads and writes are disjoint subsets — a prefix is either served from cache or written to it, not both in one request.  Subset rather than additive, and the reason is a client we did not write. A naive OpenAI client reads prompt_tokens, ignores every detail field and multiplies by the input rate: under subset that OVER-estimates, because the cached portion actually bills at a fraction; under additive it UNDER-estimates by two orders of magnitude, because the written tokens carry a premium and are invisible. Erring safe for the clients we control least follows the same principle as absence-resolving-to-the-input-rate.  It also keeps total_tokens honest: because PromptTokens is already the whole, total = prompt + completion is simultaneously OpenAI-pure and reconcilable against the cost on the same response. Under an additive extension those two are in conflict and something has to give.  proven-by: TestUsageResponse_IsLosslessAcrossTheConventionFlip proven-by: TestUsageResponse_TotalTokensStaysOpenAIPure")
     total_tokens: Optional[StrictInt] = None
-    __properties: ClassVar[List[str]] = ["completion_tokens", "prompt_tokens", "total_tokens"]
+    __properties: ClassVar[List[str]] = ["completion_tokens", "leartech_cache", "prompt_tokens", "prompt_tokens_details", "total_tokens"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -70,6 +74,12 @@ class ApiUsage(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of leartech_cache
+        if self.leartech_cache:
+            _dict['leartech_cache'] = self.leartech_cache.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of prompt_tokens_details
+        if self.prompt_tokens_details:
+            _dict['prompt_tokens_details'] = self.prompt_tokens_details.to_dict()
         return _dict
 
     @classmethod
@@ -83,7 +93,9 @@ class ApiUsage(BaseModel):
 
         _obj = cls.model_validate({
             "completion_tokens": obj.get("completion_tokens"),
+            "leartech_cache": ApiLeartechCache.from_dict(obj["leartech_cache"]) if obj.get("leartech_cache") is not None else None,
             "prompt_tokens": obj.get("prompt_tokens"),
+            "prompt_tokens_details": ApiPromptTokensDetails.from_dict(obj["prompt_tokens_details"]) if obj.get("prompt_tokens_details") is not None else None,
             "total_tokens": obj.get("total_tokens")
         })
         return _obj
