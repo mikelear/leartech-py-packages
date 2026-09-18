@@ -17,7 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, StrictInt, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
@@ -26,13 +26,17 @@ class StoreUsageRow(BaseModel):
     """
     StoreUsageRow
     """ # noqa: E501
+    cache_read_tokens: Optional[StrictInt] = None
+    cache_write_1h_tokens: Optional[StrictInt] = None
+    cache_write_5m_tokens: Optional[StrictInt] = None
+    cacheable_calls: Optional[StrictInt] = Field(default=None, description="CacheableCalls is how many of Calls were served by a supplier that reports a cache at all.  THE DENOMINATOR. Without it a hit rate is reads over ALL calls, which counts traffic to suppliers with no prompt cache as traffic that failed to hit one -- so a self-hosted model reads as a broken cache rather than an absent one. Measured 2026-09-18: glm returns no cache information whatsoever, claude returns 2688 cached tokens; in a sum those are indistinguishable without this.")
     calls: Optional[StrictInt] = None
     completion_tokens: Optional[StrictInt] = None
     cost_micros: Optional[StrictInt] = None
     keyid: Optional[StrictStr] = None
     model: Optional[StrictStr] = None
     prompt_tokens: Optional[StrictInt] = None
-    __properties: ClassVar[List[str]] = ["calls", "completion_tokens", "cost_micros", "keyid", "model", "prompt_tokens"]
+    __properties: ClassVar[List[str]] = ["cache_read_tokens", "cache_write_1h_tokens", "cache_write_5m_tokens", "cacheable_calls", "calls", "completion_tokens", "cost_micros", "keyid", "model", "prompt_tokens"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -85,6 +89,10 @@ class StoreUsageRow(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
+            "cache_read_tokens": obj.get("cache_read_tokens"),
+            "cache_write_1h_tokens": obj.get("cache_write_1h_tokens"),
+            "cache_write_5m_tokens": obj.get("cache_write_5m_tokens"),
+            "cacheable_calls": obj.get("cacheable_calls"),
             "calls": obj.get("calls"),
             "completion_tokens": obj.get("completion_tokens"),
             "cost_micros": obj.get("cost_micros"),
