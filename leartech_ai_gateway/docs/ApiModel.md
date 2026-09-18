@@ -5,11 +5,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**hosting** | **str** |  | [optional] 
 **id** | **str** |  | [optional] 
+**interface** | **str** | Provider is the supplier that answers (anthropic, deepseek, ollama, azure-openai, litellm); ProviderModel is the concrete model it serves.  The catalog is three levels -- supplier, logical alias, concrete model -- and this response published only the middle one. A caller could not tell that \&quot;claude\&quot; means claude-opus-4-8 via anthropic, nor that glm/codestral/mistral-large are one LiteLLM supplier rather than three. owned_by was the only hint and it is the constant \&quot;leartech\&quot; for every row, so it distinguished nothing.  The reviewer already logs provider + model_served per call, so the distinction existed everywhere except here.  RENAMED FROM &#x60;provider&#x60; IN 00023. It holds the ADAPTER -- how we reach the model -- and calling that the provider is the conflation 00023 removes: glm, codestral and qwen-via-litellm all answer \&quot;litellm\&quot; here and are z.ai, Mistral and our own Ollama. &#x60;provider&#x60; now means whose model it is, below.  source: model_catalog(logical_model, provider_model, adapter) -- migration 00001 | [optional] 
 **max_ctx** | **int** | Capabilities/limits so callers can cap what they can&#39;t otherwise see (INTERFACES.md §4 \&quot;degrade visibly, never silently\&quot;). max_ctx is the model&#39;s context window; vision reports image-input support. | [optional] 
 **object** | **str** |  | [optional] 
 **owned_by** | **str** |  | [optional] 
-**provider** | **str** | Provider is the supplier that answers (anthropic, deepseek, ollama, azure-openai, litellm); ProviderModel is the concrete model it serves.  The catalog is three levels -- supplier, logical alias, concrete model -- and this response published only the middle one. A caller could not tell that \&quot;claude\&quot; means claude-opus-4-8 via anthropic, nor that glm/codestral/mistral-large are one LiteLLM supplier rather than three. owned_by was the only hint and it is the constant \&quot;leartech\&quot; for every row, so it distinguished nothing.  The reviewer already logs provider + model_served per call, so the distinction existed everywhere except here.  source: model_catalog(logical_model, provider_model, adapter) -- migration 00001 | [optional] 
+**provider** | **str** | Provider is WHOSE model it is; Hosting is where the weights run.  Empty when the row is unseeded, so a client can tell \&quot;unknown\&quot; from \&quot;leartech\&quot; rather than defaulting a third party to us. proven-by: TestProvenance_TheLiteLLMModelsAreNotOneSupplier | [optional] 
 **provider_model** | **str** |  | [optional] 
 **vision** | **bool** |  | [optional] 
 
