@@ -14,7 +14,7 @@
 """  # noqa: E501
 
 
-__version__ = "0.0.71"
+__version__ = "0.0.72"
 
 # Define package exports
 __all__ = [
@@ -43,10 +43,12 @@ __all__ = [
     "ApiError",
     "ApiErrorResponse",
     "ApiKeyView",
+    "ApiLeartechCache",
     "ApiLeartechExt",
     "ApiListKeysResponse",
     "ApiModel",
     "ApiModelsResponse",
+    "ApiPromptTokensDetails",
     "ApiRequestMessage",
     "ApiUsage",
     "ApiUsageResponse",
@@ -88,10 +90,12 @@ if __import__("typing").TYPE_CHECKING:
     from leartech_ai_gateway.models.api_error import ApiError as ApiError
     from leartech_ai_gateway.models.api_error_response import ApiErrorResponse as ApiErrorResponse
     from leartech_ai_gateway.models.api_key_view import ApiKeyView as ApiKeyView
+    from leartech_ai_gateway.models.api_leartech_cache import ApiLeartechCache as ApiLeartechCache
     from leartech_ai_gateway.models.api_leartech_ext import ApiLeartechExt as ApiLeartechExt
     from leartech_ai_gateway.models.api_list_keys_response import ApiListKeysResponse as ApiListKeysResponse
     from leartech_ai_gateway.models.api_model import ApiModel as ApiModel
     from leartech_ai_gateway.models.api_models_response import ApiModelsResponse as ApiModelsResponse
+    from leartech_ai_gateway.models.api_prompt_tokens_details import ApiPromptTokensDetails as ApiPromptTokensDetails
     from leartech_ai_gateway.models.api_request_message import ApiRequestMessage as ApiRequestMessage
     from leartech_ai_gateway.models.api_usage import ApiUsage as ApiUsage
     from leartech_ai_gateway.models.api_usage_response import ApiUsageResponse as ApiUsageResponse
@@ -139,10 +143,12 @@ from leartech_ai_gateway.models.api_create_key_response import ApiCreateKeyRespo
 from leartech_ai_gateway.models.api_error import ApiError as ApiError
 from leartech_ai_gateway.models.api_error_response import ApiErrorResponse as ApiErrorResponse
 from leartech_ai_gateway.models.api_key_view import ApiKeyView as ApiKeyView
+from leartech_ai_gateway.models.api_leartech_cache import ApiLeartechCache as ApiLeartechCache
 from leartech_ai_gateway.models.api_leartech_ext import ApiLeartechExt as ApiLeartechExt
 from leartech_ai_gateway.models.api_list_keys_response import ApiListKeysResponse as ApiListKeysResponse
 from leartech_ai_gateway.models.api_model import ApiModel as ApiModel
 from leartech_ai_gateway.models.api_models_response import ApiModelsResponse as ApiModelsResponse
+from leartech_ai_gateway.models.api_prompt_tokens_details import ApiPromptTokensDetails as ApiPromptTokensDetails
 from leartech_ai_gateway.models.api_request_message import ApiRequestMessage as ApiRequestMessage
 from leartech_ai_gateway.models.api_usage import ApiUsage as ApiUsage
 from leartech_ai_gateway.models.api_usage_response import ApiUsageResponse as ApiUsageResponse
