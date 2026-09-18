@@ -22,7 +22,7 @@
   "leartech-ba-service": {
     "dir": "leartech_ba_service",
     "name": "leartech-ba-service",
-    "version": "0.0.34"
+    "version": "0.0.35"
   },
   "leartech-catalog-mcp": {
     "dir": "leartech_catalog_mcp",
