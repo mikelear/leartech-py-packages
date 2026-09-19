@@ -22,6 +22,7 @@ from typing import Any, ClassVar, Dict, List, Optional, Union
 from typing_extensions import Annotated
 from leartech_ai_gateway.models.api_leartech_ext import ApiLeartechExt
 from leartech_ai_gateway.models.api_request_message import ApiRequestMessage
+from leartech_ai_gateway.models.api_stream_options import ApiStreamOptions
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -33,11 +34,12 @@ class ApiChatCompletionRequest(BaseModel):
     messages: Annotated[List[ApiRequestMessage], Field(min_length=1)]
     model: StrictStr
     stream: Optional[StrictBool] = None
+    stream_options: Optional[ApiStreamOptions] = Field(default=None, description="StreamOptions.IncludeUsage asks for a final chunk carrying the token and cache breakdown, the same shape OpenAI emits and the same one openai.go already sends UPSTREAM and parses back.  The gateway received usage on every streamed call, billed with it, and dropped it before the client -- so a streamed turn was the least visible traffic on the system while being the highest volume an agent loop produces. Found by the CLI session building the first streaming consumer.")
     temperature: Optional[Union[StrictFloat, StrictInt]] = None
     tool_choice: Optional[Dict[str, Any]] = None
     tools: Optional[Dict[str, Any]] = Field(default=None, description="S7b passthrough: forwarded verbatim to OpenAI-compatible providers.")
     x_leartech: Optional[ApiLeartechExt] = None
-    __properties: ClassVar[List[str]] = ["max_tokens", "messages", "model", "stream", "temperature", "tool_choice", "tools", "x_leartech"]
+    __properties: ClassVar[List[str]] = ["max_tokens", "messages", "model", "stream", "stream_options", "temperature", "tool_choice", "tools", "x_leartech"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -85,6 +87,9 @@ class ApiChatCompletionRequest(BaseModel):
                 if _item_messages:
                     _items.append(_item_messages.to_dict())
             _dict['messages'] = _items
+        # override the default output from pydantic by calling `to_dict()` of stream_options
+        if self.stream_options:
+            _dict['stream_options'] = self.stream_options.to_dict()
         # override the default output from pydantic by calling `to_dict()` of x_leartech
         if self.x_leartech:
             _dict['x_leartech'] = self.x_leartech.to_dict()
@@ -104,6 +109,7 @@ class ApiChatCompletionRequest(BaseModel):
             "messages": [ApiRequestMessage.from_dict(_item) for _item in obj["messages"]] if obj.get("messages") is not None else None,
             "model": obj.get("model"),
             "stream": obj.get("stream"),
+            "stream_options": ApiStreamOptions.from_dict(obj["stream_options"]) if obj.get("stream_options") is not None else None,
             "temperature": obj.get("temperature"),
             "tool_choice": obj.get("tool_choice"),
             "tools": obj.get("tools"),

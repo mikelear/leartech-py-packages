@@ -32,6 +32,7 @@ if __import__("typing").TYPE_CHECKING:
     from leartech_ai_gateway.models.api_models_response import ApiModelsResponse
     from leartech_ai_gateway.models.api_prompt_tokens_details import ApiPromptTokensDetails
     from leartech_ai_gateway.models.api_request_message import ApiRequestMessage
+    from leartech_ai_gateway.models.api_stream_options import ApiStreamOptions
     from leartech_ai_gateway.models.api_usage import ApiUsage
     from leartech_ai_gateway.models.api_usage_response import ApiUsageResponse
     from leartech_ai_gateway.models.api_version_response import ApiVersionResponse
@@ -64,6 +65,7 @@ from leartech_ai_gateway.models.api_model import ApiModel
 from leartech_ai_gateway.models.api_models_response import ApiModelsResponse
 from leartech_ai_gateway.models.api_prompt_tokens_details import ApiPromptTokensDetails
 from leartech_ai_gateway.models.api_request_message import ApiRequestMessage
+from leartech_ai_gateway.models.api_stream_options import ApiStreamOptions
 from leartech_ai_gateway.models.api_usage import ApiUsage
 from leartech_ai_gateway.models.api_usage_response import ApiUsageResponse
 from leartech_ai_gateway.models.api_version_response import ApiVersionResponse
