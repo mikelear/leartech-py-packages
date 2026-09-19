@@ -14,7 +14,7 @@
 """  # noqa: E501
 
 
-__version__ = "0.0.93"
+__version__ = "0.0.94"
 
 # Define package exports
 __all__ = [
@@ -23,6 +23,7 @@ __all__ = [
     "EmbeddingsApi",
     "MetaApi",
     "ModelsApi",
+    "ToolsApi",
     "WebApi",
     "ApiResponse",
     "ApiClient",
@@ -51,6 +52,9 @@ __all__ = [
     "ApiPromptTokensDetails",
     "ApiRequestMessage",
     "ApiStreamOptions",
+    "ApiTool",
+    "ApiToolFunction",
+    "ApiToolsResponse",
     "ApiUsage",
     "ApiUsageResponse",
     "ApiVersionResponse",
@@ -67,6 +71,7 @@ if __import__("typing").TYPE_CHECKING:
     from leartech_ai_gateway.api.embeddings_api import EmbeddingsApi as EmbeddingsApi
     from leartech_ai_gateway.api.meta_api import MetaApi as MetaApi
     from leartech_ai_gateway.api.models_api import ModelsApi as ModelsApi
+    from leartech_ai_gateway.api.tools_api import ToolsApi as ToolsApi
     from leartech_ai_gateway.api.web_api import WebApi as WebApi
     
     # import ApiClient
@@ -99,6 +104,9 @@ if __import__("typing").TYPE_CHECKING:
     from leartech_ai_gateway.models.api_prompt_tokens_details import ApiPromptTokensDetails as ApiPromptTokensDetails
     from leartech_ai_gateway.models.api_request_message import ApiRequestMessage as ApiRequestMessage
     from leartech_ai_gateway.models.api_stream_options import ApiStreamOptions as ApiStreamOptions
+    from leartech_ai_gateway.models.api_tool import ApiTool as ApiTool
+    from leartech_ai_gateway.models.api_tool_function import ApiToolFunction as ApiToolFunction
+    from leartech_ai_gateway.models.api_tools_response import ApiToolsResponse as ApiToolsResponse
     from leartech_ai_gateway.models.api_usage import ApiUsage as ApiUsage
     from leartech_ai_gateway.models.api_usage_response import ApiUsageResponse as ApiUsageResponse
     from leartech_ai_gateway.models.api_version_response import ApiVersionResponse as ApiVersionResponse
@@ -121,6 +129,7 @@ from leartech_ai_gateway.api.chat_api import ChatApi as ChatApi
 from leartech_ai_gateway.api.embeddings_api import EmbeddingsApi as EmbeddingsApi
 from leartech_ai_gateway.api.meta_api import MetaApi as MetaApi
 from leartech_ai_gateway.api.models_api import ModelsApi as ModelsApi
+from leartech_ai_gateway.api.tools_api import ToolsApi as ToolsApi
 from leartech_ai_gateway.api.web_api import WebApi as WebApi
 
 # import ApiClient
@@ -153,6 +162,9 @@ from leartech_ai_gateway.models.api_models_response import ApiModelsResponse as 
 from leartech_ai_gateway.models.api_prompt_tokens_details import ApiPromptTokensDetails as ApiPromptTokensDetails
 from leartech_ai_gateway.models.api_request_message import ApiRequestMessage as ApiRequestMessage
 from leartech_ai_gateway.models.api_stream_options import ApiStreamOptions as ApiStreamOptions
+from leartech_ai_gateway.models.api_tool import ApiTool as ApiTool
+from leartech_ai_gateway.models.api_tool_function import ApiToolFunction as ApiToolFunction
+from leartech_ai_gateway.models.api_tools_response import ApiToolsResponse as ApiToolsResponse
 from leartech_ai_gateway.models.api_usage import ApiUsage as ApiUsage
 from leartech_ai_gateway.models.api_usage_response import ApiUsageResponse as ApiUsageResponse
 from leartech_ai_gateway.models.api_version_response import ApiVersionResponse as ApiVersionResponse
