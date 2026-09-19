@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **messages** | [**List[ApiRequestMessage]**](ApiRequestMessage.md) |  | 
 **model** | **str** |  | 
 **stream** | **bool** |  | [optional] 
+**stream_options** | [**ApiStreamOptions**](ApiStreamOptions.md) | StreamOptions.IncludeUsage asks for a final chunk carrying the token and cache breakdown, the same shape OpenAI emits and the same one openai.go already sends UPSTREAM and parses back.  The gateway received usage on every streamed call, billed with it, and dropped it before the client -- so a streamed turn was the least visible traffic on the system while being the highest volume an agent loop produces. Found by the CLI session building the first streaming consumer. | [optional] 
 **temperature** | **float** |  | [optional] 
 **tool_choice** | **object** |  | [optional] 
 **tools** | **object** | S7b passthrough: forwarded verbatim to OpenAI-compatible providers. | [optional] 

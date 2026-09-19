@@ -14,7 +14,7 @@
 """  # noqa: E501
 
 
-__version__ = "0.0.91"
+__version__ = "0.0.92"
 
 # Define package exports
 __all__ = [
@@ -50,6 +50,7 @@ __all__ = [
     "ApiModelsResponse",
     "ApiPromptTokensDetails",
     "ApiRequestMessage",
+    "ApiStreamOptions",
     "ApiUsage",
     "ApiUsageResponse",
     "ApiVersionResponse",
@@ -97,6 +98,7 @@ if __import__("typing").TYPE_CHECKING:
     from leartech_ai_gateway.models.api_models_response import ApiModelsResponse as ApiModelsResponse
     from leartech_ai_gateway.models.api_prompt_tokens_details import ApiPromptTokensDetails as ApiPromptTokensDetails
     from leartech_ai_gateway.models.api_request_message import ApiRequestMessage as ApiRequestMessage
+    from leartech_ai_gateway.models.api_stream_options import ApiStreamOptions as ApiStreamOptions
     from leartech_ai_gateway.models.api_usage import ApiUsage as ApiUsage
     from leartech_ai_gateway.models.api_usage_response import ApiUsageResponse as ApiUsageResponse
     from leartech_ai_gateway.models.api_version_response import ApiVersionResponse as ApiVersionResponse
@@ -150,6 +152,7 @@ from leartech_ai_gateway.models.api_model import ApiModel as ApiModel
 from leartech_ai_gateway.models.api_models_response import ApiModelsResponse as ApiModelsResponse
 from leartech_ai_gateway.models.api_prompt_tokens_details import ApiPromptTokensDetails as ApiPromptTokensDetails
 from leartech_ai_gateway.models.api_request_message import ApiRequestMessage as ApiRequestMessage
+from leartech_ai_gateway.models.api_stream_options import ApiStreamOptions as ApiStreamOptions
 from leartech_ai_gateway.models.api_usage import ApiUsage as ApiUsage
 from leartech_ai_gateway.models.api_usage_response import ApiUsageResponse as ApiUsageResponse
 from leartech_ai_gateway.models.api_version_response import ApiVersionResponse as ApiVersionResponse
