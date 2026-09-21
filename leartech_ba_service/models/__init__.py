@@ -18,6 +18,7 @@ if __import__("typing").TYPE_CHECKING:
     from leartech_ba_service.models.handlers_client_binary import HandlersClientBinary
     from leartech_ba_service.models.handlers_clients_response import HandlersClientsResponse
     from leartech_ba_service.models.handlers_example_response import HandlersExampleResponse
+    from leartech_ba_service.models.handlers_shell_prompt import HandlersShellPrompt
     
 else:
     from lazy_imports import LazyModule, as_package, load
@@ -29,6 +30,7 @@ else:
 from leartech_ba_service.models.handlers_client_binary import HandlersClientBinary
 from leartech_ba_service.models.handlers_clients_response import HandlersClientsResponse
 from leartech_ba_service.models.handlers_example_response import HandlersExampleResponse
+from leartech_ba_service.models.handlers_shell_prompt import HandlersShellPrompt
 
 """,
             name=__name__,
