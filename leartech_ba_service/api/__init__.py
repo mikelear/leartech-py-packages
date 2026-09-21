@@ -5,6 +5,7 @@ if __import__("typing").TYPE_CHECKING:
     from leartech_ba_service.api.clients_api import ClientsApi
     from leartech_ba_service.api.example_api import ExampleApi
     from leartech_ba_service.api.health_api import HealthApi
+    from leartech_ba_service.api.shell_api import ShellApi
     
 else:
     from lazy_imports import LazyModule, as_package, load
@@ -16,6 +17,7 @@ else:
 from leartech_ba_service.api.clients_api import ClientsApi
 from leartech_ba_service.api.example_api import ExampleApi
 from leartech_ba_service.api.health_api import HealthApi
+from leartech_ba_service.api.shell_api import ShellApi
 
 """,
             name=__name__,

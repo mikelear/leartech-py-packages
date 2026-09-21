@@ -14,13 +14,14 @@
 """  # noqa: E501
 
 
-__version__ = "0.0.69"
+__version__ = "0.0.70"
 
 # Define package exports
 __all__ = [
     "ClientsApi",
     "ExampleApi",
     "HealthApi",
+    "ShellApi",
     "ApiResponse",
     "ApiClient",
     "Configuration",
@@ -33,6 +34,7 @@ __all__ = [
     "HandlersClientBinary",
     "HandlersClientsResponse",
     "HandlersExampleResponse",
+    "HandlersShellPrompt",
 ]
 
 if __import__("typing").TYPE_CHECKING:
@@ -40,6 +42,7 @@ if __import__("typing").TYPE_CHECKING:
     from leartech_ba_service.api.clients_api import ClientsApi as ClientsApi
     from leartech_ba_service.api.example_api import ExampleApi as ExampleApi
     from leartech_ba_service.api.health_api import HealthApi as HealthApi
+    from leartech_ba_service.api.shell_api import ShellApi as ShellApi
     
     # import ApiClient
     from leartech_ba_service.api_response import ApiResponse as ApiResponse
@@ -56,6 +59,7 @@ if __import__("typing").TYPE_CHECKING:
     from leartech_ba_service.models.handlers_client_binary import HandlersClientBinary as HandlersClientBinary
     from leartech_ba_service.models.handlers_clients_response import HandlersClientsResponse as HandlersClientsResponse
     from leartech_ba_service.models.handlers_example_response import HandlersExampleResponse as HandlersExampleResponse
+    from leartech_ba_service.models.handlers_shell_prompt import HandlersShellPrompt as HandlersShellPrompt
     
 else:
     from lazy_imports import LazyModule, as_package, load
@@ -69,6 +73,7 @@ else:
 from leartech_ba_service.api.clients_api import ClientsApi as ClientsApi
 from leartech_ba_service.api.example_api import ExampleApi as ExampleApi
 from leartech_ba_service.api.health_api import HealthApi as HealthApi
+from leartech_ba_service.api.shell_api import ShellApi as ShellApi
 
 # import ApiClient
 from leartech_ba_service.api_response import ApiResponse as ApiResponse
@@ -85,6 +90,7 @@ from leartech_ba_service.exceptions import ApiException as ApiException
 from leartech_ba_service.models.handlers_client_binary import HandlersClientBinary as HandlersClientBinary
 from leartech_ba_service.models.handlers_clients_response import HandlersClientsResponse as HandlersClientsResponse
 from leartech_ba_service.models.handlers_example_response import HandlersExampleResponse as HandlersExampleResponse
+from leartech_ba_service.models.handlers_shell_prompt import HandlersShellPrompt as HandlersShellPrompt
 
 """,
             name=__name__,
