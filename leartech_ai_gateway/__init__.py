@@ -14,7 +14,7 @@
 """  # noqa: E501
 
 
-__version__ = "0.0.107"
+__version__ = "0.0.109"
 
 # Define package exports
 __all__ = [
@@ -49,6 +49,8 @@ __all__ = [
     "ApiListKeysResponse",
     "ApiModel",
     "ApiModelsResponse",
+    "ApiPricingModel",
+    "ApiPricingResponse",
     "ApiPromptTokensDetails",
     "ApiProtectedResourceMetadata",
     "ApiRequestMessage",
@@ -102,6 +104,8 @@ if __import__("typing").TYPE_CHECKING:
     from leartech_ai_gateway.models.api_list_keys_response import ApiListKeysResponse as ApiListKeysResponse
     from leartech_ai_gateway.models.api_model import ApiModel as ApiModel
     from leartech_ai_gateway.models.api_models_response import ApiModelsResponse as ApiModelsResponse
+    from leartech_ai_gateway.models.api_pricing_model import ApiPricingModel as ApiPricingModel
+    from leartech_ai_gateway.models.api_pricing_response import ApiPricingResponse as ApiPricingResponse
     from leartech_ai_gateway.models.api_prompt_tokens_details import ApiPromptTokensDetails as ApiPromptTokensDetails
     from leartech_ai_gateway.models.api_protected_resource_metadata import ApiProtectedResourceMetadata as ApiProtectedResourceMetadata
     from leartech_ai_gateway.models.api_request_message import ApiRequestMessage as ApiRequestMessage
@@ -161,6 +165,8 @@ from leartech_ai_gateway.models.api_leartech_ext import ApiLeartechExt as ApiLea
 from leartech_ai_gateway.models.api_list_keys_response import ApiListKeysResponse as ApiListKeysResponse
 from leartech_ai_gateway.models.api_model import ApiModel as ApiModel
 from leartech_ai_gateway.models.api_models_response import ApiModelsResponse as ApiModelsResponse
+from leartech_ai_gateway.models.api_pricing_model import ApiPricingModel as ApiPricingModel
+from leartech_ai_gateway.models.api_pricing_response import ApiPricingResponse as ApiPricingResponse
 from leartech_ai_gateway.models.api_prompt_tokens_details import ApiPromptTokensDetails as ApiPromptTokensDetails
 from leartech_ai_gateway.models.api_protected_resource_metadata import ApiProtectedResourceMetadata as ApiProtectedResourceMetadata
 from leartech_ai_gateway.models.api_request_message import ApiRequestMessage as ApiRequestMessage
