@@ -22,6 +22,8 @@ if __import__("typing").TYPE_CHECKING:
     from leartech_ai_gateway.models.api_choice import ApiChoice
     from leartech_ai_gateway.models.api_create_key_request import ApiCreateKeyRequest
     from leartech_ai_gateway.models.api_create_key_response import ApiCreateKeyResponse
+    from leartech_ai_gateway.models.api_embedding_obj import ApiEmbeddingObj
+    from leartech_ai_gateway.models.api_embeddings_response import ApiEmbeddingsResponse
     from leartech_ai_gateway.models.api_error import ApiError
     from leartech_ai_gateway.models.api_error_response import ApiErrorResponse
     from leartech_ai_gateway.models.api_key_view import ApiKeyView
@@ -61,6 +63,8 @@ from leartech_ai_gateway.models.api_chat_message import ApiChatMessage
 from leartech_ai_gateway.models.api_choice import ApiChoice
 from leartech_ai_gateway.models.api_create_key_request import ApiCreateKeyRequest
 from leartech_ai_gateway.models.api_create_key_response import ApiCreateKeyResponse
+from leartech_ai_gateway.models.api_embedding_obj import ApiEmbeddingObj
+from leartech_ai_gateway.models.api_embeddings_response import ApiEmbeddingsResponse
 from leartech_ai_gateway.models.api_error import ApiError
 from leartech_ai_gateway.models.api_error_response import ApiErrorResponse
 from leartech_ai_gateway.models.api_key_view import ApiKeyView

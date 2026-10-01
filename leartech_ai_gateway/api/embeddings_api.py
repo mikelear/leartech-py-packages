@@ -16,6 +16,10 @@ from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
 from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
+from pydantic import Field
+from typing import Any, Dict
+from typing_extensions import Annotated
+from leartech_ai_gateway.models.api_embeddings_response import ApiEmbeddingsResponse
 
 from leartech_ai_gateway.api_client import ApiClient, RequestSerialized
 from leartech_ai_gateway.api_response import ApiResponse
@@ -38,6 +42,7 @@ class EmbeddingsApi:
     @validate_call
     async def v1_embeddings_post(
         self,
+        request: Annotated[Dict[str, Any], Field(description="embeddings request")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -50,10 +55,12 @@ class EmbeddingsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> None:
-        """Embeddings (not yet implemented)
+    ) -> ApiEmbeddingsResponse:
+        """Embeddings (OpenAI-shaped)
 
 
+        :param request: embeddings request (required)
+        :type request: object
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -77,6 +84,7 @@ class EmbeddingsApi:
         """ # noqa: E501
 
         _param = self._v1_embeddings_post_serialize(
+            request=request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -84,7 +92,9 @@ class EmbeddingsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '501': "ApiErrorResponse",
+            '200': "ApiEmbeddingsResponse",
+            '400': "ApiErrorResponse",
+            '403': "ApiErrorResponse",
         }
         response_data = await self.api_client.call_api(
             *_param,
@@ -100,6 +110,7 @@ class EmbeddingsApi:
     @validate_call
     async def v1_embeddings_post_with_http_info(
         self,
+        request: Annotated[Dict[str, Any], Field(description="embeddings request")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -112,10 +123,12 @@ class EmbeddingsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[None]:
-        """Embeddings (not yet implemented)
+    ) -> ApiResponse[ApiEmbeddingsResponse]:
+        """Embeddings (OpenAI-shaped)
 
 
+        :param request: embeddings request (required)
+        :type request: object
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -139,6 +152,7 @@ class EmbeddingsApi:
         """ # noqa: E501
 
         _param = self._v1_embeddings_post_serialize(
+            request=request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -146,7 +160,9 @@ class EmbeddingsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '501': "ApiErrorResponse",
+            '200': "ApiEmbeddingsResponse",
+            '400': "ApiErrorResponse",
+            '403': "ApiErrorResponse",
         }
         response_data = await self.api_client.call_api(
             *_param,
@@ -162,6 +178,7 @@ class EmbeddingsApi:
     @validate_call
     async def v1_embeddings_post_without_preload_content(
         self,
+        request: Annotated[Dict[str, Any], Field(description="embeddings request")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -175,9 +192,11 @@ class EmbeddingsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """Embeddings (not yet implemented)
+        """Embeddings (OpenAI-shaped)
 
 
+        :param request: embeddings request (required)
+        :type request: object
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -201,6 +220,7 @@ class EmbeddingsApi:
         """ # noqa: E501
 
         _param = self._v1_embeddings_post_serialize(
+            request=request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -208,7 +228,9 @@ class EmbeddingsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '501': "ApiErrorResponse",
+            '200': "ApiEmbeddingsResponse",
+            '400': "ApiErrorResponse",
+            '403': "ApiErrorResponse",
         }
         response_data = await self.api_client.call_api(
             *_param,
@@ -219,6 +241,7 @@ class EmbeddingsApi:
 
     def _v1_embeddings_post_serialize(
         self,
+        request,
         _request_auth,
         _content_type,
         _headers,
@@ -244,16 +267,31 @@ class EmbeddingsApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
+        if request is not None:
+            _body_params = request
 
 
         # set the HTTP header `Accept`
         if 'Accept' not in _header_params:
             _header_params['Accept'] = self.api_client.select_header_accept(
                 [
-                    '*/*'
+                    'application/json'
                 ]
             )
 
+        # set the HTTP header `Content-Type`
+        if _content_type:
+            _header_params['Content-Type'] = _content_type
+        else:
+            _default_content_type = (
+                self.api_client.select_header_content_type(
+                    [
+                        'application/json'
+                    ]
+                )
+            )
+            if _default_content_type is not None:
+                _header_params['Content-Type'] = _default_content_type
 
         # authentication setting
         _auth_settings: List[str] = [

@@ -14,7 +14,7 @@
 """  # noqa: E501
 
 
-__version__ = "0.0.125"
+__version__ = "0.0.126"
 
 # Define package exports
 __all__ = [
@@ -41,6 +41,8 @@ __all__ = [
     "ApiChoice",
     "ApiCreateKeyRequest",
     "ApiCreateKeyResponse",
+    "ApiEmbeddingObj",
+    "ApiEmbeddingsResponse",
     "ApiError",
     "ApiErrorResponse",
     "ApiKeyView",
@@ -96,6 +98,8 @@ if __import__("typing").TYPE_CHECKING:
     from leartech_ai_gateway.models.api_choice import ApiChoice as ApiChoice
     from leartech_ai_gateway.models.api_create_key_request import ApiCreateKeyRequest as ApiCreateKeyRequest
     from leartech_ai_gateway.models.api_create_key_response import ApiCreateKeyResponse as ApiCreateKeyResponse
+    from leartech_ai_gateway.models.api_embedding_obj import ApiEmbeddingObj as ApiEmbeddingObj
+    from leartech_ai_gateway.models.api_embeddings_response import ApiEmbeddingsResponse as ApiEmbeddingsResponse
     from leartech_ai_gateway.models.api_error import ApiError as ApiError
     from leartech_ai_gateway.models.api_error_response import ApiErrorResponse as ApiErrorResponse
     from leartech_ai_gateway.models.api_key_view import ApiKeyView as ApiKeyView
@@ -157,6 +161,8 @@ from leartech_ai_gateway.models.api_chat_message import ApiChatMessage as ApiCha
 from leartech_ai_gateway.models.api_choice import ApiChoice as ApiChoice
 from leartech_ai_gateway.models.api_create_key_request import ApiCreateKeyRequest as ApiCreateKeyRequest
 from leartech_ai_gateway.models.api_create_key_response import ApiCreateKeyResponse as ApiCreateKeyResponse
+from leartech_ai_gateway.models.api_embedding_obj import ApiEmbeddingObj as ApiEmbeddingObj
+from leartech_ai_gateway.models.api_embeddings_response import ApiEmbeddingsResponse as ApiEmbeddingsResponse
 from leartech_ai_gateway.models.api_error import ApiError as ApiError
 from leartech_ai_gateway.models.api_error_response import ApiErrorResponse as ApiErrorResponse
 from leartech_ai_gateway.models.api_key_view import ApiKeyView as ApiKeyView
