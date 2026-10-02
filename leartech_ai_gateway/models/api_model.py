@@ -34,8 +34,9 @@ class ApiModel(BaseModel):
     owned_by: Optional[StrictStr] = None
     provider: Optional[StrictStr] = Field(default=None, description="Provider is WHOSE model it is; Hosting is where the weights run.  Empty when the row is unseeded, so a client can tell \"unknown\" from \"leartech\" rather than defaulting a third party to us. proven-by: TestProvenance_TheLiteLLMModelsAreNotOneSupplier")
     provider_model: Optional[StrictStr] = None
+    surfaces: Optional[List[StrictStr]] = Field(default=None, description="Surfaces is what the model is served AS. Per-MODEL, not per-interface: qwen-embedding is embeddings-only behind the same fireworks interface that serves chat models, and a caller choosing a CHAT model needs to filter it out — which is what 00029 exists for.  omitempty: an older gateway sends nothing and a client reads that as \"unreported\", not \"serves nothing\" — same rule as provider/hosting.  proven-by: TestModels_PublishesTheSurfacesEachModelServes")
     vision: Optional[StrictBool] = None
-    __properties: ClassVar[List[str]] = ["hosting", "id", "interface", "max_ctx", "object", "owned_by", "provider", "provider_model", "vision"]
+    __properties: ClassVar[List[str]] = ["hosting", "id", "interface", "max_ctx", "object", "owned_by", "provider", "provider_model", "surfaces", "vision"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -96,6 +97,7 @@ class ApiModel(BaseModel):
             "owned_by": obj.get("owned_by"),
             "provider": obj.get("provider"),
             "provider_model": obj.get("provider_model"),
+            "surfaces": obj.get("surfaces"),
             "vision": obj.get("vision")
         })
         return _obj
