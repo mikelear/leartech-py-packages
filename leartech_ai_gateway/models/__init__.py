@@ -44,6 +44,8 @@ if __import__("typing").TYPE_CHECKING:
     from leartech_ai_gateway.models.api_usage import ApiUsage
     from leartech_ai_gateway.models.api_usage_response import ApiUsageResponse
     from leartech_ai_gateway.models.api_version_response import ApiVersionResponse
+    from leartech_ai_gateway.models.api_web_search_provider import ApiWebSearchProvider
+    from leartech_ai_gateway.models.api_web_search_response import ApiWebSearchResponse
     from leartech_ai_gateway.models.store_usage_row import StoreUsageRow
     from leartech_ai_gateway.models.webfetch_result import WebfetchResult
     from leartech_ai_gateway.models.websearch_item import WebsearchItem
@@ -85,6 +87,8 @@ from leartech_ai_gateway.models.api_tools_response import ApiToolsResponse
 from leartech_ai_gateway.models.api_usage import ApiUsage
 from leartech_ai_gateway.models.api_usage_response import ApiUsageResponse
 from leartech_ai_gateway.models.api_version_response import ApiVersionResponse
+from leartech_ai_gateway.models.api_web_search_provider import ApiWebSearchProvider
+from leartech_ai_gateway.models.api_web_search_response import ApiWebSearchResponse
 from leartech_ai_gateway.models.store_usage_row import StoreUsageRow
 from leartech_ai_gateway.models.webfetch_result import WebfetchResult
 from leartech_ai_gateway.models.websearch_item import WebsearchItem

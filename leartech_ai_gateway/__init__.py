@@ -14,7 +14,7 @@
 """  # noqa: E501
 
 
-__version__ = "0.0.137"
+__version__ = "0.0.138"
 
 # Define package exports
 __all__ = [
@@ -63,6 +63,8 @@ __all__ = [
     "ApiUsage",
     "ApiUsageResponse",
     "ApiVersionResponse",
+    "ApiWebSearchProvider",
+    "ApiWebSearchResponse",
     "StoreUsageRow",
     "WebfetchResult",
     "WebsearchItem",
@@ -120,6 +122,8 @@ if __import__("typing").TYPE_CHECKING:
     from leartech_ai_gateway.models.api_usage import ApiUsage as ApiUsage
     from leartech_ai_gateway.models.api_usage_response import ApiUsageResponse as ApiUsageResponse
     from leartech_ai_gateway.models.api_version_response import ApiVersionResponse as ApiVersionResponse
+    from leartech_ai_gateway.models.api_web_search_provider import ApiWebSearchProvider as ApiWebSearchProvider
+    from leartech_ai_gateway.models.api_web_search_response import ApiWebSearchResponse as ApiWebSearchResponse
     from leartech_ai_gateway.models.store_usage_row import StoreUsageRow as StoreUsageRow
     from leartech_ai_gateway.models.webfetch_result import WebfetchResult as WebfetchResult
     from leartech_ai_gateway.models.websearch_item import WebsearchItem as WebsearchItem
@@ -183,6 +187,8 @@ from leartech_ai_gateway.models.api_tools_response import ApiToolsResponse as Ap
 from leartech_ai_gateway.models.api_usage import ApiUsage as ApiUsage
 from leartech_ai_gateway.models.api_usage_response import ApiUsageResponse as ApiUsageResponse
 from leartech_ai_gateway.models.api_version_response import ApiVersionResponse as ApiVersionResponse
+from leartech_ai_gateway.models.api_web_search_provider import ApiWebSearchProvider as ApiWebSearchProvider
+from leartech_ai_gateway.models.api_web_search_response import ApiWebSearchResponse as ApiWebSearchResponse
 from leartech_ai_gateway.models.store_usage_row import StoreUsageRow as StoreUsageRow
 from leartech_ai_gateway.models.webfetch_result import WebfetchResult as WebfetchResult
 from leartech_ai_gateway.models.websearch_item import WebsearchItem as WebsearchItem
