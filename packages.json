@@ -22,7 +22,7 @@
   "leartech-ba-service": {
     "dir": "leartech_ba_service",
     "name": "leartech-ba-service",
-    "version": "0.0.159"
+    "version": "0.0.160"
   },
   "leartech-blockchain-api": {
     "dir": "leartech_blockchain_api",
