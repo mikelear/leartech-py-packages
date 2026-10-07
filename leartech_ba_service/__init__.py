@@ -14,10 +14,11 @@
 """  # noqa: E501
 
 
-__version__ = "0.0.165"
+__version__ = "0.0.166"
 
 # Define package exports
 __all__ = [
+    "BaApi",
     "ClientsApi",
     "ExampleApi",
     "HealthApi",
@@ -31,6 +32,7 @@ __all__ = [
     "ApiKeyError",
     "ApiAttributeError",
     "ApiException",
+    "HandlersBAPass",
     "HandlersClientBinary",
     "HandlersClientsResponse",
     "HandlersExampleResponse",
@@ -39,6 +41,7 @@ __all__ = [
 
 if __import__("typing").TYPE_CHECKING:
     # import apis into sdk package
+    from leartech_ba_service.api.ba_api import BaApi as BaApi
     from leartech_ba_service.api.clients_api import ClientsApi as ClientsApi
     from leartech_ba_service.api.example_api import ExampleApi as ExampleApi
     from leartech_ba_service.api.health_api import HealthApi as HealthApi
@@ -56,6 +59,7 @@ if __import__("typing").TYPE_CHECKING:
     from leartech_ba_service.exceptions import ApiException as ApiException
     
     # import models into sdk package
+    from leartech_ba_service.models.handlers_ba_pass import HandlersBAPass as HandlersBAPass
     from leartech_ba_service.models.handlers_client_binary import HandlersClientBinary as HandlersClientBinary
     from leartech_ba_service.models.handlers_clients_response import HandlersClientsResponse as HandlersClientsResponse
     from leartech_ba_service.models.handlers_example_response import HandlersExampleResponse as HandlersExampleResponse
@@ -70,6 +74,7 @@ else:
             ("__version__", __version__),
             ("__all__", __all__),
             """# import apis into sdk package
+from leartech_ba_service.api.ba_api import BaApi as BaApi
 from leartech_ba_service.api.clients_api import ClientsApi as ClientsApi
 from leartech_ba_service.api.example_api import ExampleApi as ExampleApi
 from leartech_ba_service.api.health_api import HealthApi as HealthApi
@@ -87,6 +92,7 @@ from leartech_ba_service.exceptions import ApiAttributeError as ApiAttributeErro
 from leartech_ba_service.exceptions import ApiException as ApiException
 
 # import models into sdk package
+from leartech_ba_service.models.handlers_ba_pass import HandlersBAPass as HandlersBAPass
 from leartech_ba_service.models.handlers_client_binary import HandlersClientBinary as HandlersClientBinary
 from leartech_ba_service.models.handlers_clients_response import HandlersClientsResponse as HandlersClientsResponse
 from leartech_ba_service.models.handlers_example_response import HandlersExampleResponse as HandlersExampleResponse
