@@ -27,7 +27,7 @@
   "leartech-blockchain-api": {
     "dir": "leartech_blockchain_api",
     "name": "leartech-blockchain-api",
-    "version": "0.0.1"
+    "version": "0.0.3"
   },
   "leartech-catalog-mcp": {
     "dir": "leartech_catalog_mcp",
