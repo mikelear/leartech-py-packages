@@ -2,6 +2,7 @@
 
 if __import__("typing").TYPE_CHECKING:
     # import apis into api package
+    from leartech_blockchain_api.api.blockchain_api import BlockchainApi
     from leartech_blockchain_api.api.example_api import ExampleApi
     from leartech_blockchain_api.api.fleet_test_api import FleetTestApi
     from leartech_blockchain_api.api.health_api import HealthApi
@@ -13,6 +14,7 @@ else:
         LazyModule(
             *as_package(__file__),
             """# import apis into api package
+from leartech_blockchain_api.api.blockchain_api import BlockchainApi
 from leartech_blockchain_api.api.example_api import ExampleApi
 from leartech_blockchain_api.api.fleet_test_api import FleetTestApi
 from leartech_blockchain_api.api.health_api import HealthApi
