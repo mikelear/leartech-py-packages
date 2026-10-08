@@ -15,9 +15,14 @@
 
 if __import__("typing").TYPE_CHECKING:
     # import models into model package
+    from leartech_blockchain_api.models.blockchain_chain_status import BlockchainChainStatus
+    from leartech_blockchain_api.models.blockchain_read_result import BlockchainReadResult
+    from leartech_blockchain_api.models.blockchain_transaction import BlockchainTransaction
     from leartech_blockchain_api.models.handlers_example_response import HandlersExampleResponse
     from leartech_blockchain_api.models.handlers_fleet_test_response import HandlersFleetTestResponse
+    from leartech_blockchain_api.models.handlers_list_response import HandlersListResponse
     from leartech_blockchain_api.models.handlers_peer_result import HandlersPeerResult
+    from leartech_blockchain_api.models.handlers_read_contract_request import HandlersReadContractRequest
     
 else:
     from lazy_imports import LazyModule, as_package, load
@@ -26,9 +31,14 @@ else:
         LazyModule(
             *as_package(__file__),
             """# import models into model package
+from leartech_blockchain_api.models.blockchain_chain_status import BlockchainChainStatus
+from leartech_blockchain_api.models.blockchain_read_result import BlockchainReadResult
+from leartech_blockchain_api.models.blockchain_transaction import BlockchainTransaction
 from leartech_blockchain_api.models.handlers_example_response import HandlersExampleResponse
 from leartech_blockchain_api.models.handlers_fleet_test_response import HandlersFleetTestResponse
+from leartech_blockchain_api.models.handlers_list_response import HandlersListResponse
 from leartech_blockchain_api.models.handlers_peer_result import HandlersPeerResult
+from leartech_blockchain_api.models.handlers_read_contract_request import HandlersReadContractRequest
 
 """,
             name=__name__,
