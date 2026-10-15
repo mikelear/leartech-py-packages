@@ -16,7 +16,14 @@
 if __import__("typing").TYPE_CHECKING:
     # import models into model package
     from leartech_blockchain_api.models.blockchain_chain_status import BlockchainChainStatus
+    from leartech_blockchain_api.models.blockchain_deploy_result import BlockchainDeployResult
+    from leartech_blockchain_api.models.blockchain_finding import BlockchainFinding
+    from leartech_blockchain_api.models.blockchain_plan_request import BlockchainPlanRequest
+    from leartech_blockchain_api.models.blockchain_plan_result import BlockchainPlanResult
     from leartech_blockchain_api.models.blockchain_read_result import BlockchainReadResult
+    from leartech_blockchain_api.models.blockchain_simulate_result import BlockchainSimulateResult
+    from leartech_blockchain_api.models.blockchain_submit_request import BlockchainSubmitRequest
+    from leartech_blockchain_api.models.blockchain_submit_result import BlockchainSubmitResult
     from leartech_blockchain_api.models.blockchain_transaction import BlockchainTransaction
     from leartech_blockchain_api.models.handlers_example_response import HandlersExampleResponse
     from leartech_blockchain_api.models.handlers_fleet_test_response import HandlersFleetTestResponse
@@ -32,7 +39,14 @@ else:
             *as_package(__file__),
             """# import models into model package
 from leartech_blockchain_api.models.blockchain_chain_status import BlockchainChainStatus
+from leartech_blockchain_api.models.blockchain_deploy_result import BlockchainDeployResult
+from leartech_blockchain_api.models.blockchain_finding import BlockchainFinding
+from leartech_blockchain_api.models.blockchain_plan_request import BlockchainPlanRequest
+from leartech_blockchain_api.models.blockchain_plan_result import BlockchainPlanResult
 from leartech_blockchain_api.models.blockchain_read_result import BlockchainReadResult
+from leartech_blockchain_api.models.blockchain_simulate_result import BlockchainSimulateResult
+from leartech_blockchain_api.models.blockchain_submit_request import BlockchainSubmitRequest
+from leartech_blockchain_api.models.blockchain_submit_result import BlockchainSubmitResult
 from leartech_blockchain_api.models.blockchain_transaction import BlockchainTransaction
 from leartech_blockchain_api.models.handlers_example_response import HandlersExampleResponse
 from leartech_blockchain_api.models.handlers_fleet_test_response import HandlersFleetTestResponse
