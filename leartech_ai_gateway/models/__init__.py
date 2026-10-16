@@ -37,6 +37,7 @@ if __import__("typing").TYPE_CHECKING:
     from leartech_ai_gateway.models.api_prompt_tokens_details import ApiPromptTokensDetails
     from leartech_ai_gateway.models.api_protected_resource_metadata import ApiProtectedResourceMetadata
     from leartech_ai_gateway.models.api_request_message import ApiRequestMessage
+    from leartech_ai_gateway.models.api_set_budget_request import ApiSetBudgetRequest
     from leartech_ai_gateway.models.api_stream_options import ApiStreamOptions
     from leartech_ai_gateway.models.api_tool import ApiTool
     from leartech_ai_gateway.models.api_tool_function import ApiToolFunction
@@ -80,6 +81,7 @@ from leartech_ai_gateway.models.api_pricing_response import ApiPricingResponse
 from leartech_ai_gateway.models.api_prompt_tokens_details import ApiPromptTokensDetails
 from leartech_ai_gateway.models.api_protected_resource_metadata import ApiProtectedResourceMetadata
 from leartech_ai_gateway.models.api_request_message import ApiRequestMessage
+from leartech_ai_gateway.models.api_set_budget_request import ApiSetBudgetRequest
 from leartech_ai_gateway.models.api_stream_options import ApiStreamOptions
 from leartech_ai_gateway.models.api_tool import ApiTool
 from leartech_ai_gateway.models.api_tool_function import ApiToolFunction

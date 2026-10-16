@@ -14,7 +14,7 @@
 """  # noqa: E501
 
 
-__version__ = "0.0.142"
+__version__ = "0.0.144"
 
 # Define package exports
 __all__ = [
@@ -56,6 +56,7 @@ __all__ = [
     "ApiPromptTokensDetails",
     "ApiProtectedResourceMetadata",
     "ApiRequestMessage",
+    "ApiSetBudgetRequest",
     "ApiStreamOptions",
     "ApiTool",
     "ApiToolFunction",
@@ -115,6 +116,7 @@ if __import__("typing").TYPE_CHECKING:
     from leartech_ai_gateway.models.api_prompt_tokens_details import ApiPromptTokensDetails as ApiPromptTokensDetails
     from leartech_ai_gateway.models.api_protected_resource_metadata import ApiProtectedResourceMetadata as ApiProtectedResourceMetadata
     from leartech_ai_gateway.models.api_request_message import ApiRequestMessage as ApiRequestMessage
+    from leartech_ai_gateway.models.api_set_budget_request import ApiSetBudgetRequest as ApiSetBudgetRequest
     from leartech_ai_gateway.models.api_stream_options import ApiStreamOptions as ApiStreamOptions
     from leartech_ai_gateway.models.api_tool import ApiTool as ApiTool
     from leartech_ai_gateway.models.api_tool_function import ApiToolFunction as ApiToolFunction
@@ -180,6 +182,7 @@ from leartech_ai_gateway.models.api_pricing_response import ApiPricingResponse a
 from leartech_ai_gateway.models.api_prompt_tokens_details import ApiPromptTokensDetails as ApiPromptTokensDetails
 from leartech_ai_gateway.models.api_protected_resource_metadata import ApiProtectedResourceMetadata as ApiProtectedResourceMetadata
 from leartech_ai_gateway.models.api_request_message import ApiRequestMessage as ApiRequestMessage
+from leartech_ai_gateway.models.api_set_budget_request import ApiSetBudgetRequest as ApiSetBudgetRequest
 from leartech_ai_gateway.models.api_stream_options import ApiStreamOptions as ApiStreamOptions
 from leartech_ai_gateway.models.api_tool import ApiTool as ApiTool
 from leartech_ai_gateway.models.api_tool_function import ApiToolFunction as ApiToolFunction
