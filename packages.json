@@ -69,6 +69,11 @@
     "name": "leartech-plan-conformance-consumer",
     "version": "0.0.2"
   },
+  "leartech-platform-capabilities-api": {
+    "dir": "leartech_platform_capabilities_api",
+    "name": "leartech-platform-capabilities-api",
+    "version": "0.1.2"
+  },
   "leartech-qa-canary": {
     "dir": "leartech_qa_canary",
     "name": "leartech-qa-canary",
