@@ -72,7 +72,7 @@
   "leartech-qa-canary": {
     "dir": "leartech_qa_canary",
     "name": "leartech-qa-canary",
-    "version": "0.0.39"
+    "version": "0.0.40"
   },
   "leartech-rust-service-template": {
     "dir": "leartech_rust_service_template",
