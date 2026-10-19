@@ -77,7 +77,7 @@
   "leartech-platform-capabilities-api": {
     "dir": "leartech_platform_capabilities_api",
     "name": "leartech-platform-capabilities-api",
-    "version": "0.1.14"
+    "version": "0.1.15"
   },
   "leartech-qa-canary": {
     "dir": "leartech_qa_canary",
