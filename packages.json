@@ -92,7 +92,7 @@
   "leartech-third-party-api": {
     "dir": "leartech_third_party_api",
     "name": "leartech-third-party-api",
-    "version": "0.1.14"
+    "version": "0.1.15"
   },
   "webcoder-service": {
     "dir": "webcoder_service",
