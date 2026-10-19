@@ -14,7 +14,7 @@
 """  # noqa: E501
 
 
-__version__ = "0.0.156"
+__version__ = "0.0.157"
 
 # Define package exports
 __all__ = [
@@ -23,6 +23,7 @@ __all__ = [
     "EmbeddingsApi",
     "MetaApi",
     "ModelsApi",
+    "SessionsApi",
     "ToolsApi",
     "WebApi",
     "ApiResponse",
@@ -61,6 +62,9 @@ __all__ = [
     "ApiTool",
     "ApiToolFunction",
     "ApiToolsResponse",
+    "ApiTransformReport",
+    "ApiTransformSessionRequest",
+    "ApiTransformSessionResponse",
     "ApiUsage",
     "ApiUsageResponse",
     "ApiVersionResponse",
@@ -79,6 +83,7 @@ if __import__("typing").TYPE_CHECKING:
     from leartech_ai_gateway.api.embeddings_api import EmbeddingsApi as EmbeddingsApi
     from leartech_ai_gateway.api.meta_api import MetaApi as MetaApi
     from leartech_ai_gateway.api.models_api import ModelsApi as ModelsApi
+    from leartech_ai_gateway.api.sessions_api import SessionsApi as SessionsApi
     from leartech_ai_gateway.api.tools_api import ToolsApi as ToolsApi
     from leartech_ai_gateway.api.web_api import WebApi as WebApi
     
@@ -121,6 +126,9 @@ if __import__("typing").TYPE_CHECKING:
     from leartech_ai_gateway.models.api_tool import ApiTool as ApiTool
     from leartech_ai_gateway.models.api_tool_function import ApiToolFunction as ApiToolFunction
     from leartech_ai_gateway.models.api_tools_response import ApiToolsResponse as ApiToolsResponse
+    from leartech_ai_gateway.models.api_transform_report import ApiTransformReport as ApiTransformReport
+    from leartech_ai_gateway.models.api_transform_session_request import ApiTransformSessionRequest as ApiTransformSessionRequest
+    from leartech_ai_gateway.models.api_transform_session_response import ApiTransformSessionResponse as ApiTransformSessionResponse
     from leartech_ai_gateway.models.api_usage import ApiUsage as ApiUsage
     from leartech_ai_gateway.models.api_usage_response import ApiUsageResponse as ApiUsageResponse
     from leartech_ai_gateway.models.api_version_response import ApiVersionResponse as ApiVersionResponse
@@ -145,6 +153,7 @@ from leartech_ai_gateway.api.chat_api import ChatApi as ChatApi
 from leartech_ai_gateway.api.embeddings_api import EmbeddingsApi as EmbeddingsApi
 from leartech_ai_gateway.api.meta_api import MetaApi as MetaApi
 from leartech_ai_gateway.api.models_api import ModelsApi as ModelsApi
+from leartech_ai_gateway.api.sessions_api import SessionsApi as SessionsApi
 from leartech_ai_gateway.api.tools_api import ToolsApi as ToolsApi
 from leartech_ai_gateway.api.web_api import WebApi as WebApi
 
@@ -187,6 +196,9 @@ from leartech_ai_gateway.models.api_stream_options import ApiStreamOptions as Ap
 from leartech_ai_gateway.models.api_tool import ApiTool as ApiTool
 from leartech_ai_gateway.models.api_tool_function import ApiToolFunction as ApiToolFunction
 from leartech_ai_gateway.models.api_tools_response import ApiToolsResponse as ApiToolsResponse
+from leartech_ai_gateway.models.api_transform_report import ApiTransformReport as ApiTransformReport
+from leartech_ai_gateway.models.api_transform_session_request import ApiTransformSessionRequest as ApiTransformSessionRequest
+from leartech_ai_gateway.models.api_transform_session_response import ApiTransformSessionResponse as ApiTransformSessionResponse
 from leartech_ai_gateway.models.api_usage import ApiUsage as ApiUsage
 from leartech_ai_gateway.models.api_usage_response import ApiUsageResponse as ApiUsageResponse
 from leartech_ai_gateway.models.api_version_response import ApiVersionResponse as ApiVersionResponse

@@ -42,6 +42,9 @@ if __import__("typing").TYPE_CHECKING:
     from leartech_ai_gateway.models.api_tool import ApiTool
     from leartech_ai_gateway.models.api_tool_function import ApiToolFunction
     from leartech_ai_gateway.models.api_tools_response import ApiToolsResponse
+    from leartech_ai_gateway.models.api_transform_report import ApiTransformReport
+    from leartech_ai_gateway.models.api_transform_session_request import ApiTransformSessionRequest
+    from leartech_ai_gateway.models.api_transform_session_response import ApiTransformSessionResponse
     from leartech_ai_gateway.models.api_usage import ApiUsage
     from leartech_ai_gateway.models.api_usage_response import ApiUsageResponse
     from leartech_ai_gateway.models.api_version_response import ApiVersionResponse
@@ -86,6 +89,9 @@ from leartech_ai_gateway.models.api_stream_options import ApiStreamOptions
 from leartech_ai_gateway.models.api_tool import ApiTool
 from leartech_ai_gateway.models.api_tool_function import ApiToolFunction
 from leartech_ai_gateway.models.api_tools_response import ApiToolsResponse
+from leartech_ai_gateway.models.api_transform_report import ApiTransformReport
+from leartech_ai_gateway.models.api_transform_session_request import ApiTransformSessionRequest
+from leartech_ai_gateway.models.api_transform_session_response import ApiTransformSessionResponse
 from leartech_ai_gateway.models.api_usage import ApiUsage
 from leartech_ai_gateway.models.api_usage_response import ApiUsageResponse
 from leartech_ai_gateway.models.api_version_response import ApiVersionResponse
