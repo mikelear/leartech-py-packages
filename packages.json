@@ -34,6 +34,11 @@
     "name": "leartech-catalog-mcp",
     "version": "0.0.12"
   },
+  "leartech-fx-rate-go": {
+    "dir": "leartech_fx_rate_go",
+    "name": "leartech-fx-rate-go",
+    "version": "0.0.1"
+  },
   "leartech-go-service-template": {
     "dir": "leartech_go_service_template",
     "name": "leartech-go-service-template",
