@@ -33,7 +33,8 @@ class ApiTransformReport(BaseModel):
     fit: Optional[StrictBool] = Field(default=None, description="Fit is whether the session reached the target window with reply headroom. proven-by: TestTransformForModel_SaysWhenItCannotFit")
     notes: Optional[List[StrictStr]] = Field(default=None, description="Notes are human-readable lines describing each change and its reason.")
     target_max_ctx: Optional[StrictInt] = Field(default=None, description="TargetMaxCtx is the target model's advertised context window, the ceiling the transform fit the session under.")
-    __properties: ClassVar[List[str]] = ["after_tokens", "before_tokens", "bridge_added", "compacted", "fit", "notes", "target_max_ctx"]
+    tool_ids_rekeyed: Optional[StrictInt] = Field(default=None, description="ToolIDsRekeyed is how many tool-call ids were rewritten to a neutral format so the call/result pairing survives a cross-provider switch.")
+    __properties: ClassVar[List[str]] = ["after_tokens", "before_tokens", "bridge_added", "compacted", "fit", "notes", "target_max_ctx", "tool_ids_rekeyed"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -92,7 +93,8 @@ class ApiTransformReport(BaseModel):
             "compacted": obj.get("compacted"),
             "fit": obj.get("fit"),
             "notes": obj.get("notes"),
-            "target_max_ctx": obj.get("target_max_ctx")
+            "target_max_ctx": obj.get("target_max_ctx"),
+            "tool_ids_rekeyed": obj.get("tool_ids_rekeyed")
         })
         return _obj
 
