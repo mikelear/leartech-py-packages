@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **fit** | **bool** | Fit is whether the session reached the target window with reply headroom. proven-by: TestTransformForModel_SaysWhenItCannotFit | [optional] 
 **notes** | **List[str]** | Notes are human-readable lines describing each change and its reason. | [optional] 
 **target_max_ctx** | **int** | TargetMaxCtx is the target model&#39;s advertised context window, the ceiling the transform fit the session under. | [optional] 
+**tool_ids_rekeyed** | **int** | ToolIDsRekeyed is how many tool-call ids were rewritten to a neutral format so the call/result pairing survives a cross-provider switch. | [optional] 
 
 ## Example
 
