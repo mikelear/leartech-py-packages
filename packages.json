@@ -37,7 +37,7 @@
   "leartech-fx-rate-go": {
     "dir": "leartech_fx_rate_go",
     "name": "leartech-fx-rate-go",
-    "version": "0.0.1"
+    "version": "0.0.2"
   },
   "leartech-go-service-template": {
     "dir": "leartech_go_service_template",
