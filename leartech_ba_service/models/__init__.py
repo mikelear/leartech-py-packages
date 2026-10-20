@@ -15,7 +15,6 @@
 
 if __import__("typing").TYPE_CHECKING:
     # import models into model package
-    from leartech_ba_service.models.handlers_ba_pass import HandlersBAPass
     from leartech_ba_service.models.handlers_client_binary import HandlersClientBinary
     from leartech_ba_service.models.handlers_clients_response import HandlersClientsResponse
     from leartech_ba_service.models.handlers_example_response import HandlersExampleResponse
@@ -28,7 +27,6 @@ else:
         LazyModule(
             *as_package(__file__),
             """# import models into model package
-from leartech_ba_service.models.handlers_ba_pass import HandlersBAPass
 from leartech_ba_service.models.handlers_client_binary import HandlersClientBinary
 from leartech_ba_service.models.handlers_clients_response import HandlersClientsResponse
 from leartech_ba_service.models.handlers_example_response import HandlersExampleResponse
