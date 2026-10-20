@@ -39,6 +39,11 @@
     "name": "leartech-fx-rate-go",
     "version": "0.0.1"
   },
+  "leartech-fx-ticker-rate-api": {
+    "dir": "leartech_fx_ticker_rate_api",
+    "name": "leartech-fx-ticker-rate-api",
+    "version": "0.0.1"
+  },
   "leartech-go-service-template": {
     "dir": "leartech_go_service_template",
     "name": "leartech-go-service-template",
